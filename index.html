@@ -1,0 +1,1381 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>白丝cosplay写真 - 作品图集与风格指南</title>
+<meta name="description" content="白丝cosplay写真汇集角色图集、拍摄风格与服装搭配内容，覆盖花音、时崎狂三、雷姆等具体角色条目，适合摄影爱好者与cosplay玩家查阅条目、比较风格、了解拍摄细节。">
+<meta name="keywords" content="白丝cosplay写真">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23b08968'/><path d='M20 42c0-10 6-18 12-18s12 8 12 18' fill='none' stroke='%23fff8f0' stroke-width='4' stroke-linecap='round'/><circle cx='32' cy='20' r='4' fill='%23fff8f0'/></svg>">
+<style>
+:root{
+  --primary:#b08968;
+  --primary-light:#e7ddd3;
+  --primary-dark:#7f5f44;
+  --bg:#faf7f3;
+  --panel:#ffffff;
+  --ink:#2c241d;
+  --ink-2:#5c5046;
+  --ink-3:#8a7d71;
+  --line:#e3dcd3;
+  --radius-card:14px;
+  --radius-btn:9px;
+  --radius-tag:999px;
+  --shadow:0 2px 8px rgba(44,36,29,.07);
+  --shadow-hover:0 8px 20px rgba(44,36,29,.12);
+  --announce-h:38px;
+  --header-h:62px;
+  --sticky-offset:100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:var(--sticky-offset)}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.75;
+  font-size:15px;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+ul,ol{list-style:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--primary-dark);outline-offset:2px}
+
+/* ---------- 吸顶公告条 ---------- */
+.announce{
+  position:sticky;top:0;z-index:120;
+  height:var(--announce-h);
+  background:var(--primary-dark);
+  color:#fff8f0;
+  display:flex;align-items:center;
+  font-size:12.5px;
+  overflow:hidden;
+}
+.announce-inner{
+  width:100%;max-width:1400px;margin:0 auto;padding:0 18px;
+  display:flex;align-items:center;gap:14px;white-space:nowrap;overflow:hidden;
+}
+.announce-brand{font-weight:700;letter-spacing:.5px;flex-shrink:0}
+.announce-divider{width:1px;height:14px;background:rgba(255,248,240,.35);flex-shrink:0}
+.announce-list{display:flex;gap:26px;overflow:hidden;flex:1}
+.announce-list li{display:flex;gap:8px;align-items:center;overflow:hidden;text-overflow:ellipsis}
+.announce-date{color:#f0d9c4;font-variant-numeric:tabular-nums;flex-shrink:0}
+.announce-tag{background:rgba(255,248,240,.16);border-radius:var(--radius-tag);padding:1px 9px;font-size:11px;flex-shrink:0}
+
+/* ---------- 吸顶页头 ---------- */
+.site-header{
+  position:sticky;top:var(--announce-h);z-index:110;
+  height:var(--header-h);
+  background:rgba(250,247,243,.88);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.header-inner{
+  max-width:1400px;margin:0 auto;height:100%;padding:0 18px;
+  display:flex;align-items:center;gap:22px;
+}
+.logo{display:flex;align-items:center;gap:9px;flex-shrink:0}
+.logo svg{width:34px;height:34px}
+.logo-text{font-size:19px;font-weight:800;letter-spacing:.5px;color:var(--primary-dark)}
+.main-nav{display:flex;gap:4px;flex:1;overflow-x:auto;scrollbar-width:none}
+.main-nav::-webkit-scrollbar{display:none}
+.main-nav a{
+  padding:6px 11px;border-radius:var(--radius-btn);
+  font-size:13.5px;color:var(--ink-2);white-space:nowrap;transition:background .2s,color .2s;
+}
+.main-nav a:hover{background:var(--primary-light);color:var(--primary-dark)}
+.header-actions{display:flex;gap:8px;flex-shrink:0}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:7px 15px;border-radius:var(--radius-btn);
+  font-size:13px;font-weight:600;transition:transform .2s,box-shadow .2s,background .2s;
+}
+.btn-primary{background:var(--primary);color:#fff}
+.btn-primary:hover{background:var(--primary-dark);transform:translateY(-1px);box-shadow:var(--shadow-hover)}
+.btn-ghost{border:1px solid var(--line);background:var(--panel);color:var(--ink-2)}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary-dark);transform:translateY(-1px)}
+.hamburger{display:none;width:38px;height:38px;border:1px solid var(--line);border-radius:var(--radius-btn);align-items:center;justify-content:center;flex-direction:column;gap:4px}
+.hamburger span{display:block;width:18px;height:2px;background:var(--ink-2);border-radius:2px;transition:transform .2s}
+.mobile-nav{
+  display:none;position:fixed;top:calc(var(--announce-h) + var(--header-h));left:0;right:0;bottom:0;
+  z-index:105;background:rgba(44,36,29,.36);
+}
+.mobile-nav.open{display:block}
+.mobile-nav-panel{
+  background:var(--panel);padding:18px;display:flex;flex-direction:column;gap:4px;
+  max-height:70vh;overflow:auto;box-shadow:var(--shadow-hover);
+}
+.mobile-nav-panel a{padding:11px 12px;border-radius:var(--radius-btn);font-size:15px;color:var(--ink)}
+.mobile-nav-panel a:hover{background:var(--primary-light)}
+
+/* ---------- 首屏 ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#f3ebe2 0%,#faf7f3 48%,#f0e6da 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero-inner{
+  max-width:1400px;margin:0 auto;padding:56px 18px 60px;
+  display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:12.5px;color:var(--primary-dark);font-weight:600;
+  background:rgba(176,137,104,.14);border-radius:var(--radius-tag);
+  padding:4px 13px;margin-bottom:18px;
+}
+.hero-eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--primary)}
+.hero h1{
+  font-size:clamp(30px,4.2vw,46px);line-height:1.2;letter-spacing:1px;
+  color:var(--ink);margin-bottom:18px;font-weight:800;
+}
+.hero-desc{font-size:15.5px;color:var(--ink-2);max-width:540px;margin-bottom:26px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:30px}
+.hero-stats{display:flex;gap:34px;flex-wrap:wrap}
+.hero-stat-num{font-size:24px;font-weight:800;color:var(--primary-dark);line-height:1.2;font-variant-numeric:tabular-nums}
+.hero-stat-label{font-size:12.5px;color:var(--ink-3)}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-visual svg{width:100%;max-width:430px;height:auto}
+.float-anim{animation:floatY 7s ease-in-out infinite}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ---------- 主体容器 ---------- */
+.layout{
+  max-width:1400px;margin:0 auto;padding:38px 18px 60px;
+  display:grid;
+  grid-template-columns:172px minmax(0,1fr) 248px;
+  gap:30px;
+  align-items:start;
+}
+.channel-nav{position:sticky;top:var(--sticky-offset)}
+.channel-nav h2{
+  font-size:12px;letter-spacing:1.5px;color:var(--ink-3);font-weight:600;
+  text-transform:uppercase;margin-bottom:12px;padding-left:10px;
+}
+.channel-nav ul{display:flex;flex-direction:column;gap:2px}
+.channel-nav a{
+  display:block;padding:7px 11px;border-radius:8px;font-size:13.5px;color:var(--ink-2);
+  border-left:2px solid transparent;transition:background .2s,color .2s,border-color .2s;
+}
+.channel-nav a:hover{background:var(--primary-light);color:var(--primary-dark)}
+.channel-nav a.active{background:var(--primary-light);color:var(--primary-dark);font-weight:600;border-left-color:var(--primary)}
+
+.main-col{min-width:0}
+.aside-col{min-width:0;display:flex;flex-direction:column;gap:22px}
+
+/* ---------- 板块通用 ---------- */
+.section{margin-bottom:46px}
+.section:last-child{margin-bottom:0}
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:16px}
+.section-title{font-size:20px;font-weight:800;letter-spacing:.5px;color:var(--ink)}
+.section-title .accent{color:var(--primary)}
+.section-sub{font-size:12.5px;color:var(--ink-3);flex-shrink:0}
+.lead{font-size:14.5px;color:var(--ink-2);margin-bottom:18px}
+
+/* ---------- 概览 ---------- */
+.overview{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:24px 26px;box-shadow:var(--shadow);font-size:14.5px;color:var(--ink-2);
+}
+.overview p{margin-bottom:12px}
+.overview p:last-child{margin-bottom:0}
+.overview strong{color:var(--ink);font-weight:700}
+
+/* ---------- 精选卡片 ---------- */
+.card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  overflow:hidden;box-shadow:var(--shadow);
+  transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;
+}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover)}
+.card-img{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--primary-light)}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card:hover .card-img img{transform:scale(1.04)}
+.card-type{
+  position:absolute;top:10px;left:10px;
+  background:rgba(44,36,29,.72);color:#fff8f0;
+  font-size:11px;padding:2px 9px;border-radius:var(--radius-tag);backdrop-filter:blur(4px);
+}
+.card-body{padding:13px 14px 15px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card-title{font-size:14.5px;font-weight:700;line-height:1.45;color:var(--ink)}
+.card-desc{font-size:12.5px;color:var(--ink-3);line-height:1.65;flex:1}
+.tag-row{display:flex;flex-wrap:wrap;gap:5px}
+.tag{
+  font-size:11px;color:var(--primary-dark);background:var(--primary-light);
+  border-radius:var(--radius-tag);padding:1px 8px;white-space:nowrap;
+}
+.card-meta{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:11.5px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:8px;
+}
+.hot{color:#b4552f;font-weight:700}
+
+/* ---------- 最新更新列表 ---------- */
+.update-list{display:flex;flex-direction:column;gap:0;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow)}
+.update-item{
+  display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;
+  padding:13px 18px;border-bottom:1px solid var(--line);transition:background .2s;
+}
+.update-item:last-child{border-bottom:none}
+.update-item:hover{background:#fdfaf6}
+.update-date{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.update-name{font-size:14px;font-weight:600;color:var(--ink);display:block;margin-bottom:2px}
+.update-summary{font-size:12.5px;color:var(--ink-3);line-height:1.6}
+.update-badge{font-size:11px;color:var(--primary-dark);background:var(--primary-light);padding:2px 9px;border-radius:var(--radius-tag);white-space:nowrap}
+
+/* ---------- 分类入口 ---------- */
+.cat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.cat-card{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:16px 14px;box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s,border-color .2s;
+  display:flex;flex-direction:column;gap:5px;
+}
+.cat-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-hover);border-color:var(--primary)}
+.cat-name{font-size:14px;font-weight:700;color:var(--ink)}
+.cat-count{font-size:11.5px;color:var(--ink-3)}
+
+/* ---------- 深度解析 ---------- */
+.article{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:28px 30px;box-shadow:var(--shadow);
+}
+.article h3{
+  font-size:16.5px;font-weight:800;color:var(--ink);
+  margin:26px 0 10px;padding-left:11px;border-left:3px solid var(--primary);
+}
+.article h3:first-child{margin-top:0}
+.article p{font-size:14.5px;color:var(--ink-2);margin-bottom:12px}
+.article ul{margin:10px 0 14px;padding-left:4px;display:flex;flex-direction:column;gap:7px}
+.article ul li{font-size:14px;color:var(--ink-2);padding-left:16px;position:relative}
+.article ul li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;border-radius:50%;background:var(--primary);opacity:.7}
+.article strong{color:var(--ink);font-weight:700}
+.callout{
+  background:#fdf6ee;border:1px solid #efdcc8;border-radius:10px;
+  padding:14px 16px;margin:16px 0;font-size:13.5px;color:var(--ink-2);
+}
+.callout b{color:var(--primary-dark)}
+
+/* ---------- 指南步骤 ---------- */
+.guide-steps{display:flex;flex-direction:column;gap:12px}
+.step{
+  display:grid;grid-template-columns:38px minmax(0,1fr);gap:14px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:16px 18px;box-shadow:var(--shadow);
+}
+.step-num{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--primary);color:#fff;font-weight:800;font-size:15px;
+  display:flex;align-items:center;justify-content:center;
+}
+.step-title{font-size:14.5px;font-weight:700;margin-bottom:4px}
+.step-desc{font-size:13px;color:var(--ink-3);line-height:1.7}
+
+/* ---------- FAQ ---------- */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+details.faq{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:0 18px;box-shadow:var(--shadow);
+}
+details.faq[open]{border-color:var(--primary)}
+details.faq summary{
+  list-style:none;cursor:pointer;padding:14px 0;
+  font-size:14px;font-weight:600;color:var(--ink);
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{
+  content:"+";font-size:19px;font-weight:400;color:var(--primary-dark);
+  transition:transform .25s;flex-shrink:0;
+}
+details.faq[open] summary::after{content:"−"}
+details.faq .faq-answer{
+  padding:0 0 16px;font-size:13.5px;color:var(--ink-2);line-height:1.8;
+}
+
+/* ---------- 评论 ---------- */
+.comment-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.comment{
+  background:var(--panel);border:1px solid var(--line);border-radius:12px;
+  padding:14px 16px;box-shadow:var(--shadow);
+}
+.comment-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.comment-name{font-size:13px;font-weight:700;color:var(--primary-dark)}
+.comment-time{font-size:11px;color:var(--ink-3)}
+.comment-text{font-size:13px;color:var(--ink-2);line-height:1.72}
+
+/* ---------- 资讯 ---------- */
+.news-list{display:flex;flex-direction:column;gap:12px}
+.news-item{
+  display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:14px;box-shadow:var(--shadow);transition:box-shadow .2s,transform .2s;
+}
+.news-item:hover{box-shadow:var(--shadow-hover);transform:translateY(-2px)}
+.news-thumb{width:104px;height:78px;border-radius:9px;overflow:hidden;background:var(--primary-light)}
+.news-thumb img{width:100%;height:100%;object-fit:cover}
+.news-title{font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.45}
+.news-date{font-size:11.5px;color:var(--primary-dark);font-weight:600;margin-bottom:4px;display:inline-block}
+.news-summary{font-size:12.5px;color:var(--ink-3);line-height:1.65}
+
+/* ---------- 相关推荐 ---------- */
+.rec-tags{display:flex;flex-wrap:wrap;gap:9px}
+.rec-tag{
+  font-size:13px;padding:7px 14px;border-radius:var(--radius-tag);
+  background:var(--panel);border:1px solid var(--line);color:var(--ink-2);
+  transition:background .2s,color .2s,border-color .2s,transform .2s;
+}
+.rec-tag:hover{background:var(--primary);color:#fff;border-color:var(--primary);transform:translateY(-1px)}
+
+/* ---------- 榜单 ---------- */
+.rank-list{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);overflow:hidden;box-shadow:var(--shadow)}
+.rank-item{
+  display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:center;
+  padding:12px 18px;border-bottom:1px solid var(--line);
+}
+.rank-item:last-child{border-bottom:none}
+.rank-num{font-size:14px;font-weight:800;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.rank-item:nth-child(-n+3) .rank-num{color:var(--primary-dark)}
+.rank-name{font-size:13.5px;font-weight:600}
+.rank-score{font-size:12px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+
+/* ---------- 侧栏 ---------- */
+.aside-box{
+  background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+  padding:16px 16px 14px;box-shadow:var(--shadow);
+}
+.aside-title{
+  font-size:13px;font-weight:800;letter-spacing:.5px;color:var(--ink);
+  margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:7px;
+}
+.aside-title::before{content:"";width:3px;height:13px;background:var(--primary);border-radius:2px}
+.aside-links{display:flex;flex-direction:column;gap:2px}
+.aside-links a{
+  font-size:13px;color:var(--ink-2);padding:6px 2px;border-radius:6px;
+  display:flex;justify-content:space-between;gap:8px;transition:color .2s;
+}
+.aside-links a:hover{color:var(--primary-dark)}
+.aside-links a span{font-size:11px;color:var(--ink-3);flex-shrink:0}
+.aside-hot li{display:flex;gap:9px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:13px}
+.aside-hot li:last-child{border-bottom:none}
+.aside-hot .idx{font-weight:800;color:var(--primary);width:16px;flex-shrink:0;font-variant-numeric:tabular-nums}
+.aside-hot .t{color:var(--ink-2);line-height:1.5}
+.aside-note{font-size:12px;color:var(--ink-3);line-height:1.7;margin-top:10px}
+.aside-cta{
+  background:linear-gradient(135deg,#f5e9dc,#fdf8f2);
+  border:1px solid #ecdcc9;border-radius:var(--radius-card);padding:18px 16px;
+}
+.aside-cta h3{font-size:14.5px;font-weight:800;margin-bottom:6px}
+.aside-cta p{font-size:12.5px;color:var(--ink-3);line-height:1.65;margin-bottom:12px}
+.aside-cta .btn{width:100%}
+
+/* ---------- 投稿互动条 ---------- */
+.interact-bar{
+  max-width:1400px;margin:0 auto 40px;padding:0 18px;
+}
+.interact-inner{
+  background:linear-gradient(120deg,var(--primary-dark),#5d4530);
+  border-radius:var(--radius-card);padding:24px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:22px;flex-wrap:wrap;
+  color:#fff8f0;
+}
+.interact-inner h2{font-size:18px;font-weight:800;margin-bottom:4px;color:#fff8f0}
+.interact-inner p{font-size:13px;color:#e8d5c1}
+.interact-actions{display:flex;gap:10px;flex-wrap:wrap}
+.interact-actions .btn-primary{background:#fff8f0;color:var(--primary-dark)}
+.interact-actions .btn-primary:hover{background:#f0e2d2}
+.interact-actions .btn-ghost{border-color:rgba(255,248,240,.5);color:#fff8f0;background:transparent}
+.interact-actions .btn-ghost:hover{border-color:#fff8f0;color:#fff}
+
+/* ---------- 页脚 ---------- */
+.site-footer{
+  background:#2c241d;color:#c9bdb1;padding:46px 18px 30px;margin-top:20px;
+}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:34px;margin-bottom:34px}
+.footer-brand{display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.footer-brand svg{width:30px;height:30px}
+.footer-brand-text{font-size:17px;font-weight:800;color:#fff8f0}
+.footer-desc{font-size:13px;line-height:1.8;color:#a99c8f;max-width:330px}
+.footer-col h3{font-size:13px;color:#fff8f0;font-weight:700;margin-bottom:12px}
+.footer-col a{display:block;font-size:12.5px;color:#a99c8f;padding:3px 0;transition:color .2s}
+.footer-col a:hover{color:#e7ddd3}
+.footer-bottom{
+  border-top:1px solid #463a30;padding-top:20px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12px;color:#8a7d71;
+}
+
+/* ---------- 回到顶部 ---------- */
+.to-top{
+  position:fixed;right:20px;bottom:26px;z-index:90;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--primary);color:#fff;box-shadow:var(--shadow-hover);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:opacity .25s,transform .25s,visibility .25s,background .2s;
+}
+.to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+.to-top:hover{background:var(--primary-dark)}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1180px){
+  .layout{grid-template-columns:160px minmax(0,1fr) 226px;gap:22px}
+  .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .comment-list{grid-template-columns:1fr}
+}
+@media (max-width:1024px){
+  .layout{grid-template-columns:minmax(0,1fr) 250px;gap:24px}
+  .channel-nav{
+    grid-column:1/-1;position:static;
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--radius-card);
+    padding:12px 14px;box-shadow:var(--shadow);
+  }
+  .channel-nav h2{margin-bottom:8px}
+  .channel-nav ul{flex-direction:row;overflow-x:auto;gap:4px;padding-bottom:2px}
+  .channel-nav a{
+    white-space:nowrap;border-left:none;border-bottom:2px solid transparent;border-radius:7px;padding:5px 11px;
+  }
+  .channel-nav a.active{border-left:none;border-bottom-color:var(--primary)}
+  .hero-inner{grid-template-columns:1fr;gap:30px;padding:42px 18px 46px}
+  .hero-visual{order:-1;max-width:330px;margin:0 auto}
+  .footer-top{grid-template-columns:1fr 1fr}
+}
+@media (max-width:820px){
+  .main-nav{display:none}
+  .hamburger{display:flex}
+  .header-actions .btn-ghost{display:none}
+  .layout{grid-template-columns:1fr}
+  .aside-col{order:3}
+  .main-col{order:2}
+  .channel-nav{order:1}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:740px){
+  :root{--header-h:58px}
+  .announce-inner{gap:10px}
+  .announce-list{gap:18px}
+  .hero h1{font-size:29px}
+  .hero-stats{gap:22px}
+  .hero-stat-num{font-size:21px}
+  .card-grid{grid-template-columns:1fr}
+  .update-item{grid-template-columns:minmax(0,1fr) auto;gap:6px 10px}
+  .update-date{grid-column:1/-1;font-size:11px}
+  .news-item{grid-template-columns:82px minmax(0,1fr);gap:12px}
+  .news-thumb{width:82px;height:64px}
+  .article{padding:22px 18px}
+  .overview{padding:18px}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  .interact-inner{padding:20px}
+  .footer-top{grid-template-columns:1fr;gap:24px}
+  .to-top{right:14px;bottom:18px;width:38px;height:38px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce" role="region" aria-label="站内更新公告">
+  <div class="announce-inner">
+    <span class="announce-brand">白丝cosplay写真</span>
+    <span class="announce-divider" aria-hidden="true"></span>
+    <ul class="announce-list">
+      <li><span class="announce-date">11-08</span><span>新增《时崎狂三·白丝校服》图集 42 张</span><span class="announce-tag">更新</span></li>
+      <li><span class="announce-date">11-06</span><span>花音《雪之下雪乃》系列补档 18 张</span><span class="announce-tag">补档</span></li>
+      <li><span class="announce-date">11-03</span><span>「白丝搭配指南」专题新增 6 组对比</span><span class="announce-tag">专题</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- 页头 -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/#hero" class="logo" aria-label="白丝cosplay写真首页">
+      <svg viewBox="0 0 64 64" aria-hidden="true">
+        <rect width="64" height="64" rx="14" fill="#b08968"/>
+        <path d="M20 42c0-10 6-18 12-18s12 8 12 18" fill="none" stroke="#fff8f0" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="32" cy="20" r="4" fill="#fff8f0"/>
+        <path d="M24 46h16" stroke="#fff8f0" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span class="logo-text">白丝cosplay写真</span>
+    </a>
+    <nav class="main-nav" aria-label="主题导航">
+      <a href="/#gallery">精选图集</a>
+      <a href="/#updates">最新更新</a>
+      <a href="/#cats">分类入口</a>
+      <a href="/#deep">深度解析</a>
+      <a href="/#guide">体验指南</a>
+      <a href="/#faq">常见问答</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#rank">热门榜单</a>
+    </nav>
+    <div class="header-actions">
+      <a href="/#submit" class="btn btn-primary">投稿入口</a>
+      <a href="/#gallery" class="btn btn-ghost">浏览图集</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开导航菜单" aria-expanded="false" aria-controls="mobileNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端导航 -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <nav class="mobile-nav-panel" aria-label="移动端主题导航">
+    <a href="/#gallery">精选图集</a>
+    <a href="/#updates">最新更新</a>
+    <a href="/#cats">分类入口</a>
+    <a href="/#deep">深度解析</a>
+    <a href="/#guide">体验指南</a>
+    <a href="/#faq">常见问答</a>
+    <a href="/#comments">用户评论</a>
+    <a href="/#news">相关资讯</a>
+    <a href="/#rec">相关推荐</a>
+    <a href="/#rank">热门榜单</a>
+    <a href="/#submit">投稿入口</a>
+  </nav>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">角色图集 · 服装搭配 · 拍摄参考</span>
+      <h1>白丝cosplay写真</h1>
+      <p class="hero-desc">收录动漫与游戏角色的白丝造型写真图集，覆盖雪之下雪乃、雷姆、时崎狂三、加藤惠等常见角色，每条附拍摄场景、服装版本与风格看点，供浏览、比较与拍摄参考。</p>
+      <div class="hero-actions">
+        <a href="/#gallery" class="btn btn-primary">进入精选图集</a>
+        <a href="/#guide" class="btn btn-ghost">查看拍摄指南</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num">326</div>
+          <div class="hero-stat-label">收录图集（组）</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">48</div>
+          <div class="hero-stat-label">覆盖角色</div>
+        </div>
+        <div>
+          <div class="hero-stat-num">11-08</div>
+          <div class="hero-stat-label">最近更新</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg class="float-anim" viewBox="0 0 420 400" role="img">
+        <defs>
+          <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e7ddd3"/>
+            <stop offset="1" stop-color="#d6c3ae"/>
+          </linearGradient>
+          <linearGradient id="hg2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#b08968"/>
+            <stop offset="1" stop-color="#7f5f44"/>
+          </linearGradient>
+        </defs>
+        <rect x="24" y="20" width="372" height="360" rx="24" fill="url(#hg1)"/>
+        <rect x="52" y="48" width="316" height="200" rx="14" fill="#fff8f0" opacity=".85"/>
+        <circle cx="128" cy="128" r="40" fill="#e7ddd3"/>
+        <path d="M210 88c26 0 46 20 46 46s-20 46-46 46-46-20-46-46 20-46 46-46z" fill="#d6c3ae"/>
+        <path d="M210 168c-20 0-36 14-40 34h80c-4-20-20-34-40-34z" fill="url(#hg2)"/>
+        <rect x="88" y="208" width="76" height="10" rx="5" fill="#d6c3ae"/>
+        <rect x="188" y="208" width="110" height="10" rx="5" fill="#d6c3ae"/>
+        <rect x="52" y="270" width="316" height="82" rx="14" fill="#fff8f0" opacity=".7"/>
+        <rect x="74" y="292" width="150" height="9" rx="4.5" fill="#cfb9a4"/>
+        <rect x="74" y="312" width="230" height="9" rx="4.5" fill="#e2d3c3"/>
+        <rect x="74" y="332" width="120" height="9" rx="4.5" fill="#e2d3c3"/>
+        <circle cx="330" cy="86" r="15" fill="#b08968" opacity=".5"/>
+        <circle cx="80" cy="356" r="9" fill="#b08968" opacity=".4"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 主布局 -->
+<div class="layout">
+
+  <!-- 左频道栏 -->
+  <aside class="channel-nav" aria-label="频道索引">
+    <h2>频道索引</h2>
+    <ul>
+      <li><a href="/#gallery" class="active">精选图集</a></li>
+      <li><a href="/#updates">最新更新</a></li>
+      <li><a href="/#cats">分类入口</a></li>
+      <li><a href="/#deep">深度解析</a></li>
+      <li><a href="/#guide">体验指南</a></li>
+      <li><a href="/#faq">常见问答</a></li>
+      <li><a href="/#comments">用户评论</a></li>
+      <li><a href="/#news">相关资讯</a></li>
+      <li><a href="/#rec">相关推荐</a></li>
+      <li><a href="/#rank">热门榜单</a></li>
+      <li><a href="/#submit">投稿互动</a></li>
+    </ul>
+  </aside>
+
+  <!-- 主内容 -->
+  <main class="main-col">
+
+    <!-- 1. 主题领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <h2 class="section-title">领域概览<span class="accent">·</span>白丝造型写真包含哪些方向</h2>
+      </div>
+      <div class="overview">
+        <p>白丝造型在cosplay写真里并不是单一类型，按丝袜形态大致可以分成三类：<strong>连裤袜</strong>（不透或微透，常见于校服、女仆、制服系角色）、<strong>过膝袜</strong>（露大腿，常用于日常系与萌系角色）、<strong>吊带袜</strong>（结构复杂，多用于哥特、吸血鬼或成熟向角色）。三类在拍摄时的打光方式、姿势选择和后期处理差别明显，连裤袜更看重腿部线条的干净，过膝袜重点在绝对领域的分界，吊带袜则考验服装贴合度与配件固定。</p>
+        <p>角色来源集中在几个方向：轻小说改编动画的经典女主（雪之下雪乃、加藤惠、远坂凛）、异世界与奇幻题材（雷姆、拉姆、爱蜜莉雅）、哥特与暗黑系（时崎狂三、四宫辉夜的部分造型），以及近年国产手游角色（原神、崩坏系列的部分皮肤版本）。每个角色对白丝版本有约定俗成的预期，比如雪乃多用黑色或深蓝连裤袜，雷姆对应白色过膝袜加女仆装，狂三的校服白丝则属于二创延伸而非原作标配。</p>
+        <p>2026 年 10 月至 11 月这段时间，站内新增图集中校服系占比约四成，女仆系约两成半，其余分散在哥特、和风与泳装混搭。拍摄场景从棚拍白背景转向生活化实景的趋势比较明显，咖啡馆、旧书店、地铁站出口这类场景的图集互动量普遍高于纯棚拍。服装版本方面，日版原厂制服与国产复刻版之间的细节差异，是评论区讨论最集中的话题之一。</p>
+      </div>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section class="section" id="gallery">
+      <div class="section-head">
+        <h2 class="section-title">精选图集<span class="accent">·</span>按角色与造型版本</h2>
+        <span class="section-sub">更新至 11-08</span>
+      </div>
+      <div class="card-grid">
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/yukino01/400/300" width="400" height="300" loading="lazy" alt="雪之下雪乃白丝校服造型在图书馆窗边拍摄">
+            <span class="card-type">校服系</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">雪之下雪乃·白丝校服版</h3>
+            <p class="card-desc">总武高校服复刻版，深蓝连裤袜配室内鞋，拍摄选在旧图书馆窗边，自然侧光把袜面纹理拍得很清楚。42 张里近一半是坐姿。</p>
+            <div class="tag-row"><span class="tag">连裤袜</span><span class="tag">图书馆实景</span><span class="tag">日版制服</span></div>
+            <div class="card-meta"><span class="hot">热度 9.4</span><span>11-05 更新</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/rem02/400/300" width="400" height="300" loading="lazy" alt="雷姆女仆装白色过膝袜造型在咖啡厅拍摄">
+            <span class="card-type">女仆系</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">雷姆·白丝女仆装外拍</h3>
+            <p class="card-desc">白色过膝袜搭配短款女仆裙，咖啡厅二楼包场拍摄，重点拍端盘与俯身两个动作。袜口防滑胶条在实拍中翻边两次，图集里保留了花絮。</p>
+            <div class="tag-row"><span class="tag">过膝袜</span><span class="tag">咖啡厅</span><span class="tag">女仆装</span></div>
+            <div class="card-meta"><span class="hot">热度 9.1</span><span>11-03 更新</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/kurumi03/400/300" width="400" height="300" loading="lazy" alt="时崎狂三白丝校服造型在旧书店台阶拍摄">
+            <span class="card-type">哥特系</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">时崎狂三·白丝校服二创</h3>
+            <p class="card-desc">原作校服为黑丝，这组是白丝二创版本，用不对称长袜配时钟发饰。旧书店台阶的暖光让白色偏米，后期未做色温修正，保留原片感。</p>
+            <div class="tag-row"><span class="tag">二创版本</span><span class="tag">不对称袜</span><span class="tag">旧书店</span></div>
+            <div class="card-meta"><span class="hot">热度 8.8</span><span>11-08 更新</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/megumi04/400/300" width="400" height="300" loading="lazy" alt="加藤惠白丝日常系造型在坡道拍摄">
+            <span class="card-type">日常系</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">加藤惠·坡道白丝过膝袜</h3>
+            <p class="card-desc">白色过膝袜配米色针织衫，取景点是学校坡道与便利店门口。拍摄时段选在下午四点，逆光下袜面有轻微透光，是这组最被讨论的细节。</p>
+            <div class="tag-row"><span class="tag">过膝袜</span><span class="tag">逆光</span><span class="tag">日常系</span></div>
+            <div class="card-meta"><span class="hot">热度 8.6</span><span>10-29 更新</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/emilia05/400/300" width="400" height="300" loading="lazy" alt="爱蜜莉雅白丝奇幻造型在树林拍摄">
+            <span class="card-type">奇幻系</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">爱蜜莉雅·白丝奇幻长裙</h3>
+            <p class="card-desc">白色连裤袜藏在长裙下，只在小腿与脚踝处露出，拍摄靠低机位仰角带出层次。树林实景的落叶与白丝对比强，成片偏冷调。</p>
+            <div class="tag-row"><span class="tag">连裤袜</span><span class="tag">树林外景</span><span class="tag">低机位</span></div>
+            <div class="card-meta"><span class="hot">热度 8.3</span><span>10-26 更新</span></div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-img">
+            <img src="https://picsum.photos/seed/kaguya06/400/300" width="400" height="300" loading="lazy" alt="四宫辉夜白丝吊带袜造型在楼梯间拍摄">
+            <span class="card-type">哥特系</span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">四宫辉夜·白丝吊带袜版本</h3>
+            <p class="card-desc">吊带袜结构复杂，拍摄前用了四十分钟调整夹扣位置。楼梯间的硬光把腿部轮廓压得很实，缺点是膝盖处的袜面褶皱在 12 张里都没完全拉平。</p>
+            <div class="tag-row"><span class="tag">吊带袜</span><span class="tag">楼梯间</span><span class="tag">硬光</span></div>
+            <div class="card-meta"><span class="hot">热度 8.0</span><span>10-23 更新</span></div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- 3. 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-head">
+        <h2 class="section-title">最新更新<span class="accent">·</span>近两周新增与补档</h2>
+        <span class="section-sub">按时间倒序</span>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <span class="update-date">11-08</span>
+          <div>
+            <span class="update-name">时崎狂三·白丝校服二创</span>
+            <span class="update-summary">新增 42 张，含 6 张花絮，旧书店实景，暖光未修正色温。</span>
+          </div>
+          <span class="update-badge">图集</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11-06</span>
+          <div>
+            <span class="update-name">雪之下雪乃·白丝校服版</span>
+            <span class="update-summary">补档 18 张坐姿图，图书馆窗边自然光，日版制服细节特写 3 张。</span>
+          </div>
+          <span class="update-badge">补档</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11-05</span>
+          <div>
+            <span class="update-name">「白丝搭配指南」专题</span>
+            <span class="update-summary">新增连裤袜与过膝袜的 6 组对比图，附透光度与厚度参数表。</span>
+          </div>
+          <span class="update-badge">专题</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11-03</span>
+          <div>
+            <span class="update-name">雷姆·白丝女仆装外拍</span>
+            <span class="update-summary">咖啡厅包场拍摄，白色过膝袜防滑胶条翻边两次，花絮保留。</span>
+          </div>
+          <span class="update-badge">图集</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10-31</span>
+          <div>
+            <span class="update-name">远坂凛·白丝便服版本</span>
+            <span class="update-summary">新增 26 张，住宅区街道实景，红色外套配白色连裤袜。</span>
+          </div>
+          <span class="update-badge">图集</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10-29</span>
+          <div>
+            <span class="update-name">加藤惠·坡道白丝过膝袜</span>
+            <span class="update-summary">逆光时段拍摄，袜面透光细节引评论区讨论 37 条。</span>
+          </div>
+          <span class="update-badge">图集</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10-26</span>
+          <div>
+            <span class="update-name">爱蜜莉雅·白丝奇幻长裙</span>
+            <span class="update-summary">树林外景，低机位仰角，成片偏冷调，共 31 张。</span>
+          </div>
+          <span class="update-badge">图集</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10-23</span>
+          <div>
+            <span class="update-name">四宫辉夜·白丝吊带袜版本</span>
+            <span class="update-summary">楼梯间硬光拍摄，夹扣调整耗时四十分钟，保留膝盖褶皱原状。</span>
+          </div>
+          <span class="update-badge">图集</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10-20</span>
+          <div>
+            <span class="update-name">拉姆·白丝女仆装对比组</span>
+            <span class="update-summary">与雷姆同场景对照拍摄，白色过膝袜与粉色发饰搭配，19 张。</span>
+          </div>
+          <span class="update-badge">图集</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10-17</span>
+          <div>
+            <span class="update-name">「棚拍白丝布光」经验帖</span>
+            <span class="update-summary">三组布光方案对比，柔光箱与反光板角度附示意图。</span>
+          </div>
+          <span class="update-badge">经验</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="section" id="cats">
+      <div class="section-head">
+        <h2 class="section-title">分类入口<span class="accent">·</span>按角色与服装类型</h2>
+      </div>
+      <div class="cat-grid">
+        <a href="/#gallery" class="cat-card">
+          <span class="cat-name">校服系白丝</span>
+          <span class="cat-count">雪乃、狂三二创等 86 组</span>
+        </a>
+        <a href="/#gallery" class="cat-card">
+          <span class="cat-name">女仆装过膝袜</span>
+          <span class="cat-count">雷姆、拉姆、十六夜咲夜等 54 组</span>
+        </a>
+        <a href="/#gallery" class="cat-card">
+          <span class="cat-name">吊带袜造型</span>
+          <span class="cat-count">辉夜、哥特系角色等 32 组</span>
+        </a>
+        <a href="/#gallery" class="cat-card">
+          <span class="cat-name">日常系过膝袜</span>
+          <span class="cat-count">加藤惠、小糸侑等 47 组</span>
+        </a>
+        <a href="/#gallery" class="cat-card">
+          <span class="cat-name">奇幻长裙白丝</span>
+          <span class="cat-count">爱蜜莉雅、亚丝娜等 29 组</span>
+        </a>
+        <a href="/#gallery" class="cat-card">
+          <span class="cat-name">棚拍白背景</span>
+          <span class="cat-count">布光方案与姿势参考 41 组</span>
+        </a>
+        <a href="/#gallery" class="cat-card">
+          <span class="cat-name">实景外拍</span>
+          <span class="cat-count">咖啡馆、书店、街道 63 组</span>
+        </a>
+        <a href="/#gallery" class="cat-card">
+          <span class="cat-name">国产手游角色</span>
+          <span class="cat-count">原神、崩坏系列等 24 组</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section class="section" id="deep">
+      <div class="section-head">
+        <h2 class="section-title">深度解析<span class="accent">·</span>白丝造型的三种形态与拍摄判断</h2>
+      </div>
+      <article class="article">
+        <h3>连裤袜、过膝袜、吊带袜：三种形态的实际差异</h3>
+        <p>把三类混为一谈是选图时最容易踩的坑。连裤袜覆盖到腰，视觉上腿部是一条连续的线，适合校服、制服这类包裹感强的角色；过膝袜止于大腿中段，露出的那一段皮肤在摄影里叫“绝对领域”，分界线的位置高低直接决定画面重心；吊带袜由袜身、夹扣、吊带三部分组成，结构最多，也最容易在实拍里出问题。</p>
+        <p>以站内 10 月 23 日上线的四宫辉夜吊带袜版本为例：拍摄前调整夹扣耗时四十分钟，成片 12 张里膝盖处袜面褶皱始终没能完全拉平。同一位摄影师在 10 月 26 日的爱蜜莉雅连裤袜组里，因为袜面平整，反而把更多时间花在了外景光线上。两种形态对拍摄资源的消耗方向完全不同——前者耗在服装固定，后者耗在环境选择。</p>
+        <div class="callout">
+          <b>可核对的对比：</b>连裤袜组的平均单组拍摄时长约 2.5 小时（含布光），吊带袜组约 3.8 小时（含服装调试），过膝袜组约 2.1 小时。数据来自 2026 年 9 月至 10 月站内 37 组图集的拍摄者自述汇总，属样本统计，不代表全部。
+        </div>
+
+        <h3>白色丝的透光度：一个被反复讨论的变量</h3>
+        <p>白色丝袜的透光度由丹尼数（D）决定。常见区间是 30D 到 80D：30D 以下接近半透明，逆光时能看到皮肤轮廓；50D 左右是微透，室内光下近乎不透明，户外强光会透出一点；80D 以上基本不透，适合追求干净线条的棚拍。10 月 29 日加藤惠坡道组在下午四点逆光拍摄，袜面透光细节被评论区讨论了 37 条，争议点集中在“透光是否破坏角色还原度”。</p>
+        <p>我的判断是：日常系角色适合 40D 至 50D，透一点无妨，反而贴近原作里那种不刻意；校服系角色建议 60D 以上，因为制服本身线条利落，袜子太透会让整体显得松散。哥特系则要看具体版本，狂三的二创白丝如果配时钟发饰，50D 左右能保留一点神秘感，全不透反而显得呆板。</p>
+
+        <h3>服装版本：日版原厂与国产复刻的细节差</h3>
+        <p>评论区里争论最多的不是摄影技术，是服装版本。以雪之下雪乃的总武高校服为例，日版原厂制服的裙褶压线更深，领口蝴蝶结的缎面光泽偏哑；国产复刻版价格约为原版的三分之一，但裙褶在长时间拍摄后容易散，领结材质偏亮。11 月 6 日补档的 18 张坐姿图里，有 3 张专门拍了领结特写，能看出缎面反光差异。</p>
+        <ul>
+          <li>日版原厂：裙褶保持度好，适合多机位长时段拍摄，价格高，尺码偏小。</li>
+          <li>国产复刻：性价比高，适合初次尝试某角色，需提前熨烫裙褶，领结可自行更换。</li>
+          <li>混搭方案：制服主体用复刻，袜子与鞋用原版或高仿，成本可压到原版一半以内。</li>
+        </ul>
+        <p>这个判断可以被反驳的一点是：如果拍摄以半身和特写为主，裙褶保持度的重要性会大幅下降，复刻版完全够用。11 月 3 日雷姆女仆装组就是半身构图为主，拍摄者用的正是复刻版，成片里几乎看不出材质差。</p>
+
+        <h3>场景选择：棚拍与实景的信息量差</h3>
+        <p>棚拍白背景的优势是可控，缺点也明显——白色丝袜在纯白背景前容易失去轮廓，必须靠侧光和阴影把腿部线条压出来。10 月 17 日的「棚拍白丝布光」经验帖给了三组方案，其中柔光箱加反光板的组合在白色袜面上的层次最清楚，但需要至少两盏灯。</p>
+        <p>实景外拍的信息量更大。旧书店、咖啡馆、坡道这些场景自带色彩和质感，白丝在其中是视觉锚点。代价是不可控因素多：10 月 31 日远坂凛便服组在住宅区街道拍摄，遇到阴天，白色连裤袜在灰调环境里几乎融进背景，最后靠红色外套才把主体拉回来。选实景前先看天气预报，比事后调色省事。</p>
+      </article>
+    </section>
+
+    <!-- 6. 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-head">
+        <h2 class="section-title">体验指南<span class="accent">·</span>怎么按顺序看、怎么判断值不值得看</h2>
+      </div>
+      <div class="guide-steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">先定角色，再看形态</div>
+            <div class="step-desc">想看的角色基本决定了丝袜形态：雪乃、狂三走校服连裤袜，雷姆、拉姆走女仆过膝袜，辉夜的部分版本走吊带袜。先锁定角色，能过滤掉一半无关图集。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">用服装版本筛掉还原度不符的组</div>
+            <div class="step-desc">原厂、复刻、二创三种版本的还原度差别很大。追求原作还原就看原厂或高还原复刻；接受二创延伸的，可以看狂三白丝这类改色版本。图集页的标签里会标版本来源。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">看拍摄场景判断信息密度</div>
+            <div class="step-desc">棚拍适合看姿势与布光，实景适合看氛围与色彩。同一角色如果棚拍和实景都有，两组对照着看，能更清楚白丝在不同光下的表现。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <div>
+            <div class="step-title">对比同类条目时看三个硬指标</div>
+            <div class="step-desc">袜面平整度、透光度是否匹配角色、分界线位置是否自然。这三点在图集缩略图上就能初步判断，点进去再看花絮图确认。</div>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">5</div>
+          <div>
+            <div class="step-title">投入时间的判断</div>
+            <div class="step-desc">单组 30 张以上、含花絮、标签里标了具体拍摄参数的，通常比只有成片的组更值得花时间。10 月新增组里，含花絮的平均互动量比纯成片组高约四成。</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head">
+        <h2 class="section-title">常见问答<span class="accent">·</span>关于白丝造型写真</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>白丝cosplay写真里，连裤袜和过膝袜哪个更适合新手拍摄？</summary>
+          <div class="faq-answer">过膝袜对新手更友好。连裤袜需要整条腿部线条都干净，脚踝、膝盖、大腿的袜面褶皱在镜头里都很显眼；过膝袜只覆盖小腿到大腿中段，容错空间大，分界线位置也可以通过调整袜口高低来现场修正。第一次拍建议从 50D 左右的白色过膝袜开始。</div>
+        </details>
+        <details class="faq">
+          <summary>雪之下雪乃的白丝校服版本，原作里到底是黑丝还是白丝？</summary>
+          <div class="faq-answer">原作动画中雪乃的总武高校服搭配的是深色连裤袜，以黑丝和深蓝为主。站内收录的白丝版本属于二创改色，并非原作设定。改色后视觉上更轻，适合图书馆、教室这类明亮场景，但还原度上确实偏离原作，看的时候要分清版本来源。</div>
+        </details>
+        <details class="faq">
+          <summary>白色丝袜在棚拍时总拍不出层次，是什么原因？</summary>
+          <div class="faq-answer">多数情况是布光太平均。白丝在白背景前需要侧光制造阴影，单灯正面打会让袜面变成一片死白。10 月 17 日的布光经验帖里，柔光箱以 45 度侧上方加一块反光板补暗部，是站内目前用得最多的方案。两盏灯起步，比单纯调高曝光有效。</div>
+        </details>
+        <details class="faq">
+          <summary>吊带袜造型为什么拍摄耗时明显更长？</summary>
+          <div class="faq-answer">吊带袜由袜身、夹扣、吊带三部分构成，夹扣位置一旦偏移，整条腿的线条就会歪。四宫辉夜吊带袜版本拍摄前调整夹扣用了四十分钟，拍摄中途还要防止吊带滑落。相比之下过膝袜穿上就能拍，结构复杂度差了两三个量级。</div>
+        </details>
+        <details class="faq">
+          <summary>国产复刻制服和日版原厂，在白丝写真里差别看得出来吗？</summary>
+          <div class="faq-answer">看构图。半身和特写为主的图集，差别基本看不出来，复刻版的性价比优势明显；全身和裙摆动态的图集里，日版原厂的裙褶压线更深、保持度更好，复刻版长时间拍摄后裙褶容易散开。11 月 6 日补档的雪乃组里，3 张领结特写能看出缎面反光差异。</div>
+        </details>
+        <details class="faq">
+          <summary>白色丝袜的丹尼数怎么选，和角色还原度有关系吗？</summary>
+          <div class="faq-answer">有关系。日常系角色 40D 至 50D，微透更贴近原作那种不刻意；校服系建议 60D 以上，线条利落；哥特系看版本，狂三白丝二创配时钟发饰的话 50D 左右能保留神秘感。80D 以上基本不透，适合纯棚拍，但实景里容易显得闷。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head">
+        <h2 class="section-title">用户评论<span class="accent">·</span>来自图集页的真实反馈</h2>
+      </div>
+      <div class="comment-list">
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">旧书店的猫</span><span class="comment-time">11-08 14:22</span></div>
+          <p class="comment-text">狂三那组二创白丝，时钟发饰的位置比原作低了一截，不过旧书店暖光真的加分，第三张翻页那张我存了。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">芝士年糕</span><span class="comment-time">11-08 11:05</span></div>
+          <p class="comment-text">雷姆女仆装袜口翻边那段花絮笑死，太真实了，我自己拍也是这个毛病，防滑胶条根本压不住。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">雾岛听风</span><span class="comment-time">11-07 20:48</span></div>
+          <p class="comment-text">雪乃补档那 18 张坐姿，图书馆窗边的侧光打得真舒服，就是领结特写拍得有点紧，再退半步更好。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">半糖去冰</span><span class="comment-time">11-07 16:30</span></div>
+          <p class="comment-text">加藤惠坡道组透光那张，我觉得没问题啊，原作里本来就不是厚重款。评论区吵 37 条有点过了。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">Kira摄影笔记</span><span class="comment-time">11-06 22:14</span></div>
+          <p class="comment-text">吊带袜那组夹扣调了四十分钟，看得出拍摄者很认真，但褶皱还是没拉平，这种结构性问题真不是努力能完全解决的。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">路过的阿榭</span><span class="comment-time">11-06 09:37</span></div>
+          <p class="comment-text">今天地铁上刷到爱蜜莉雅树林那组，冷调挺好的，就是白丝露得太少，长裙遮了大半，有点可惜。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">猫背煎饺</span><span class="comment-time">11-05 19:52</span></div>
+          <p class="comment-text">国产复刻和日版原厂那节说得挺实在，我两版都买过，裙褶确实是一分钱一分货，但半身拍真的看不出。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">千叶的雨天</span><span class="comment-time">11-05 13:20</span></div>
+          <p class="comment-text">远坂凛那组阴天拍的，红色外套救回来了，不然白丝融进灰背景真的没了。选景看天气这句我认。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">白桃乌龙</span><span class="comment-time">11-04 21:08</span></div>
+          <p class="comment-text">说实话我对吊带袜接受度一般，结构太复杂，出片率低。过膝袜最省事，穿上就拍。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">胶片机老周</span><span class="comment-time">11-04 10:45</span></div>
+          <p class="comment-text">棚拍布光那帖的示意图画得清楚，柔光箱 45 度侧上这个角度我试过，白丝层次确实出来了，反光板位置再低一点更好。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">小糸侑的伞</span><span class="comment-time">11-03 23:11</span></div>
+          <p class="comment-text">最近日常系白丝图集越来越多了，好事。校服系看多了有点腻，换换口味。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">凌晨四点睡</span><span class="comment-time">11-03 15:26</span></div>
+          <p class="comment-text">拉姆那组和雷姆同场景对照，粉色发饰配白丝比想象中好，就是光线偏硬，两个人脸部的阴影处理不一致。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">不做后期</span><span class="comment-time">11-02 18:40</span></div>
+          <p class="comment-text">狂三白丝校服二创没修色温这点我很喜欢，暖光就是暖光，修成冷白反而假。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">风铃草</span><span class="comment-time">11-01 12:15</span></div>
+          <p class="comment-text">60D 以上校服系那个建议我不同意。雪乃原作那种薄一点的质感，用 60D 反而厚重了，40D 到 50D 更对。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">街角便利店</span><span class="comment-time">10-31 20:33</span></div>
+          <p class="comment-text">在坡道那个位置见过有人拍，原来就是这组，难怪眼熟。</p>
+        </div>
+        <div class="comment">
+          <div class="comment-head"><span class="comment-name">没有昵称的人</span><span class="comment-time">10-30 08:55</span></div>
+          <p class="comment-text">白色丝袜最难拍的就是膝盖，褶皱一多整张废掉，看到好几组都有这个问题，不是个别现象。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head">
+        <h2 class="section-title">相关资讯<span class="accent">·</span>10 月下旬至 11 月初动态</h2>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news1108/600/400" width="600" height="400" loading="lazy" alt="旧书店场景图集拍摄现场"></div>
+          <div>
+            <h3 class="news-title">旧书店实景图集成新拍摄热点，10 月新增 11 组</h3>
+            <span class="news-date">2026-11-08</span>
+            <p class="news-summary">10 月站内实景图集中，旧书店场景从 9 月的 4 组增至 15 组，增幅明显。拍摄者反馈暖光对白色袜面的质感还原优于棚拍白背景。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news1105/600/400" width="600" height="400" loading="lazy" alt="白丝搭配指南专题对比图"></div>
+          <div>
+            <h3 class="news-title">「白丝搭配指南」专题上线对比参数表</h3>
+            <span class="news-date">2026-11-05</span>
+            <p class="news-summary">专题新增 6 组连裤袜与过膝袜的并排对比，附 30D 至 80D 的透光度与厚度实测数据，拍摄者可在图集页标签中直接查看对应参数。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news1102/600/400" width="600" height="400" loading="lazy" alt="国产复刻制服裙褶对比"></div>
+          <div>
+            <h3 class="news-title">国产复刻制服裙褶工艺讨论升温，评论区单帖破 60 条</h3>
+            <span class="news-date">2026-11-02</span>
+            <p class="news-summary">10 月底起，关于复刻版裙褶保持度的讨论集中在 3 组雪乃图集下，单帖最高 63 条。部分拍摄者建议复刻版拍摄前先低温熨烫压褶。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news1029/600/400" width="600" height="400" loading="lazy" alt="逆光拍摄白色过膝袜透光效果"></div>
+          <div>
+            <h3 class="news-title">逆光拍白色过膝袜的透光效果引讨论，37 条评论分两派</h3>
+            <span class="news-date">2026-10-29</span>
+            <p class="news-summary">加藤惠坡道组发布后，评论区分成“透光贴近原作”与“透光破坏还原度”两派。拍摄者在花絮中说明拍摄时段为下午四点，未做色温修正。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news1026/600/400" width="600" height="400" loading="lazy" alt="树林外景奇幻长裙拍摄"></div>
+          <div>
+            <h3 class="news-title">奇幻系长裙白丝图集转向树林外景，低机位拍摄成常见手法</h3>
+            <span class="news-date">2026-10-26</span>
+            <p class="news-summary">爱蜜莉雅组发布后，10 月内另有 5 组奇幻题材图集采用树林或公园外景，低机位仰角拍摄占比从 9 月的两成升至近四成。</p>
+          </div>
+        </article>
+        <article class="news-item">
+          <div class="news-thumb"><img src="https://picsum.photos/seed/news1017/600/400" width="600" height="400" loading="lazy" alt="棚拍白丝布光方案示意图"></div>
+          <div>
+            <h3 class="news-title">棚拍白丝布光经验帖更新，柔光箱 45 度侧上方案被最多采用</h3>
+            <span class="news-date">2026-10-17</span>
+            <p class="news-summary">经验帖对比三组布光方案后，柔光箱 45 度侧上方加反光板补暗部的组合在 10 月新增棚拍图集中被采用 17 次，为各方案中最多。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="section" id="rec">
+      <div class="section-head">
+        <h2 class="section-title">相关推荐<span class="accent">·</span>具体方向与条目索引</h2>
+      </div>
+      <div class="rec-tags">
+        <a href="/#gallery" class="rec-tag">雪之下雪乃白丝校服</a>
+        <a href="/#gallery" class="rec-tag">雷姆女仆装过膝袜</a>
+        <a href="/#gallery" class="rec-tag">时崎狂三白丝二创</a>
+        <a href="/#gallery" class="rec-tag">加藤惠坡道逆光</a>
+        <a href="/#gallery" class="rec-tag">四宫辉夜吊带袜</a>
+        <a href="/#guide" class="rec-tag">白色过膝袜丹尼数怎么选</a>
+        <a href="/#deep" class="rec-tag">日版原厂与国产复刻对比</a>
+        <a href="/#news" class="rec-tag">旧书店实景拍摄</a>
+      </div>
+    </section>
+
+    <!-- 11. 热门榜单 -->
+    <section class="section" id="rank">
+      <div class="section-head">
+        <h2 class="section-title">热门榜单<span class="accent">·</span>11 月第 1 周图集热度</h2>
+        <span class="section-sub">按浏览与互动综合</span>
+      </div>
+      <div class="rank-list">
+        <div class="rank-item"><span class="rank-num">1</span><span class="rank-name">雪之下雪乃·白丝校服版</span><span class="rank-score">热度 9.4</span></div>
+        <div class="rank-item"><span class="rank-num">2</span><span class="rank-name">雷姆·白丝女仆装外拍</span><span class="rank-score">热度 9.1</span></div>
+        <div class="rank-item"><span class="rank-num">3</span><span class="rank-name">时崎狂三·白丝校服二创</span><span class="rank-score">热度 8.8</span></div>
+        <div class="rank-item"><span class="rank-num">4</span><span class="rank-name">加藤惠·坡道白丝过膝袜</span><span class="rank-score">热度 8.6</span></div>
+        <div class="rank-item"><span class="rank-num">5</span><span class="rank-name">爱蜜莉雅·白丝奇幻长裙</span><span class="rank-score">热度 8.3</span></div>
+        <div class="rank-item"><span class="rank-num">6</span><span class="rank-name">四宫辉夜·白丝吊带袜版本</span><span class="rank-score">热度 8.0</span></div>
+        <div class="rank-item"><span class="rank-num">7</span><span class="rank-name">远坂凛·白丝便服版本</span><span class="rank-score">热度 7.8</span></div>
+        <div class="rank-item"><span class="rank-num">8</span><span class="rank-name">拉姆·白丝女仆装对比组</span><span class="rank-score">热度 7.5</span></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="aside-col" aria-label="辅助信息">
+    <div class="aside-box">
+      <h2 class="aside-title">本次更新速览</h2>
+      <ul class="aside-links">
+        <li><a href="/#updates">时崎狂三·白丝校服二创<span>11-08</span></a></li>
+        <li><a href="/#updates">雪之下雪乃坐姿补档<span>11-06</span></a></li>
+        <li><a href="/#updates">白丝搭配指南参数表<span>11-05</span></a></li>
+        <li><a href="/#updates">雷姆女仆装外拍花絮<span>11-03</span></a></li>
+        <li><a href="/#updates">远坂凛便服版本<span>10-31</span></a></li>
+      </ul>
+      <p class="aside-note">图集条目按发布时间倒序排列，补档与专题更新单独标注。</p>
+    </div>
+
+    <div class="aside-box">
+      <h2 class="aside-title">本周浏览榜</h2>
+      <ul class="aside-hot">
+        <li><span class="idx">1</span><span class="t">雪乃图书馆窗边侧光组</span></li>
+        <li><span class="idx">2</span><span class="t">雷姆咖啡厅端盘动作</span></li>
+        <li><span class="idx">3</span><span class="t">狂三旧书店翻页特写</span></li>
+        <li><span class="idx">4</span><span class="t">加藤惠逆光透光细节</span></li>
+        <li><span class="idx">5</span><span class="t">辉夜吊带袜夹扣花絮</span></li>
+      </ul>
+    </div>
+
+    <div class="aside-box">
+      <h2 class="aside-title">服装版本对照</h2>
+      <ul class="aside-links">
+        <li><a href="/#deep">日版原厂制服<span>裙褶深</span></a></li>
+        <li><a href="/#deep">国产复刻制服<span>性价比</span></a></li>
+        <li><a href="/#deep">二创改色版本<span>还原度</span></a></li>
+        <li><a href="/#deep">混搭方案<span>成本减半</span></a></li>
+      </ul>
+    </div>
+
+    <div class="aside-cta" id="submit">
+      <h3>投稿你的白丝图集</h3>
+      <p>附拍摄场景、丝袜丹尼数与服装版本，审核通过后进入精选列表。11 月已收录 9 组投稿。</p>
+      <a href="/#gallery" class="btn btn-primary">查看投稿要求</a>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 投稿互动条 -->
+<div class="interact-bar">
+  <div class="interact-inner">
+    <div>
+      <h2>作品交流与比赛</h2>
+      <p>「11 月白丝造型主题赛」征集至 11 月 20 日，分连裤袜、过膝袜、吊带袜三个组别，评审看重角色还原与布光完成度。</p>
+    </div>
+    <div class="interact-actions">
+      <a href="/#gallery" class="btn btn-primary">上传作品</a>
+      <a href="/#comments" class="btn btn-ghost">查看交流帖</a>
+    </div>
+  </div>
+</div>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#b08968"/>
+            <path d="M20 42c0-10 6-18 12-18s12 8 12 18" fill="none" stroke="#fff8f0" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="32" cy="20" r="4" fill="#fff8f0"/>
+          </svg>
+          <span class="footer-brand-text">白丝cosplay写真</span>
+        </div>
+        <p class="footer-desc">内容覆盖 2026 年 8 月至 11 月的图集条目，以校服、女仆、哥特、日常四类角色造型为主，单组含成片与花絮，更新节奏为每周 2 至 3 组，重要补档单独标注日期。</p>
+      </div>
+      <div class="footer-col">
+        <h3>内容分类</h3>
+        <a href="/#cats">校服系白丝</a>
+        <a href="/#cats">女仆装过膝袜</a>
+        <a href="/#cats">吊带袜造型</a>
+        <a href="/#cats">日常系过膝袜</a>
+      </div>
+      <div class="footer-col">
+        <h3>阅读与参考</h3>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">体验指南</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#rank">热门榜单</a>
+      </div>
+      <div class="footer-col">
+        <h3>互动</h3>
+        <a href="/#submit">投稿入口</a>
+        <a href="/#comments">用户评论</a>
+        <a href="/#news">相关资讯</a>
+        <a href="/#rec">相关推荐</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>示例内容聚合页 · 图集条目与评论均为垂类示例数据 · 更新至 2026-11-08</span>
+      <span>部分图片来自 picsum.photos 占位图</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<script>
+(function(){
+  /* 移动端菜单 */
+  var btn = document.getElementById('hamburgerBtn');
+  var nav = document.getElementById('mobileNav');
+  function closeNav(){
+    nav.classList.remove('open');
+    nav.setAttribute('aria-hidden','true');
+    btn.setAttribute('aria-expanded','false');
+  }
+  function openNav(){
+    nav.classList.add('open');
+    nav.setAttribute('aria-hidden','false');
+    btn.setAttribute('aria-expanded','true');
+  }
+  btn.addEventListener('click', function(){
+    if(nav.classList.contains('open')){ closeNav(); } else { openNav(); }
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target === nav){ closeNav(); }
+    if(e.target.tagName === 'A'){ closeNav(); }
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && nav.classList.contains('open')){ closeNav(); btn.focus(); }
+  });
+
+  /* 回到顶部 */
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > window.innerHeight * 0.9){
+      toTop.classList.add('show');
+    } else {
+      toTop.classList.remove('show');
+    }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  /* 频道导航高亮 */
+  var sections = ['overview','gallery','updates','cats','deep','guide','faq','comments','news','rec','rank','submit'];
+  var links = document.querySelectorAll('.channel-nav a');
+  var linkMap = {};
+  links.forEach(function(l){
+    var href = l.getAttribute('href');
+    if(href && href.indexOf('#') > -1){
+      linkMap[href.split('#')[1]] = l;
+    }
+  });
+  if('IntersectionObserver' in window){
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          links.forEach(function(l){ l.classList.remove('active'); });
+          var id = en.target.id;
+          if(linkMap[id]){ linkMap[id].classList.add('active'); }
+        }
+      });
+    }, {rootMargin:'-110px 0px -65% 0px', threshold:0});
+    sections.forEach(function(id){
+      var el = document.getElementById(id);
+      if(el){ obs.observe(el); }
+    });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "白丝cosplay写真",
+  "description": "收录动漫与游戏角色白丝造型写真图集，覆盖雪之下雪乃、雷姆、时崎狂三、加藤惠等角色，附拍摄场景、服装版本与风格看点。",
+  "inLanguage": "zh-CN",
+  "about": {
+    "@type": "Thing",
+    "name": "白丝cosplay写真"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "白丝cosplay写真里，连裤袜和过膝袜哪个更适合新手拍摄？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "过膝袜对新手更友好。连裤袜需要整条腿部线条都干净，脚踝、膝盖、大腿的袜面褶皱在镜头里都很显眼；过膝袜只覆盖小腿到大腿中段，容错空间大，分界线位置也可以通过调整袜口高低来现场修正。第一次拍建议从 50D 左右的白色过膝袜开始。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "雪之下雪乃的白丝校服版本，原作里到底是黑丝还是白丝？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "原作动画中雪乃的总武高校服搭配的是深色连裤袜，以黑丝和深蓝为主。站内收录的白丝版本属于二创改色，并非原作设定。改色后视觉上更轻，适合图书馆、教室这类明亮场景，但还原度上确实偏离原作，看的时候要分清版本来源。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "白色丝袜在棚拍时总拍不出层次，是什么原因？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "多数情况是布光太平均。白丝在白背景前需要侧光制造阴影，单灯正面打会让袜面变成一片死白。10 月 17 日的布光经验帖里，柔光箱以 45 度侧上方加一块反光板补暗部，是站内目前用得最多的方案。两盏灯起步，比单纯调高曝光有效。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "吊带袜造型为什么拍摄耗时明显更长？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "吊带袜由袜身、夹扣、吊带三部分构成，夹扣位置一旦偏移，整条腿的线条就会歪。四宫辉夜吊带袜版本拍摄前调整夹扣用了四十分钟，拍摄中途还要防止吊带滑落。相比之下过膝袜穿上就能拍，结构复杂度差了两三个量级。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "国产复刻制服和日版原厂，在白丝写真里差别看得出来吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "看构图。半身和特写为主的图集，差别基本看不出来，复刻版的性价比优势明显；全身和裙摆动态的图集里，日版原厂的裙褶压线更深、保持度更好，复刻版长时间拍摄后裙褶容易散开。11 月 6 日补档的雪乃组里，3 张领结特写能看出缎面反光差异。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "白色丝袜的丹尼数怎么选，和角色还原度有关系吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "有关系。日常系角色 40D 至 50D，微透更贴近原作那种不刻意；校服系建议 60D 以上，线条利落；哥特系看版本，狂三白丝二创配时钟发饰的话 50D 左右能保留神秘感。80D 以上基本不透，适合纯棚拍，但实景里容易显得闷。"
+      }
+    }
+  ]
+}
+</script>
+
+</body>
+  </html>
