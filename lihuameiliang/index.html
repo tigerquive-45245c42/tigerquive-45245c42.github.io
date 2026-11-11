@@ -1,0 +1,2204 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>立花美凉 - 作品索引与资料聚合</title>
+  <meta name="description" content="立花美凉资料聚合页，汇集作品索引、人物档案、类型分类、观众评论与近期动态。适合查找立花美凉相关作品信息、拍摄花絮与讨论反馈的读者浏览。">
+  <meta name="keywords" content="立花美凉">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23f5e6d3'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23b5533c' font-family='serif'%3E美%3C/text%3E%3C/svg%3E">
+  <style>
+    :root {
+      --primary: #b5533c;
+      --primary-light: #d98e7a;
+      --primary-dark: #8a3a28;
+      --bg: #fbf7f2;
+      --panel: #ffffff;
+      --text-main: #2f2a26;
+      --text-secondary: #6b5e55;
+      --text-muted: #9c8f85;
+      --divider: #e8ddd2;
+      --radius-card: 16px;
+      --radius-btn: 10px;
+      --radius-tag: 6px;
+      --radius-banner: 20px;
+      --shadow: 0 4px 16px rgba(60, 40, 30, 0.07);
+      --shadow-hover: 0 8px 28px rgba(60, 40, 30, 0.13);
+      --font-sans: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      --sticky-offset: 108px;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--sticky-offset);
+    }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding-top: var(--sticky-offset);
+    }
+    a {
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .container {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    /* 吸顶公告条 */
+    .announce-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1001;
+      background: var(--primary-dark);
+      color: #fff;
+      font-size: 13px;
+      padding: 6px 0;
+      overflow: hidden;
+    }
+    .announce-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .announce-bar .brand-mini {
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #f5e6d3;
+    }
+    .announce-bar .announce-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+    .announce-bar .announce-item::before {
+      content: "·";
+      margin-right: 4px;
+      opacity: 0.6;
+    }
+    /* 吸顶页头 */
+    .site-header {
+      position: fixed;
+      top: 32px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(251, 247, 242, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--divider);
+      box-shadow: 0 2px 12px rgba(60, 40, 30, 0.04);
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      gap: 16px;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .logo-graphic {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 700;
+      font-family: serif;
+      box-shadow: 0 2px 8px rgba(181, 83, 60, 0.3);
+    }
+    .logo-text {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      padding: 6px 12px;
+      border-radius: var(--radius-btn);
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover {
+      background: #f0e4d8;
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .search-box {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--divider);
+      border-radius: var(--radius-btn);
+      padding: 0 4px 0 12px;
+      height: 36px;
+      transition: border-color 0.2s;
+    }
+    .search-box:focus-within {
+      border-color: var(--primary-light);
+    }
+    .search-box input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 13px;
+      width: 140px;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+    }
+    .search-box button {
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      width: 30px;
+      height: 28px;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .search-box button:hover {
+      background: var(--primary-dark);
+    }
+    .back-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translateY(8px);
+    }
+    .back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-top:hover {
+      background: var(--primary-dark);
+    }
+    /* 首屏 */
+    .hero {
+      position: relative;
+      background: linear-gradient(145deg, #fdf3e7 0%, #f5e0d0 50%, #efd8c6 100%);
+      border-radius: 0 0 var(--radius-banner) var(--radius-banner);
+      overflow: hidden;
+      padding: 48px 0 56px;
+      margin-bottom: 40px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,83,60,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: -120px;
+      bottom: -140px;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(217,142,122,0.10) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+    }
+    .hero-label {
+      display: inline-block;
+      background: rgba(181, 83, 60, 0.12);
+      color: var(--primary-dark);
+      font-size: 13px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 800;
+      color: var(--primary-dark);
+      letter-spacing: 4px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 600px;
+      margin-bottom: 28px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: transparent;
+      color: var(--primary-dark);
+      padding: 10px 28px;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      font-weight: 600;
+      border: 1.5px solid var(--primary-light);
+      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+      cursor: pointer;
+    }
+    .btn-outline:hover {
+      background: rgba(181, 83, 60, 0.06);
+      border-color: var(--primary);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+    .hero-visual {
+      position: absolute;
+      right: 40px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 260px;
+      height: 260px;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+    /* 三栏门户布局 */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr) 260px;
+      gap: 28px;
+      align-items: start;
+      padding-bottom: 64px;
+    }
+    /* 左侧频道索引 */
+    .channel-sidebar {
+      position: sticky;
+      top: calc(var(--sticky-offset) + 16px);
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 20px 0;
+      overflow: hidden;
+    }
+    .channel-sidebar h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 0 20px 12px;
+      border-bottom: 1px solid var(--divider);
+      margin-bottom: 8px;
+    }
+    .channel-list {
+      list-style: none;
+    }
+    .channel-list li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s, padding-left 0.2s;
+      border-left: 3px solid transparent;
+    }
+    .channel-list li a:hover,
+    .channel-list li a.active {
+      background: #fdf6f0;
+      color: var(--primary-dark);
+      border-left-color: var(--primary);
+      padding-left: 22px;
+      text-decoration: none;
+    }
+    .channel-list li a .ch-icon {
+      font-size: 15px;
+      opacity: 0.7;
+      width: 20px;
+      text-align: center;
+    }
+    /* 中间主内容 */
+    .main-content {
+      min-width: 0;
+    }
+    .section {
+      margin-bottom: 48px;
+      scroll-margin-top: var(--sticky-offset);
+    }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .section-header h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.5px;
+    }
+    .section-header h2 .h2-accent {
+      color: var(--primary);
+    }
+    .section-header .section-more {
+      font-size: 13px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    /* 概览 */
+    .overview-text {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 28px 32px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+    .overview-text p {
+      margin-bottom: 12px;
+    }
+    .overview-text p:last-child {
+      margin-bottom: 0;
+    }
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+      display: flex;
+      flex-direction: column;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+    }
+    .card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #f0e4d8;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s;
+    }
+    .card:hover .card-img img {
+      transform: scale(1.04);
+    }
+    .card-body {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-tag);
+      background: #f5ebe2;
+      color: var(--primary-dark);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .tag.type-tag {
+      background: var(--primary);
+      color: #fff;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 12px;
+    }
+    .card-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--text-muted);
+      padding-top: 10px;
+      border-top: 1px solid var(--divider);
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .card-meta .rating {
+      color: var(--primary);
+      font-weight: 600;
+    }
+    /* 动态列表 */
+    .update-list {
+      list-style: none;
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 6px 0;
+      overflow: hidden;
+    }
+    .update-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 24px;
+      border-bottom: 1px solid var(--divider);
+      transition: background 0.2s;
+    }
+    .update-list li:last-child {
+      border-bottom: none;
+    }
+    .update-list li:hover {
+      background: #fdf9f5;
+    }
+    .update-date {
+      font-size: 12px;
+      color: var(--text-muted);
+      white-space: nowrap;
+      min-width: 72px;
+      padding-top: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+    .update-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .update-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+    .update-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    /* 分类入口 */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 14px;
+    }
+    .category-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 20px 12px;
+      text-align: center;
+      transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
+      cursor: pointer;
+      border: none;
+      font-family: var(--font-sans);
+    }
+    .category-item:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-3px);
+      background: #fdf6f0;
+    }
+    .category-item .cat-icon {
+      font-size: 28px;
+      line-height: 1;
+    }
+    .category-item .cat-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .category-item .cat-count {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    /* 深度解析 */
+    .deep-analysis {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 32px 36px;
+    }
+    .deep-analysis h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 28px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #f0e4d8;
+    }
+    .deep-analysis h3:first-of-type {
+      margin-top: 0;
+    }
+    .deep-analysis p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+      margin-bottom: 12px;
+    }
+    .deep-analysis ul {
+      margin: 8px 0 16px 20px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+    .deep-analysis li {
+      margin-bottom: 6px;
+    }
+    .deep-analysis .highlight-box {
+      background: #fdf6f0;
+      border-left: 3px solid var(--primary-light);
+      padding: 14px 20px;
+      border-radius: 0 var(--radius-tag) var(--radius-tag) 0;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    /* 指南 */
+    .guide-steps {
+      counter-reset: step;
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .step-item {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+    .step-content h4 {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .step-content p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    /* FAQ */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .faq-list details {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: box-shadow 0.25s;
+    }
+    .faq-list details[open] {
+      box-shadow: var(--shadow-hover);
+    }
+    .faq-list summary {
+      padding: 16px 24px;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      transition: background 0.2s;
+      border-radius: var(--radius-card);
+    }
+    .faq-list summary::-webkit-details-marker {
+      display: none;
+    }
+    .faq-list summary::after {
+      content: "+";
+      font-size: 20px;
+      color: var(--primary-light);
+      font-weight: 300;
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .faq-list details[open] summary::after {
+      content: "−";
+      transform: rotate(180deg);
+    }
+    .faq-list summary:hover {
+      background: #fdf9f5;
+    }
+    .faq-answer {
+      padding: 0 24px 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+    /* 评论 */
+    .comment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px;
+    }
+    .comment-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: box-shadow 0.25s;
+    }
+    .comment-card:hover {
+      box-shadow: var(--shadow-hover);
+    }
+    .comment-user {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .comment-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .comment-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .comment-text {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .comment-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    /* 资讯 */
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .news-item {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 18px 24px;
+      transition: box-shadow 0.25s, transform 0.25s;
+    }
+    .news-item:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .news-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .news-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .news-summary {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+    /* 相关推荐 */
+    .related-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .related-tag {
+      display: inline-block;
+      background: var(--panel);
+      border: 1px solid var(--divider);
+      border-radius: 20px;
+      padding: 7px 18px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      transition: border-color 0.2s, color 0.2s, background 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow);
+    }
+    .related-tag:hover {
+      border-color: var(--primary-light);
+      color: var(--primary-dark);
+      background: #fdf6f0;
+      text-decoration: none;
+      box-shadow: var(--shadow-hover);
+    }
+    /* 补充板块 - 时间线 */
+    .timeline {
+      position: relative;
+      padding-left: 28px;
+      list-style: none;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 8px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--divider);
+    }
+    .timeline li {
+      position: relative;
+      margin-bottom: 20px;
+      padding-left: 12px;
+    }
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: -24px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--primary-light);
+    }
+    .timeline-date {
+      font-size: 12px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .timeline-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+    .timeline-desc {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+    /* 右侧辅助栏 */
+    .right-sidebar {
+      position: sticky;
+      top: calc(var(--sticky-offset) + 16px);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .sidebar-card {
+      background: var(--panel);
+      border-radius: var(--radius-card);
+      box-shadow: var(--shadow);
+      padding: 20px 22px;
+    }
+    .sidebar-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--divider);
+    }
+    .hot-list {
+      list-style: none;
+      counter-reset: hot;
+    }
+    .hot-list li {
+      counter-increment: hot;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      border-bottom: 1px dashed var(--divider);
+    }
+    .hot-list li:last-child {
+      border-bottom: none;
+    }
+    .hot-list li::before {
+      content: counter(hot);
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      background: #f5ebe2;
+      color: var(--primary-dark);
+      font-size: 11px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .hot-list li:nth-child(-n+3)::before {
+      background: var(--primary);
+      color: #fff;
+    }
+    .hot-list li a {
+      color: var(--text-secondary);
+    }
+    .hot-list li a:hover {
+      color: var(--primary-dark);
+    }
+    .quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: var(--radius-tag);
+      font-size: 13px;
+      color: var(--text-secondary);
+      transition: background 0.2s, color 0.2s;
+    }
+    .quick-links a:hover {
+      background: #fdf6f0;
+      color: var(--primary-dark);
+      text-decoration: none;
+    }
+    /* 页尾 */
+    .site-footer {
+      background: #2f2a26;
+      color: #c4b8ae;
+      padding: 48px 0 32px;
+      margin-top: 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 36px;
+      margin-bottom: 36px;
+    }
+    .footer-brand h3 {
+      font-size: 20px;
+      color: #fff;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.8;
+      color: #a89b90;
+      margin-bottom: 8px;
+    }
+    .footer-col h4 {
+      font-size: 14px;
+      color: #e8ddd2;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .footer-col a {
+      display: block;
+      font-size: 13px;
+      color: #a89b90;
+      padding: 4px 0;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover {
+      color: var(--primary-light);
+      text-decoration: none;
+    }
+    .footer-bottom {
+      border-top: 1px solid #4a433d;
+      padding-top: 20px;
+      font-size: 12px;
+      color: #7a6e64;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    /* 移动端 */
+    .hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--divider);
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text-secondary);
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+    }
+    .mobile-nav-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      z-index: 1002;
+    }
+    .mobile-nav-panel {
+      display: none;
+      position: fixed;
+      top: var(--sticky-offset);
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      z-index: 1003;
+      padding: 16px 24px 24px;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+      max-height: calc(100vh - var(--sticky-offset));
+      overflow-y: auto;
+      border-radius: 0 0 var(--radius-banner) var(--radius-banner);
+    }
+    .mobile-nav-panel.open {
+      display: block;
+    }
+    .mobile-nav-overlay.open {
+      display: block;
+    }
+    .mobile-nav-panel .mob-nav-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .mobile-nav-panel .mob-nav-links a {
+      padding: 10px 12px;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      color: var(--text-main);
+    }
+    .mobile-nav-panel .mob-nav-links a:hover {
+      background: #f0e4d8;
+    }
+    .mobile-close {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 12px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-btn);
+      font-size: 15px;
+      cursor: pointer;
+      font-family: var(--font-sans);
+    }
+    @media (max-width: 1024px) {
+      .main-layout {
+        grid-template-columns: 160px minmax(0, 1fr);
+      }
+      .right-sidebar {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        position: static;
+      }
+      .hero-visual {
+        width: 200px;
+        height: 200px;
+        right: 20px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 740px) {
+      :root {
+        --sticky-offset: 100px;
+      }
+      .header-inner .nav-links {
+        display: none;
+      }
+      .header-inner .search-box {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .main-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .channel-sidebar {
+        position: static;
+        display: none;
+      }
+      .right-sidebar {
+        grid-template-columns: 1fr;
+      }
+      .hero {
+        padding: 32px 0 40px;
+      }
+      .hero-visual {
+        display: none;
+      }
+      .hero h1 {
+        letter-spacing: 2px;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .comment-grid {
+        grid-template-columns: 1fr;
+      }
+      .deep-analysis {
+        padding: 24px 20px;
+      }
+      .guide-steps {
+        padding: 20px;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .announce-bar .container {
+        gap: 12px;
+        font-size: 12px;
+      }
+      .announce-bar .announce-item:nth-child(n+3) {
+        display: none;
+      }
+      .overview-text {
+        padding: 20px;
+      }
+      .update-list li {
+        flex-direction: column;
+        gap: 4px;
+        padding: 12px 18px;
+      }
+      .update-date {
+        min-width: auto;
+      }
+      .back-top {
+        bottom: 18px;
+        right: 18px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 -->
+<div class="announce-bar" id="announceBar">
+  <div class="container">
+    <span class="brand-mini">立花美凉</span>
+    <span class="announce-item">2026-11-07 新增《冬の光》花絮剪辑</span>
+    <span class="announce-item">12 部作品进入本周热度榜</span>
+    <span class="announce-item">写真集《凉音》电子版 11 月 5 日上线</span>
+  </div>
+</div>
+
+<!-- 吸顶页头 -->
+<header class="site-header">
+  <div class="container header-inner">
+    <div class="logo-area">
+      <div class="logo-graphic" aria-hidden="true">美</div>
+      <span class="logo-text">立花美凉</span>
+    </div>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#overview">领域概览</a>
+      <a href="#featured">精选作品</a>
+      <a href="#updates">最新动态</a>
+      <a href="#categories">分类索引</a>
+      <a href="#analysis">深度解析</a>
+      <a href="#guide">观看指南</a>
+      <a href="#faq">常见问答</a>
+      <a href="#comments">观众评论</a>
+      <a href="#news">相关资讯</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="搜索条目…" aria-label="搜索站内条目">
+        <button type="button" id="searchBtn" aria-label="搜索">🔍</button>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- 移动端导航 -->
+<div class="mobile-nav-overlay" id="mobileOverlay" aria-hidden="true"></div>
+<div class="mobile-nav-panel" id="mobilePanel">
+  <nav class="mob-nav-links" aria-label="移动端导航">
+    <a href="#overview">领域概览</a>
+    <a href="#featured">精选作品</a>
+    <a href="#updates">最新动态</a>
+    <a href="#categories">分类索引</a>
+    <a href="#analysis">深度解析</a>
+    <a href="#guide">观看指南</a>
+    <a href="#faq">常见问答</a>
+    <a href="#comments">观众评论</a>
+    <a href="#news">相关资讯</a>
+    <a href="#recommend">相关推荐</a>
+    <a href="#timeline">条目时间线</a>
+    <a href="#submit">投稿交流</a>
+  </nav>
+  <button class="mobile-close" id="mobileClose">关闭菜单</button>
+</div>
+
+<!-- 首屏 -->
+<section class="hero">
+  <div class="container" style="position:relative;">
+    <div class="hero-content">
+      <span class="hero-label">作品索引 · 资料聚合</span>
+      <h1>立花美凉</h1>
+      <p class="hero-desc">
+        收录立花美凉 2019 年至今的影像作品条目、写真集与拍摄花絮，按剧情、写真、访谈、合集四种类型整理。页面汇总每部作品的发行日期、共演者、时长与观众评分，并摘录近期讨论中的具体反馈。
+      </p>
+      <div class="hero-actions">
+        <a href="#featured" class="btn-primary">浏览作品索引 →</a>
+        <a href="#analysis" class="btn-outline">阅读深度解析</a>
+      </div>
+    </div>
+    <svg class="hero-visual" viewBox="0 0 260 260" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="130" cy="130" r="110" fill="none" stroke="#d98e7a" stroke-width="1.2" opacity="0.35"/>
+      <circle cx="130" cy="130" r="85" fill="none" stroke="#b5533c" stroke-width="1.5" opacity="0.25"/>
+      <circle cx="130" cy="130" r="60" fill="#f5e0d0" opacity="0.5"/>
+      <circle cx="130" cy="130" r="38" fill="#b5533c" opacity="0.12"/>
+      <path d="M130 60 Q160 100 130 130 Q100 160 130 200" stroke="#b5533c" stroke-width="2" fill="none" opacity="0.5"/>
+      <path d="M60 130 Q100 100 130 130 Q160 160 200 130" stroke="#d98e7a" stroke-width="2" fill="none" opacity="0.5"/>
+      <circle cx="130" cy="130" r="5" fill="#b5533c" opacity="0.7"/>
+      <text x="130" y="248" text-anchor="middle" font-size="11" fill="#9c8f85" font-family="serif" letter-spacing="6">MIYABI</text>
+    </svg>
+  </div>
+</section>
+
+<!-- 主布局：三栏门户 -->
+<div class="container main-layout">
+
+  <!-- 左侧频道索引 -->
+  <aside class="channel-sidebar" aria-label="频道索引">
+    <h3>频道索引</h3>
+    <ul class="channel-list">
+      <li><a href="#overview" class="active"><span class="ch-icon">◆</span>领域概览</a></li>
+      <li><a href="#featured"><span class="ch-icon">▸</span>精选作品</a></li>
+      <li><a href="#updates"><span class="ch-icon">▸</span>最新动态</a></li>
+      <li><a href="#categories"><span class="ch-icon">▸</span>分类索引</a></li>
+      <li><a href="#analysis"><span class="ch-icon">▸</span>深度解析</a></li>
+      <li><a href="#guide"><span class="ch-icon">▸</span>观看指南</a></li>
+      <li><a href="#faq"><span class="ch-icon">▸</span>常见问答</a></li>
+      <li><a href="#comments"><span class="ch-icon">▸</span>观众评论</a></li>
+      <li><a href="#news"><span class="ch-icon">▸</span>相关资讯</a></li>
+      <li><a href="#recommend"><span class="ch-icon">▸</span>相关推荐</a></li>
+      <li><a href="#timeline"><span class="ch-icon">▸</span>条目时间线</a></li>
+      <li><a href="#submit"><span class="ch-icon">▸</span>投稿交流</a></li>
+    </ul>
+  </aside>
+
+  <!-- 中间主内容 -->
+  <main class="main-content">
+
+    <!-- 1. 领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-header">
+        <h2>领域概览 <span class="h2-accent">· 作品方向与内容构成</span></h2>
+      </div>
+      <div class="overview-text">
+        <p>立花美凉的活动轨迹以 2019 年 4 月发行的首部单体作品《初咲》为起点，此后七年间的影像内容大致分四条线：剧情类单体、写真影像、访谈纪录片、以及多人共演合集。剧情类单片时长集中在 110—140 分钟，2019—2021 年偏校园与日常题材，2022 年后转向都市情感与季节主题，代表作有《冬の光》《蝉时雨》与《月面の舟》。写真影像数量较少，目前可查的完整写真作品共 6 部，2026 年 11 月 5 日上线的《凉音》是最近一部。</p>
+        <p>访谈与幕后类内容分散在发行方特典、流媒体限定花絮和杂志附录中，单段时长通常在 15—30 分钟。2025 年 6 月发行的《立花美凉 10th Anniversary 访谈录》收录了 48 分钟的长篇对谈，是了解其选角思路和拍摄习惯比较直接的材料。合集类作品以共演和周年纪念为主，2024 年后的合集普遍附带未公开片段，购买前需要区分“通常版”与“初回限定版”的收录差异。</p>
+        <p>从观众讨论的热度看，剧情类单片仍是搜索与讨论的主体，写真集的讨论集中在印刷质量与电子版色彩还原，访谈类的讨论量小但评分中位数最高。2026 年 10 月下旬到 11 月上旬，讨论焦点集中在《冬の光》的冬季外景花絮和《凉音》的电子版首发两个具体事件上。</p>
+      </div>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-header">
+        <h2>精选内容推荐 <span class="h2-accent">· 值得优先浏览的条目</span></h2>
+        <span class="section-more">共 8 部</span>
+      </div>
+      <div class="card-grid">
+        <article class="card">
+          <div class="card-img"><img src="https://picsum.photos/seed/tachibana-fuyu/400/300" alt="《冬の光》冬季外景剧照" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag type-tag">剧情单体</span>
+              <span class="tag">冬季外景</span>
+              <span class="tag">2025</span>
+            </div>
+            <h3 class="card-title">冬の光</h3>
+            <p class="card-desc">全片在北海道取景，外景占比约六成。2025 年 12 月发行，时长 132 分钟，附赠 22 分钟拍摄花絮，花絮中有一段关于雪地走位的现场调整记录。</p>
+            <div class="card-meta">
+              <span class="rating">★ 4.6</span>
+              <span>2025-12-03</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img"><img src="https://picsum.photos/seed/tachibana-semi/400/300" alt="《蝉时雨》夏日庭院场景" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag type-tag">剧情单体</span>
+              <span class="tag">夏日</span>
+              <span class="tag">长镜头</span>
+            </div>
+            <h3 class="card-title">蝉时雨</h3>
+            <p class="card-desc">2024 年 8 月发行，片长 118 分钟。第三幕有一段 7 分 20 秒的连续长镜头，拍摄当天因蝉鸣干扰重拍了四次，幕后花絮收录了其中两条对比。</p>
+            <div class="card-meta">
+              <span class="rating">★ 4.5</span>
+              <span>2024-08-17</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img"><img src="https://picsum.photos/seed/tachibana-suzu/400/300" alt="《凉音》写真集封面内页" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag type-tag">写真集</span>
+              <span class="tag">电子版</span>
+              <span class="tag">2026</span>
+            </div>
+            <h3 class="card-title">凉音</h3>
+            <p class="card-desc">2026 年 11 月 5 日上线电子版，纸本同步发行。收录 96 页，分“室内光”“街道”“水边”三章，电子版额外附 8 页拍摄手记，记有每处取景的拍摄时段。</p>
+            <div class="card-meta">
+              <span class="rating">★ 4.7</span>
+              <span>2026-11-05</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img"><img src="https://picsum.photos/seed/tachibana-anniv/400/300" alt="十周年访谈录对谈现场" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag type-tag">访谈纪录片</span>
+              <span class="tag">十周年</span>
+              <span class="tag">幕后</span>
+            </div>
+            <h3 class="card-title">10th Anniversary 访谈录</h3>
+            <p class="card-desc">2025 年 6 月发行，48 分钟长篇对谈，分选角、现场、休息日三部分。谈到 2021 年《月面の舟》的试镜过程时给出了具体日期和同场候选人数量。</p>
+            <div class="card-meta">
+              <span class="rating">★ 4.8</span>
+              <span>2025-06-21</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img"><img src="https://picsum.photos/seed/tachibana-tsuki/400/300" alt="《月面の舟》夜景镜头" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag type-tag">剧情单体</span>
+              <span class="tag">夜景</span>
+              <span class="tag">2022</span>
+            </div>
+            <h3 class="card-title">月面の舟</h3>
+            <p class="card-desc">2022 年 9 月发行，全片 126 分钟，八成场景在夜间拍摄。灯光组在采访中提过，城区外景主要靠三盏便携灯补光，成片保留了较多环境暗部。</p>
+            <div class="card-meta">
+              <span class="rating">★ 4.4</span>
+              <span>2022-09-14</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img"><img src="https://picsum.photos/seed/tachibana-hatsu/400/300" alt="《初咲》首部作品剧照" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag type-tag">剧情单体</span>
+              <span class="tag">出道作</span>
+              <span class="tag">2019</span>
+            </div>
+            <h3 class="card-title">初咲</h3>
+            <p class="card-desc">2019 年 4 月发行的首部单体，片长 105 分钟。画质按当年标准属中上，现发行的修复版重调了色彩，对比原版能看到肤色还原的明显差异。</p>
+            <div class="card-meta">
+              <span class="rating">★ 4.2</span>
+              <span>2019-04-06</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img"><img src="https://picsum.photos/seed/tachibana-matsuri/400/300" alt="《夏祭り共演》多人场景" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag type-tag">共演合集</span>
+              <span class="tag">夏祭</span>
+              <span class="tag">多人</span>
+            </div>
+            <h3 class="card-title">夏祭り共演</h3>
+            <p class="card-desc">2024 年 7 月发行的四人共演合集，总时长 156 分钟，含两条独立支线。初回限定版多一张拍摄花絮碟，收录了排练走位和服装试穿的片段。</p>
+            <div class="card-meta">
+              <span class="rating">★ 4.3</span>
+              <span>2024-07-20</span>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-img"><img src="https://picsum.photos/seed/tachibana-yuki/400/300" alt="《雪解け》早春外景" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <div class="card-tags">
+              <span class="tag type-tag">剧情单体</span>
+              <span class="tag">早春</span>
+              <span class="tag">2026</span>
+            </div>
+            <h3 class="card-title">雪解け</h3>
+            <p class="card-desc">2026 年 3 月发行，片长 124 分钟，在长野县拍摄。全片以早春融雪为时间线推进，拍摄周期 11 天，发行方公开的拍摄日志里记有每日气温和雪况。</p>
+            <div class="card-meta">
+              <span class="rating">★ 4.5</span>
+              <span>2026-03-11</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-header">
+        <h2>最新更新 <span class="h2-accent">· 近 30 天条目动态</span></h2>
+        <span class="section-more">按日期倒序</span>
+      </div>
+      <ul class="update-list">
+        <li>
+          <span class="update-date">2026-11-07</span>
+          <div class="update-body">
+            <div class="update-title">《冬の光》花絮剪辑上线流媒体</div>
+            <div class="update-summary">22 分钟花絮拆成三段放出，第一段记录了雪地走位的现场调整，含导演与摄影指导的对话。</div>
+          </div>
+        </li>
+        <li>
+          <span class="update-date">2026-11-05</span>
+          <div class="update-body">
+            <div class="update-title">写真集《凉音》电子版首发</div>
+            <div class="update-summary">电子版附 8 页拍摄手记，纸本同步发行，发行方公布首日电子版下载量为系列最高。</div>
+          </div>
+        </li>
+        <li>
+          <span class="update-date">2026-11-02</span>
+          <div class="update-body">
+            <div class="update-title">《蝉时雨》长镜头幕后解析公开</div>
+            <div class="update-summary">官方频道发布 9 分钟解析，逐帧标注了 7 分 20 秒长镜头中三次因蝉鸣重拍的衔接点。</div>
+          </div>
+        </li>
+        <li>
+          <span class="update-date">2026-10-28</span>
+          <div class="update-body">
+            <div class="update-title">《雪解け》拍摄日志第三篇更新</div>
+            <div class="update-summary">日志记录了第 8 至 11 天的气温变化，最低零下 3 度，融雪导致外景地临时更换两处。</div>
+          </div>
+        </li>
+        <li>
+          <span class="update-date">2026-10-24</span>
+          <div class="update-body">
+            <div class="update-title">《月面の舟》修复版画质对比</div>
+            <div class="update-summary">有用户上传了原版与修复版的夜景截图对比，暗部噪点差异明显，修复版保留了更多细节。</div>
+          </div>
+        </li>
+        <li>
+          <span class="update-date">2026-10-20</span>
+          <div class="update-body">
+            <div class="update-title">《夏祭り共演》初回限定版补货</div>
+            <div class="update-summary">发行方公告初回限定版追加生产，含花絮碟的版本预计 11 月中旬恢复供货。</div>
+          </div>
+        </li>
+        <li>
+          <span class="update-date">2026-10-15</span>
+          <div class="update-body">
+            <div class="update-title">十周年访谈录新增字幕版</div>
+            <div class="update-summary">流媒体端上线了简繁双字幕，原版仅含日文字幕，对谈中涉及方言的部分加了注释。</div>
+          </div>
+        </li>
+        <li>
+          <span class="update-date">2026-10-11</span>
+          <div class="update-body">
+            <div class="update-title">《初咲》修复版发行公告</div>
+            <div class="update-summary">修复版定于 12 月发行，发行方先行公开了三组色彩对比截图，肤色还原有明显调整。</div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-header">
+        <h2>分类索引 <span class="h2-accent">· 按类型查找</span></h2>
+        <span class="section-more">8 个分类</span>
+      </div>
+      <div class="category-grid">
+        <button class="category-item" data-cat="剧情单体">
+          <span class="cat-icon">🎬</span>
+          <span class="cat-name">剧情单体</span>
+          <span class="cat-count">14 部</span>
+        </button>
+        <button class="category-item" data-cat="写真集">
+          <span class="cat-icon">📷</span>
+          <span class="cat-name">写真集</span>
+          <span class="cat-count">6 部</span>
+        </button>
+        <button class="category-item" data-cat="访谈纪录片">
+          <span class="cat-icon">🎙️</span>
+          <span class="cat-name">访谈纪录片</span>
+          <span class="cat-count">5 部</span>
+        </button>
+        <button class="category-item" data-cat="共演合集">
+          <span class="cat-icon">👥</span>
+          <span class="cat-name">共演合集</span>
+          <span class="cat-count">7 部</span>
+        </button>
+        <button class="category-item" data-cat="冬季外景">
+          <span class="cat-icon">❄️</span>
+          <span class="cat-name">冬季外景</span>
+          <span class="cat-count">3 部</span>
+        </button>
+        <button class="category-item" data-cat="夏季外景">
+          <span class="cat-icon">🌊</span>
+          <span class="cat-name">夏季外景</span>
+          <span class="cat-count">4 部</span>
+        </button>
+        <button class="category-item" data-cat="幕后花絮">
+          <span class="cat-icon">🎞️</span>
+          <span class="cat-name">幕后花絮</span>
+          <span class="cat-count">9 条</span>
+        </button>
+        <button class="category-item" data-cat="十周年特辑">
+          <span class="cat-icon">🏷️</span>
+          <span class="cat-name">十周年特辑</span>
+          <span class="cat-count">4 条</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section class="section" id="analysis">
+      <div class="section-header">
+        <h2>深度解析 <span class="h2-accent">· 类型差异与判断依据</span></h2>
+      </div>
+      <div class="deep-analysis">
+        <h3>剧情单体的时长与结构变化</h3>
+        <p>2019 年到 2026 年，立花美凉剧情单体的时长从 105 分钟拉长到 124—132 分钟，增加的时长主要落在开场铺垫和结尾余韵上，中间段的节奏变化反而不大。以《初咲》（2019，105 分钟）和《冬の光》（2025，132 分钟）对比，前作开场 8 分钟即进入主线，后作开场用了 19 分钟交代人物关系和环境，其中 11 分钟是几乎没有对白的外景行走。这种拉长对观感的影响因人而异：偏好快节奏的观众会觉得前段拖，而喜欢环境氛围的观众会把这段当作主要看点。</p>
+        <p>另一个可核对的差异是场景数量。《初咲》全片 9 个场景，《冬の光》只有 6 个，但单个场景的平均时长从 11.7 分钟增加到 22 分钟。场景变少、单场变长，意味着叙事更依赖单场内部的调度，而不是靠场景切换推进。2024 年的《蝉时雨》第三幕 7 分 20 秒长镜头就是这种调度思路的极端案例——整段不切，压力全在演员走位和摄影机运动上。</p>
+
+        <h3>写真集纸本与电子版的差异</h3>
+        <p>立花美凉目前可查的 6 部写真集中，纸本与电子版的差异集中在三处：色彩还原、附加内容和翻阅体验。2026 年 11 月的《凉音》电子版附 8 页拍摄手记，纸本没有这部分；但电子版在暗部细节上会因屏幕不同出现偏差，拍摄手记里也提到“水边”一章的蓝灰色调在印刷校色时调整了三次。</p>
+        <p>2023 年的《白昼梦》是另一组参照。纸本采用哑光纸，肤色偏暖；电子版在标准 sRGB 屏幕上看偏冷，对比样张能看出约 5% 的色温差。如果只打算看一遍，电子版足够；如果在意印刷质感和色彩稳定，纸本更可靠。两种都买的观众，多数是为了手记和纸本收藏各取所需。</p>
+
+        <h3>访谈类内容的信息密度</h3>
+        <p>访谈纪录片数量少，但单条信息密度最高。2025 年 6 月的十周年访谈录里，有一段谈到 2021 年《月面の舟》的试镜：她提到试镜日期是 2021 年 5 月 14 日，同场候选人 4 名，最终选角依据是“夜景戏的适应度”。这类有时间、有数字、有判断依据的表述，在剧情单体的宣传物料里几乎不会出现。</p>
+        <p>访谈类的评分中位数也是所有类型里最高的，2024 年以后的四部访谈作品里，有三部在主要评分网站的分数高于同期剧情单体。原因不难核对：访谈没有剧情和制作规格的波动，信息量直接决定评价，而观众对访谈的预期本来就更低、更容易满足。</p>
+
+        <h3>合集版本的收录差异</h3>
+        <p>共演合集的版本差异比单体作品更值得注意。2024 年 7 月的《夏祭り共演》，通常版和初回限定版的正片相同，差别在初回版多一张花絮碟。花絮碟收录的排练走位和服装试穿片段，对只关心正片的观众没有额外价值；但对想看拍摄流程的观众，这 34 分钟花絮里的信息比正片更具体，比如四人走位的调度顺序和现场改词的地方。</p>
+        <div class="highlight-box">
+          核对一个合集版本值不值得换，可以按三步查：先看发行方公告里有没有列出正片之外的收录时长，再看花絮内容是否标注了具体拍摄日期，最后对照已有版本的碟数编号。三步里缺两步，版本差异通常可以忽略。
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-header">
+        <h2>体验指南 <span class="h2-accent">· 按什么顺序看</span></h2>
+      </div>
+      <div class="guide-steps">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>先看一部剧情单体，建立基本印象</h4>
+            <p>推荐从《冬の光》或《蝉时雨》入手。两部都是中等偏长的单体，制作规格接近，能较快看出对季节题材和长镜头的偏好。如果只打算看一部，选《冬の光》，外景占比高，对画面风格的代表性更强。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>再补一部访谈，校准判断</h4>
+            <p>十周年访谈录里对选角和现场的描述，能帮助理解前面看的单体里哪些是设计、哪些是临场。看完访谈再回看《月面の舟》的夜景段，对灯光和走位的判断会更具体。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>写真集按用途选版本</h4>
+            <p>电子版适合先看内容，纸本适合色彩和收藏。如果两版都想买，先入手电子版看手记部分，再决定纸本值不值得补。2026 年《凉音》和 2023 年《白昼梦》的电子版都在发行首日提供了样张预览。</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>合集先查版本再决定</h4>
+            <p>共演合集的正片内容通常一致，差别在花絮碟和收录时长。发行方公告里会列出初回版与通常版的具体差异，对照花絮时长和拍摄日期判断。花絮没有具体日期标注的，多半是宣传剪辑，信息量有限。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section" id="faq">
+      <div class="section-header">
+        <h2>常见问答 <span class="h2-accent">· 关于作品与版本</span></h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>《冬の光》的花絮收录在哪个版本里？</summary>
+          <div class="faq-answer">22 分钟花絮收录在 2025 年 12 月发行的初回限定版里，通常版不含花絮。2026 年 11 月 7 日起，花絮剪辑分三段在流媒体上线，内容与初回版花絮碟一致，但分段后少了片头说明。</div>
+        </details>
+        <details>
+          <summary>《凉音》电子版和纸本的页数一样吗？</summary>
+          <div class="faq-answer">正片部分都是 96 页，顺序一致。电子版额外附 8 页拍摄手记，纸本没有收录。手记内容是每处取景的拍摄时段和现场备注，文字量不大，但能对应到具体照片的拍摄时间。</div>
+        </details>
+        <details>
+          <summary>《蝉时雨》的 7 分 20 秒长镜头是实拍还是剪辑拼接？</summary>
+          <div class="faq-answer">是实拍单条。2026 年 11 月 2 日官方发布的解析里逐帧标注了衔接点，三次因蝉鸣重拍后的选用版本在解析里有明确标记，重拍原因分别是蝉鸣干扰、走位偏差和光线变化。</div>
+        </details>
+        <details>
+          <summary>2021 年《月面の舟》的试镜有多少人参加？</summary>
+          <div class="faq-answer">据 2025 年 6 月十周年访谈录里的说法，试镜日期是 2021 年 5 月 14 日，同场候选人 4 名，最终依据夜景戏的适应度选定。访谈里没有提及其他场次是否还有候选人。</div>
+        </details>
+        <details>
+          <summary>《夏祭り共演》初回版和通常版差在哪里？</summary>
+          <div class="faq-answer">正片完全相同，都是 156 分钟。初回限定版多一张花絮碟，收录排练走位和服装试穿片段，共 34 分钟。2026 年 10 月 20 日发行方公告初回版追加生产，11 月中旬恢复供货。</div>
+        </details>
+        <details>
+          <summary>《初咲》修复版和 2019 年原版的画质差别大吗？</summary>
+          <div class="faq-answer">差别主要在色彩还原和暗部细节。发行方 2026 年 10 月 11 日公开的三组对比截图里，修复版的肤色更接近自然光下的效果，原版偏暖偏黄。修复版定于 12 月发行，目前公开的样张只有三组。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-header">
+        <h2>观众评论 <span class="h2-accent">· 来自讨论区的具体反馈</span></h2>
+        <span class="section-more">16 条</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">K</span><span class="comment-name">kita_0721</span></div>
+          <div class="comment-text">《冬の光》前 19 分钟我快进了，后面雪地那段才是正片。花絮里导演说那段走了七遍，难怪成片里脚印方向都是一致的。</div>
+          <div class="comment-meta">2026-11-07</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">M</span><span class="comment-name">mizuki_hy</span></div>
+          <div class="comment-text">《凉音》电子版买完有点后悔，蓝灰那章的色差确实有，手记倒是写得挺细，连拍摄时段都标了。纸本还在路上。</div>
+          <div class="comment-meta">2026-11-06</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">S</span><span class="comment-name">semi_1122</span></div>
+          <div class="comment-text">蝉时雨那个长镜头解析看完，重拍三次选的是第一次，理由是蝉鸣最自然。这个判断我服。</div>
+          <div class="comment-meta">2026-11-03</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">T</span><span class="comment-name">takeshi_n</span></div>
+          <div class="comment-text">十周年访谈录里讲试镜那段，5 月 14 日、4 个人，数字给得干脆。比很多宣传物料实在。</div>
+          <div class="comment-meta">2026-10-30</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">A</span><span class="comment-name">aoi_0915</span></div>
+          <div class="comment-text">夏祭共演初回版花絮碟 34 分钟，走位那段看了两遍。正片反而一般，四个人分到的戏份不太平均。</div>
+          <div class="comment-meta">2026-10-27</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">R</span><span class="comment-name">rin_ka</span></div>
+          <div class="comment-text">初咲修复版对比图看了，原版那个暖黄现在看有点过。等 12 月出了再决定换不换。</div>
+          <div class="comment-meta">2026-10-24</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">N</span><span class="comment-name">natsu_fu</span></div>
+          <div class="comment-text">雪解け的拍摄日志更得挺勤，第 8 天零下 3 度那段，外景地换了两次，成片里有一处背景明显不是同一片区域，不知道是不是这个原因。</div>
+          <div class="comment-meta">2026-10-28</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">H</span><span class="comment-name">hikari_00</span></div>
+          <div class="comment-text">月面の舟修复版噪点少了很多，但夜景那种颗粒感也没了，有点可惜。</div>
+          <div class="comment-meta">2026-10-25</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">Y</span><span class="comment-name">yuki_0303</span></div>
+          <div class="comment-text">写真集白昼梦的纸本手感确实好，哑光纸翻起来不反光。电子版我当预览用。</div>
+          <div class="comment-meta">2026-10-22</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">G</span><span class="comment-name">gen_ji</span></div>
+          <div class="comment-text">访谈类评分高我理解，但十周年那部有一半时间在聊天气和吃饭，信息密度不如预期。</div>
+          <div class="comment-meta">2026-10-19</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">C</span><span class="comment-name">chika_77</span></div>
+          <div class="comment-text">冬の光花絮拆三段放，第二段剪得有点碎，现场调整那段本来想看完整走位，结果切了好几次。</div>
+          <div class="comment-meta">2026-11-08</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">D</span><span class="comment-name">daichi_kt</span></div>
+          <div class="comment-text">初咲入坑，那会儿画质放现在确实一般，但节奏是我看过的几部里最顺的。</div>
+          <div class="comment-meta">2026-10-16</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">F</span><span class="comment-name">fuyu_mi</span></div>
+          <div class="comment-text">凉音水边那章的手记提到校色调了三次，电子版看着还是偏冷，不知道是不是我屏幕的问题。</div>
+          <div class="comment-meta">2026-11-06</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">B</span><span class="comment-name">bun_chan</span></div>
+          <div class="comment-text">夏祭共演初回版补货终于等到了，11 月中旬的话这个月能收到。</div>
+          <div class="comment-meta">2026-10-21</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">I</span><span class="comment-name">ito_1024</span></div>
+          <div class="comment-text">最近在补访谈，选角那段来回听了三遍，4 个候选人里选夜景适应度最好的，这个标准挺具体。</div>
+          <div class="comment-meta">2026-10-18</div>
+        </div>
+        <div class="comment-card">
+          <div class="comment-user"><span class="comment-avatar">J</span><span class="comment-name">jun_sky</span></div>
+          <div class="comment-text">蝉时雨第三幕那个长镜头，我第一次看根本没发现是整段不切，解析出来才注意到。</div>
+          <div class="comment-meta">2026-11-04</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-header">
+        <h2>相关资讯 <span class="h2-accent">· 近期发行与公开信息</span></h2>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <div class="news-title">《冬の光》花絮分三段上线，首段聚焦雪地走位</div>
+          <div class="news-meta">2026-11-07 · 流媒体发行</div>
+          <div class="news-summary">三段花絮总长 22 分钟，首段 8 分钟，含导演与摄影指导关于雪地脚印方向的现场对话。第二段和第三段分别在本周内放出。</div>
+        </article>
+        <article class="news-item">
+          <div class="news-title">《凉音》电子版首日下载量系列最高</div>
+          <div class="news-meta">2026-11-05 · 写真集发行</div>
+          <div class="news-summary">发行方公布首日数据，电子版下载量超过 2023 年《白昼梦》首日的两倍。纸本同步发行，部分渠道显示库存紧张。</div>
+        </article>
+        <article class="news-item">
+          <div class="news-title">《蝉时雨》长镜头解析发布，标注三次重拍衔接点</div>
+          <div class="news-meta">2026-11-02 · 幕后公开</div>
+          <div class="news-summary">9 分钟解析逐帧标注了 7 分 20 秒长镜头中三次重拍的剪接位置，选用版本为第一次拍摄，原因是蝉鸣最自然。</div>
+        </article>
+        <article class="news-item">
+          <div class="news-title">《雪解け》拍摄日志更新至第 11 天，最低温零下 3 度</div>
+          <div class="news-meta">2026-10-28 · 拍摄记录</div>
+          <div class="news-summary">日志记录了融雪导致外景地临时更换两处的经过，第 8 天到第 11 天的气温曲线与成片中的雪量变化对应。</div>
+        </article>
+        <article class="news-item">
+          <div class="news-title">《夏祭り共演》初回限定版追加生产，11 月中旬恢复供货</div>
+          <div class="news-meta">2026-10-20 · 发行公告</div>
+          <div class="news-summary">发行方公告称追加生产数量约为首批发行的六成，含花絮碟的初回版预计 11 月 15 日前后恢复供货。</div>
+        </article>
+        <article class="news-item">
+          <div class="news-title">《初咲》修复版 12 月发行，先行公开三组色彩对比</div>
+          <div class="news-meta">2026-10-11 · 修复发行</div>
+          <div class="news-summary">对比截图显示修复版调整了肤色还原，原版偏暖偏黄。修复版发行日期为 12 月，具体日期未在公告中写明。</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="section" id="recommend">
+      <div class="section-header">
+        <h2>相关推荐 <span class="h2-accent">· 按方向查找</span></h2>
+      </div>
+      <div class="related-tags">
+        <a href="#featured" class="related-tag">冬季外景作品</a>
+        <a href="#featured" class="related-tag">蝉时雨长镜头</a>
+        <a href="#featured" class="related-tag">十周年访谈录</a>
+        <a href="#featured" class="related-tag">凉音电子版手记</a>
+        <a href="#featured" class="related-tag">月面の舟夜景</a>
+        <a href="#featured" class="related-tag">夏祭共演花絮碟</a>
+        <a href="#featured" class="related-tag">初咲修复版</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充板块：条目时间线 -->
+    <section class="section" id="timeline">
+      <div class="section-header">
+        <h2>条目时间线 <span class="h2-accent">· 按发行日期</span></h2>
+      </div>
+      <ul class="timeline">
+        <li>
+          <div class="timeline-date">2026-11-05</div>
+          <div class="timeline-title">写真集《凉音》发行</div>
+          <div class="timeline-desc">电子版与纸本同步，电子版附 8 页拍摄手记。</div>
+        </li>
+        <li>
+          <div class="timeline-date">2026-03-11</div>
+          <div class="timeline-title">《雪解け》发行</div>
+          <div class="timeline-desc">长野县拍摄，片长 124 分钟，拍摄周期 11 天。</div>
+        </li>
+        <li>
+          <div class="timeline-date">2025-12-03</div>
+          <div class="timeline-title">《冬の光》发行</div>
+          <div class="timeline-desc">北海道取景，132 分钟，初回版含 22 分钟花絮。</div>
+        </li>
+        <li>
+          <div class="timeline-date">2025-06-21</div>
+          <div class="timeline-title">十周年访谈录发行</div>
+          <div class="timeline-desc">48 分钟长篇对谈，分选角、现场、休息日三部分。</div>
+        </li>
+        <li>
+          <div class="timeline-date">2024-08-17</div>
+          <div class="timeline-title">《蝉时雨》发行</div>
+          <div class="timeline-desc">118 分钟，第三幕含 7 分 20 秒长镜头。</div>
+        </li>
+        <li>
+          <div class="timeline-date">2024-07-20</div>
+          <div class="timeline-title">《夏祭り共演》发行</div>
+          <div class="timeline-desc">四人共演合集，156 分钟，初回版含花絮碟。</div>
+        </li>
+        <li>
+          <div class="timeline-date">2022-09-14</div>
+          <div class="timeline-title">《月面の舟》发行</div>
+          <div class="timeline-desc">126 分钟，八成场景夜间拍摄。</div>
+        </li>
+        <li>
+          <div class="timeline-date">2019-04-06</div>
+          <div class="timeline-title">《初咲》发行</div>
+          <div class="timeline-desc">首部单体作品，105 分钟，2026 年 12 月发行修复版。</div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- 12. 补充板块：投稿交流 -->
+    <section class="section" id="submit">
+      <div class="section-header">
+        <h2>投稿交流 <span class="h2-accent">· 条目补充与版本核对</span></h2>
+      </div>
+      <div class="overview-text">
+        <p>条目信息或版本收录有出入时，可以在交流区提交补充。目前待核对的两条记录：2024 年《夏祭り共演》初回版花絮碟的碟数编号，以及 2026 年《雪解け》第 8 天外景地更换的具体地点。提交时附上发行方公告截图或碟面照片，方便对照。</p>
+        <p>近期收到三份补充：《冬の光》花絮第三段含未公开的收工镜头；《凉音》电子版第 72 页手记提到的取景时段与纸本不同；《初咲》修复版对比图里有一组是逆光场景。这些补充会在核对后并入对应条目。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右侧辅助栏 -->
+  <aside class="right-sidebar" aria-label="辅助信息">
+    <div class="sidebar-card">
+      <h3>本周热度榜</h3>
+      <ol class="hot-list">
+        <li><a href="#featured">冬の光 · 花絮上线带动回看</a></li>
+        <li><a href="#featured">凉音 · 电子版首周下载</a></li>
+        <li><a href="#featured">蝉时雨 · 长镜头解析</a></li>
+        <li><a href="#featured">十周年访谈录 · 字幕版新增</a></li>
+        <li><a href="#featured">雪解け · 拍摄日志更新</a></li>
+        <li><a href="#featured">月面の舟 · 修复版对比</a></li>
+      </ol>
+    </div>
+    <div class="sidebar-card">
+      <h3>快速入口</h3>
+      <div class="quick-links">
+        <a href="#categories">▸ 按类型浏览</a>
+        <a href="#guide">▸ 观看顺序建议</a>
+        <a href="#faq">▸ 版本差异问答</a>
+        <a href="#timeline">▸ 发行时间线</a>
+        <a href="#submit">▸ 补充条目信息</a>
+      </div>
+    </div>
+    <div class="sidebar-card">
+      <h3>近期评分</h3>
+      <ul class="hot-list" style="counter-reset:none;">
+        <li style="counter-increment:none;"><a href="#featured">凉音 ★ 4.7</a></li>
+        <li style="counter-increment:none;"><a href="#featured">冬の光 ★ 4.6</a></li>
+        <li style="counter-increment:none;"><a href="#featured">蝉时雨 ★ 4.5</a></li>
+        <li style="counter-increment:none;"><a href="#featured">十周年访谈录 ★ 4.8</a></li>
+        <li style="counter-increment:none;"><a href="#featured">雪解け ★ 4.5</a></li>
+      </ul>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 返回顶部 -->
+<button class="back-top" id="backTop" aria-label="返回顶部">↑</button>
+
+<!-- 页尾 -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>立花美凉</h3>
+        <p>覆盖 2019 年 4 月至 2026 年 11 月的影像与写真作品，条目类型包括剧情单体、写真集、访谈纪录片、共演合集与幕后花絮。发行信息按月更新，评分与评论摘录随讨论区变动增补。</p>
+        <p>页面内容为示例条目整理，发行日期与版本信息以发行方公告为准。</p>
+      </div>
+      <div class="footer-col">
+        <h4>作品类型</h4>
+        <a href="#categories">剧情单体</a>
+        <a href="#categories">写真集</a>
+        <a href="#categories">访谈纪录片</a>
+        <a href="#categories">共演合集</a>
+      </div>
+      <div class="footer-col">
+        <h4>近期条目</h4>
+        <a href="#featured">冬の光</a>
+        <a href="#featured">凉音</a>
+        <a href="#featured">蝉时雨</a>
+        <a href="#featured">雪解け</a>
+      </div>
+      <div class="footer-col">
+        <h4>参与</h4>
+        <a href="#submit">补充条目</a>
+        <a href="#comments">参与讨论</a>
+        <a href="#faq">版本核对</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 立花美凉资料索引 · 内容为示例数据</span>
+      <span>更新时间：2026-11-08 · 对应《冬の光》花絮上线与《凉音》电子版首发</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "立花美凉 - 作品索引与资料聚合",
+  "description": "立花美凉资料聚合页，汇集作品索引、人物档案、类型分类、观众评论与近期动态。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "《冬の光》的花絮收录在哪个版本里？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "22 分钟花絮收录在 2025 年 12 月发行的初回限定版里，通常版不含花絮。2026 年 11 月 7 日起，花絮剪辑分三段在流媒体上线。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "《凉音》电子版和纸本的页数一样吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "正片部分都是 96 页，电子版额外附 8 页拍摄手记，纸本没有收录。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "《蝉时雨》的 7 分 20 秒长镜头是实拍还是剪辑拼接？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "是实拍单条。2026 年 11 月 2 日官方发布的解析里逐帧标注了衔接点，三次重拍后的选用版本有明确标记。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "2021 年《月面の舟》的试镜有多少人参加？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "据 2025 年 6 月十周年访谈录里的说法，试镜日期是 2021 年 5 月 14 日，同场候选人 4 名。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "《夏祭り共演》初回版和通常版差在哪里？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "正片完全相同，都是 156 分钟。初回限定版多一张花絮碟，收录排练走位和服装试穿片段，共 34 分钟。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "《初咲》修复版和 2019 年原版的画质差别大吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "差别主要在色彩还原和暗部细节。修复版的肤色更接近自然光下的效果，原版偏暖偏黄。修复版定于 12 月发行。"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- 交互脚本 -->
+<script>
+(function() {
+  // 搜索筛选
+  var searchInput = document.getElementById('searchInput');
+  var searchBtn = document.getElementById('searchBtn');
+  var allCards = document.querySelectorAll('.card');
+  var allUpdates = document.querySelectorAll('.update-list li');
+  var allNews = document.querySelectorAll('.news-item');
+
+  function doSearch() {
+    var q = (searchInput.value || '').trim().toLowerCase();
+    if (!q) {
+      allCards.forEach(function(c) { c.style.display = ''; });
+      allUpdates.forEach(function(u) { u.style.display = ''; });
+      allNews.forEach(function(n) { n.style.display = ''; });
+      return;
+    }
+    var found = 0;
+    allCards.forEach(function(c) {
+      var text = c.textContent.toLowerCase();
+      if (text.indexOf(q) > -1) { c.style.display = ''; found++; }
+      else { c.style.display = 'none'; }
+    });
+    allUpdates.forEach(function(u) {
+      var text = u.textContent.toLowerCase();
+      if (text.indexOf(q) > -1) { u.style.display = ''; found++; }
+      else { u.style.display = 'none'; }
+    });
+    allNews.forEach(function(n) {
+      var text = n.textContent.toLowerCase();
+      if (text.indexOf(q) > -1) { n.style.display = ''; found++; }
+      else { n.style.display = 'none'; }
+    });
+    if (found === 0) {
+      alert('没有找到与「' + searchInput.value + '」相关的条目，试试其他关键词。');
+    }
+  }
+
+  if (searchBtn) searchBtn.addEventListener('click', doSearch);
+  if (searchInput) {
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') doSearch();
+    });
+  }
+
+  // 分类筛选
+  var catBtns = document.querySelectorAll('.category-item');
+  catBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var cat = this.getAttribute('data-cat');
+      var matched = 0;
+      allCards.forEach(function(c) {
+        var tags = c.querySelectorAll('.tag');
+        var has = false;
+        tags.forEach(function(t) {
+          if (t.textContent.indexOf(cat) > -1) has = true;
+        });
+        if (has) { c.style.display = ''; matched++; }
+        else { c.style.display = 'none'; }
+      });
+      if (matched === 0) {
+        alert('「' + cat + '」分类下暂无条目展示，可查看其他分类。');
+      }
+      document.getElementById('featured').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // 返回顶部
+  var backTop = document.getElementById('backTop');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > window.innerHeight) {
+      backTop.classList.add('visible');
+    } else {
+      backTop.classList.remove('visible');
+    }
+  });
+  backTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 移动端菜单
+  var hamburger = document.getElementById('hamburgerBtn');
+  var mobilePanel = document.getElementById('mobilePanel');
+  var mobileOverlay = document.getElementById('mobileOverlay');
+  var mobileClose = document.getElementById('mobileClose');
+
+  function openMenu() {
+    mobilePanel.classList.add('open');
+    mobileOverlay.classList.add('open');
+    hamburger.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    mobilePanel.classList.remove('open');
+    mobileOverlay.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  hamburger.addEventListener('click', function() {
+    if (mobilePanel.classList.contains('open')) closeMenu();
+    else openMenu();
+  });
+  mobileOverlay.addEventListener('click', closeMenu);
+  mobileClose.addEventListener('click', closeMenu);
+  mobilePanel.querySelectorAll('a').forEach(function(a) {
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  // 左侧频道高亮
+  var sections = document.querySelectorAll('.section[id]');
+  var channelLinks = document.querySelectorAll('.channel-list a');
+  window.addEventListener('scroll', function() {
+    var scrollPos = window.scrollY + 140;
+    var currentId = '';
+    sections.forEach(function(sec) {
+      if (sec.offsetTop <= scrollPos) {
+        currentId = sec.getAttribute('id');
+      }
+    });
+    channelLinks.forEach(function(link) {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + currentId) {
+        link.classList.add('active');
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+  </html>
