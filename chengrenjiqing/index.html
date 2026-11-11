@@ -1,0 +1,1293 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>成人激情视频网站 - 内容聚合与分类导航</title>
+<meta name="description" content="成人激情视频网站聚合剧情、素人、情侣、欧美、日韩等分类视频条目，提供精选推荐、更新动态、深度解析与体验指南，适合寻找分类清晰、有具体看点与观众评论的成人视频浏览参考。">
+<meta name="keywords" content="成人激情视频网站">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1115'/%3E%3Cpath d='M20 18h24v6H26v8h16v6H26v8h18v6H20z' fill='%23e8627a'/%3E%3Ccircle cx='48' cy='16' r='5' fill='%23f2b84b'/%3E%3C/svg%3E">
+<style>
+:root{
+  --brand:#e8627a;
+  --brand-light:#f7b6c2;
+  --brand-dark:#b8334c;
+  --accent:#f2b84b;
+  --bg:#faf6f4;
+  --panel:#ffffff;
+  --panel-warm:#fff4f1;
+  --ink:#241a1e;
+  --ink-2:#5f4b52;
+  --ink-3:#947a82;
+  --line:#eadcd8;
+  --line-soft:#f3e9e6;
+  --radius-card:12px;
+  --radius-btn:8px;
+  --radius-tag:999px;
+  --radius-banner:16px;
+  --shadow:0 2px 10px rgba(36,26,30,.06);
+  --shadow-hover:0 8px 24px rgba(184,51,76,.14);
+  --sticky-offset:112px;
+  --max-w:1320px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:.001ms !important;transition-duration:.001ms !important;}
+}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+a:hover{color:var(--brand-dark);}
+img{max-width:100%;display:block;}
+h1,h2,h3,h4{line-height:1.35;margin:0 0 .5em;}
+h1{font-size:clamp(1.7rem,3.2vw,2.5rem);letter-spacing:.02em;}
+h2{font-size:clamp(1.25rem,2vw,1.55rem);}
+h3{font-size:1.08rem;}
+p{margin:0 0 1em;}
+ul,ol{margin:0 0 1em;padding-left:1.3em;}
+li{margin-bottom:.35em;}
+button{font:inherit;cursor:pointer;}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-radius:4px;}
+
+/* ============ 吸顶公告 + 页头 ============ */
+.sticky-top{
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+.announce{
+  background:linear-gradient(90deg,var(--brand-dark),var(--brand));
+  color:#fff;
+  font-size:.85rem;
+  padding:.45rem 1rem;
+}
+.announce-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:center;
+  gap:.35rem 1.4rem;
+}
+.announce-brand{
+  font-weight:700;
+  letter-spacing:.04em;
+  white-space:nowrap;
+}
+.announce-item{display:flex;align-items:center;gap:.4rem;opacity:.96;}
+.announce-item time{background:rgba(255,255,255,.2);padding:0 .45rem;border-radius:4px;font-size:.78rem;}
+.announce-more{margin-left:auto;font-size:.8rem;border-bottom:1px dashed rgba(255,255,255,.6);}
+@media(max-width:740px){.announce-item:nth-child(3){display:none;}}
+
+header.site-head{
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  box-shadow:var(--shadow);
+}
+.head-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:.6rem 1.1rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.brand{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.08rem;color:var(--ink);white-space:nowrap;}
+.brand svg{width:34px;height:34px;flex:none;}
+.brand .brand-text{letter-spacing:.02em;}
+.main-nav{display:flex;flex-wrap:wrap;gap:.2rem .9rem;font-size:.9rem;}
+.main-nav a{padding:.3rem .1rem;border-bottom:2px solid transparent;color:var(--ink-2);}
+.main-nav a:hover,.main-nav a.active{color:var(--brand-dark);border-bottom-color:var(--brand);}
+.head-search{margin-left:auto;display:flex;align-items:center;gap:.4rem;}
+.head-search input{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:var(--radius-tag);
+  padding:.4rem .8rem;
+  font-size:.86rem;
+  width:170px;
+  color:var(--ink);
+}
+.head-search input:focus{outline:2px solid var(--brand-light);border-color:var(--brand);}
+.head-search button{
+  background:var(--brand);
+  color:#fff;
+  border:0;
+  border-radius:var(--radius-tag);
+  padding:.4rem .85rem;
+  font-size:.84rem;
+}
+.head-search button:hover{background:var(--brand-dark);}
+.hamburger{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:.35rem .55rem;font-size:1.2rem;color:var(--ink);}
+@media(max-width:1024px){
+  .main-nav{display:none;}
+  .main-nav.open{
+    display:flex;
+    position:absolute;
+    top:calc(100% + 2px);
+    left:0;right:0;
+    background:#fff;
+    flex-direction:column;
+    padding:.8rem 1.2rem;
+    border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow-hover);
+    gap:.5rem;
+    z-index:110;
+  }
+  .hamburger{display:inline-block;order:-1;}
+  .head-inner{position:relative;flex-wrap:wrap;}
+  .head-search{margin-left:auto;}
+}
+@media(max-width:740px){
+  .head-search input{width:120px;}
+  .brand{font-size:.98rem;}
+}
+
+/* ============ 首屏 ============ */
+.hero{
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(900px 420px at 88% 10%,rgba(232,98,122,.18),transparent 60%),
+    radial-gradient(600px 300px at 6% 90%,rgba(242,184,75,.14),transparent 60%),
+    linear-gradient(120deg,#1e1216 0%,#3a2027 55%,#5a2d38 100%);
+  color:#fff;
+}
+.hero-inner{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:2.8rem 1.2rem 3rem;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:2rem;
+  align-items:center;
+}
+.hero h1{color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.35);}
+.hero .hero-desc{color:#f6dfe4;font-size:1rem;max-width:42em;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:.9rem 0 1.2rem;}
+.hero-tags span{
+  font-size:.8rem;
+  border:1px solid rgba(255,255,255,.35);
+  border-radius:var(--radius-tag);
+  padding:.22rem .7rem;
+  color:#ffe9ee;
+}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.7rem;}
+.btn{
+  display:inline-flex;align-items:center;gap:.35rem;
+  border-radius:var(--radius-btn);
+  padding:.62rem 1.15rem;
+  font-size:.92rem;
+  font-weight:600;
+  border:1px solid transparent;
+  transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+}
+.btn-primary{background:var(--brand);color:#fff;}
+.btn-primary:hover{background:var(--brand-dark);color:#fff;transform:translateY(-2px);box-shadow:var(--shadow-hover);}
+.btn-ghost{background:rgba(255,255,255,.08);color:#fff;border-color:rgba(255,255,255,.4);}
+.btn-ghost:hover{background:rgba(255,255,255,.18);color:#fff;transform:translateY(-2px);}
+.hero-art{position:relative;height:300px;}
+.hero-art svg{width:100%;height:100%;}
+.hero-art .float-tag{
+  position:absolute;
+  background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.3);
+  backdrop-filter:blur(4px);
+  border-radius:10px;
+  padding:.4rem .7rem;
+  font-size:.76rem;
+  color:#ffe9ee;
+}
+.hero-art .ft1{top:8%;left:2%;animation:floaty 5s ease-in-out infinite;}
+.hero-art .ft2{bottom:12%;right:0;animation:floaty 6s ease-in-out infinite reverse;}
+.hero-art .ft3{top:46%;right:14%;animation:floaty 7s ease-in-out infinite;}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;}
+  .hero-art{height:220px;order:-1;}
+}
+
+/* ============ 主容器 / 三栏 ============ */
+.layout{
+  max-width:var(--max-w);
+  margin:0 auto;
+  padding:1.8rem 1.1rem 3rem;
+  display:grid;
+  grid-template-columns:180px minmax(0,1fr) 250px;
+  gap:1.6rem;
+  align-items:start;
+}
+@media(max-width:1180px){
+  .layout{grid-template-columns:170px minmax(0,1fr);}
+  .layout .right-rail{grid-column:1 / -1;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;}
+}
+@media(max-width:860px){
+  .layout{grid-template-columns:1fr;}
+  .layout .left-rail{position:static;order:2;}
+  .layout .right-rail{grid-template-columns:1fr;order:3;}
+  .layout .main-col{order:1;}
+}
+.left-rail{position:sticky;top:var(--sticky-offset);}
+.channel-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  padding:1rem .9rem;
+  box-shadow:var(--shadow);
+}
+.channel-card h2{font-size:.92rem;letter-spacing:.06em;color:var(--ink-3);margin-bottom:.7rem;font-weight:700;}
+.channel-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.15rem;}
+.channel-list a{
+  display:block;
+  padding:.42rem .55rem;
+  border-radius:8px;
+  font-size:.9rem;
+  color:var(--ink-2);
+  border-left:3px solid transparent;
+  transition:background .15s ease,color .15s ease,border-color .15s ease;
+}
+.channel-list a:hover{background:var(--panel-warm);color:var(--brand-dark);}
+.channel-list a.active{background:var(--panel-warm);color:var(--brand-dark);border-left-color:var(--brand);font-weight:600;}
+.channel-list .count{float:right;font-size:.76rem;color:var(--ink-3);}
+@media(max-width:860px){
+  .channel-list{flex-direction:row;overflow-x:auto;gap:.3rem;padding-bottom:.2rem;}
+  .channel-list a{white-space:nowrap;border-left:0;border-bottom:2px solid transparent;border-radius:6px;}
+  .channel-list a.active{border-bottom-color:var(--brand);}
+  .channel-list .count{display:none;}
+}
+
+/* ============ 通用板块 ============ */
+.section{margin-bottom:2.4rem;scroll-margin-top:var(--sticky-offset);}
+.section-head{
+  display:flex;
+  align-items:baseline;
+  flex-wrap:wrap;
+  gap:.6rem;
+  margin-bottom:1rem;
+}
+.section-head h2{margin:0;font-size:1.28rem;}
+.section-head .sub{font-size:.82rem;color:var(--ink-3);}
+.section-head .more{margin-left:auto;font-size:.82rem;color:var(--brand-dark);white-space:nowrap;}
+.section-head .more:hover{text-decoration:underline;}
+.lead{color:var(--ink-2);font-size:.95rem;margin-bottom:1.1rem;}
+
+/* 概览 */
+.overview-box{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  padding:1.2rem 1.3rem;
+  box-shadow:var(--shadow);
+  font-size:.95rem;
+  color:var(--ink-2);
+}
+.overview-box strong{color:var(--ink);}
+
+/* 卡片网格 */
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:1rem;
+}
+.v-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+.v-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-hover);}
+.v-card .thumb{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--line-soft);}
+.v-card .thumb img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease;}
+.v-card:hover .thumb img{transform:scale(1.04);}
+.v-card .badge{
+  position:absolute;top:.55rem;left:.55rem;
+  background:rgba(30,18,22,.78);
+  color:#fff;font-size:.72rem;padding:.15rem .5rem;border-radius:var(--radius-tag);
+  backdrop-filter:blur(2px);
+}
+.v-card .score{
+  position:absolute;bottom:.55rem;right:.55rem;
+  background:rgba(242,184,75,.94);
+  color:#3a2a12;font-weight:700;font-size:.74rem;
+  padding:.12rem .5rem;border-radius:var(--radius-tag);
+}
+.v-card .body{padding:.8rem .85rem .9rem;display:flex;flex-direction:column;gap:.4rem;flex:1;}
+.v-card h3{font-size:.97rem;margin:0;}
+.v-card h3 a{color:var(--ink);}
+.v-card h3 a:hover{color:var(--brand-dark);}
+.v-card .desc{font-size:.82rem;color:var(--ink-2);margin:0;line-height:1.55;flex:1;}
+.v-card .meta{display:flex;flex-wrap:wrap;gap:.35rem;font-size:.72rem;color:var(--ink-3);}
+.tag{
+  display:inline-block;
+  background:var(--panel-warm);
+  color:var(--brand-dark);
+  border-radius:var(--radius-tag);
+  padding:.1rem .55rem;
+  font-size:.72rem;
+  border:1px solid #f6dfe2;
+}
+.heats{font-size:.74rem;color:var(--ink-3);}
+
+/* 动态列表 */
+.update-list{
+  list-style:none;
+  margin:0;padding:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.update-list li{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:.4rem .8rem;
+  padding:.7rem 1rem;
+  border-bottom:1px solid var(--line-soft);
+  font-size:.9rem;
+}
+.update-list li:last-child{border-bottom:0;}
+.update-list .u-title{font-weight:600;color:var(--ink);}
+.update-list .u-title:hover{color:var(--brand-dark);}
+.update-list .u-time{font-size:.76rem;color:var(--ink-3);white-space:nowrap;}
+.update-list .u-note{color:var(--ink-2);font-size:.83rem;flex:1 1 100%;}
+@media(min-width:700px){.update-list .u-note{flex:1 1 auto;}}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:.7rem;}
+.cat-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:.8rem .9rem;
+  display:flex;flex-direction:column;gap:.2rem;
+  box-shadow:var(--shadow);
+  transition:border-color .15s ease,transform .15s ease;
+}
+.cat-item:hover{border-color:var(--brand-light);transform:translateY(-2px);}
+.cat-item .c-name{font-weight:600;font-size:.92rem;color:var(--ink);}
+.cat-item .c-count{font-size:.76rem;color:var(--ink-3);}
+
+/* 深度解析 */
+.article-body{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  padding:1.4rem 1.5rem;
+  box-shadow:var(--shadow);
+  font-size:.96rem;
+  color:var(--ink-2);
+}
+.article-body h3{color:var(--ink);margin-top:1.3rem;}
+.article-body h3:first-child{margin-top:0;}
+.article-body strong{color:var(--ink);}
+.article-body .note{
+  background:var(--panel-warm);
+  border-left:3px solid var(--brand);
+  padding:.6rem .9rem;
+  border-radius:0 8px 8px 0;
+  font-size:.88rem;
+  margin:1rem 0;
+  color:var(--ink-2);
+}
+.article-body ol,.article-body ul{color:var(--ink-2);}
+
+/* 体验指南 */
+.steps{counter-reset:step;list-style:none;padding:0;margin:0;display:grid;gap:.8rem;}
+.steps li{
+  counter-increment:step;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:.85rem 1rem .85rem 3rem;
+  position:relative;
+  font-size:.9rem;
+  color:var(--ink-2);
+  box-shadow:var(--shadow);
+}
+.steps li::before{
+  content:counter(step);
+  position:absolute;left:.9rem;top:.85rem;
+  width:1.6rem;height:1.6rem;
+  background:var(--brand);
+  color:#fff;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.8rem;font-weight:700;
+}
+.steps li strong{color:var(--ink);}
+
+/* FAQ */
+.faq-list{display:grid;gap:.55rem;}
+details.faq{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:0;
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+details.faq summary{
+  padding:.8rem 1rem;
+  font-weight:600;
+  font-size:.93rem;
+  cursor:pointer;
+  list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:.6rem;
+}
+details.faq summary::-webkit-details-marker{display:none;}
+details.faq summary::after{content:"+";font-size:1.1rem;color:var(--brand);font-weight:700;}
+details.faq[open] summary::after{content:"−";}
+details.faq .ans{padding:0 1rem .9rem;font-size:.88rem;color:var(--ink-2);}
+
+/* 评论 */
+.comment-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.75rem;}
+.comment{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:.8rem .9rem;
+  font-size:.86rem;
+  color:var(--ink-2);
+  box-shadow:var(--shadow);
+}
+.comment .c-user{font-weight:700;color:var(--brand-dark);font-size:.82rem;margin-bottom:.2rem;}
+.comment .c-text{margin:0;}
+.comment .c-target{font-size:.76rem;color:var(--ink-3);margin-top:.35rem;display:block;}
+
+/* 资讯 */
+.news-list{display:grid;gap:.7rem;}
+.news-item{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:.85rem 1rem;
+  box-shadow:var(--shadow);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:.2rem .8rem;
+}
+.news-item h3{font-size:.94rem;margin:0;grid-column:1/2;}
+.news-item h3 a{color:var(--ink);}
+.news-item h3 a:hover{color:var(--brand-dark);}
+.news-item time{font-size:.76rem;color:var(--ink-3);grid-column:2/3;white-space:nowrap;}
+.news-item p{font-size:.84rem;color:var(--ink-2);margin:.15rem 0 0;grid-column:1/-1;}
+
+/* 标签索引 */
+.tag-cloud{display:flex;flex-wrap:wrap;gap:.5rem;}
+.tag-cloud a{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-tag);
+  padding:.28rem .8rem;
+  font-size:.82rem;
+  color:var(--ink-2);
+  box-shadow:var(--shadow);
+}
+.tag-cloud a:hover{border-color:var(--brand);color:var(--brand-dark);background:var(--panel-warm);}
+
+/* 榜单 */
+.rank-list{
+  list-style:none;margin:0;padding:0;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+}
+.rank-list li{
+  display:flex;align-items:center;gap:.7rem;
+  padding:.65rem 1rem;
+  border-bottom:1px solid var(--line-soft);
+  font-size:.88rem;
+}
+.rank-list li:last-child{border-bottom:0;}
+.rank-list .rk{
+  width:1.4rem;height:1.4rem;flex:none;
+  background:var(--line-soft);color:var(--ink-2);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:700;
+}
+.rank-list li:nth-child(1) .rk{background:var(--brand);color:#fff;}
+.rank-list li:nth-child(2) .rk{background:var(--accent);color:#3a2a12;}
+.rank-list li:nth-child(3) .rk{background:#c9a0a8;color:#fff;}
+.rank-list .r-name{font-weight:600;color:var(--ink);flex:1;}
+.rank-list .r-stat{font-size:.76rem;color:var(--ink-3);white-space:nowrap;}
+
+/* 右栏 */
+.aside-card{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  padding:1rem;
+  box-shadow:var(--shadow);
+  margin-bottom:1.2rem;
+}
+.aside-card h3{font-size:.92rem;margin:0 0 .7rem;color:var(--ink);}
+.mini-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.45rem;font-size:.84rem;}
+.mini-list li{display:flex;gap:.45rem;align-items:flex-start;color:var(--ink-2);}
+.mini-list .dot{width:.4rem;height:.4rem;border-radius:50%;background:var(--brand);margin-top:.5rem;flex:none;}
+.mini-list a{color:var(--ink-2);}
+.mini-list a:hover{color:var(--brand-dark);}
+
+/* 投稿/互动板块 */
+.contribute{
+  background:linear-gradient(130deg,#2a171c,#4b2630);
+  color:#fff;
+  border-radius:var(--radius-banner);
+  padding:1.4rem 1.5rem;
+  display:flex;
+  flex-wrap:wrap;
+  gap:1rem;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:var(--shadow-hover);
+}
+.contribute h2{color:#fff;margin:0 0 .2rem;font-size:1.1rem;}
+.contribute p{color:#f4d9df;font-size:.86rem;margin:0;max-width:40em;}
+.contribute .btn-primary{background:var(--accent);color:#3a2a12;}
+.contribute .btn-primary:hover{background:#ffd47a;color:#2a1c08;}
+.contribute .btn-ghost{border-color:rgba(255,255,255,.5);}
+
+/* 页尾 */
+footer.site-foot{
+  background:#1e1216;
+  color:#d8c5ca;
+  margin-top:2rem;
+  padding:2.2rem 1.2rem 1.4rem;
+  font-size:.86rem;
+}
+.foot-inner{max-width:var(--max-w);margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:1.6rem;}
+.foot-brand{font-weight:800;color:#fff;font-size:1.05rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem;}
+.foot-brand svg{width:26px;height:26px;}
+.foot-desc{color:#b9a1a8;font-size:.84rem;max-width:32em;}
+.foot-col h4{color:#fff;font-size:.9rem;margin:0 0 .6rem;}
+.foot-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.35rem;}
+.foot-col a{color:#c9b5ba;font-size:.84rem;}
+.foot-col a:hover{color:var(--accent);}
+.foot-bottom{
+  max-width:var(--max-w);margin:1.6rem auto 0;padding-top:1rem;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;flex-wrap:wrap;gap:.5rem 1.4rem;
+  font-size:.78rem;color:#a48e94;
+}
+@media(max-width:860px){.foot-inner{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.foot-inner{grid-template-columns:1fr;}}
+
+/* 回顶 */
+.to-top{
+  position:fixed;right:1.1rem;bottom:1.3rem;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--brand);color:#fff;border:0;
+  font-size:1.1rem;
+  box-shadow:var(--shadow-hover);
+  display:none;align-items:center;justify-content:center;
+  z-index:90;
+}
+.to-top.show{display:flex;}
+.to-top:hover{background:var(--brand-dark);}
+
+.no-result{display:none;padding:1rem;background:var(--panel-warm);border-radius:10px;color:var(--brand-dark);font-size:.9rem;margin-top:.8rem;}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 + 页头 -->
+<div class="sticky-top">
+  <div class="announce" aria-label="更新公告">
+    <div class="announce-inner">
+      <span class="announce-brand">成人激情视频网站</span>
+      <span class="announce-item"><time datetime="2026-11-08">11-08</time> 新上架《夜班便利店》第3集</span>
+      <span class="announce-item"><time datetime="2026-11-07">11-07</time> 素人投稿区新增 47 条</span>
+      <a class="announce-more" href="#latest">查看更新</a>
+    </div>
+  </div>
+  <header class="site-head">
+    <div class="head-inner">
+      <a class="brand" href="/#top" aria-label="成人激情视频网站 首页">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#1a1115"/>
+          <path d="M20 18h24v6H26v8h16v6H26v8h18v6H20z" fill="#e8627a"/>
+          <circle cx="48" cy="16" r="5" fill="#f2b84b"/>
+        </svg>
+        <span class="brand-text">成人激情视频网站</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="展开导航菜单" aria-expanded="false" aria-controls="mainNav">☰</button>
+      <nav class="main-nav" id="mainNav" aria-label="主题导航">
+        <a href="#overview">领域概览</a>
+        <a href="#featured">精选推荐</a>
+        <a href="#latest">最新更新</a>
+        <a href="#categories">分类入口</a>
+        <a href="#deep">深度解析</a>
+        <a href="#guide">体验指南</a>
+        <a href="#faq">常见问题</a>
+        <a href="#comments">用户评论</a>
+        <a href="#news">相关资讯</a>
+        <a href="#contribute">投稿互动</a>
+      </nav>
+      <div class="head-search">
+        <label class="visually-hidden" for="searchInput" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">站内搜索</label>
+        <input id="searchInput" type="search" placeholder="搜条目 / 类型 / 标签" autocomplete="off">
+        <button type="button" id="searchBtn">搜索</button>
+      </div>
+    </div>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="top" aria-label="首屏">
+  <div class="hero-inner">
+    <div>
+      <h1>成人激情视频网站</h1>
+      <p class="hero-desc">汇集剧情向、素人实录、情侣自拍、欧美与日韩等分类的视频条目，按更新节奏整理精选推荐、观众评论和类型对比，供寻找具体片目与判断观看价值时参考。</p>
+      <div class="hero-tags">
+        <span>剧情向</span><span>素人投稿</span><span>情侣互动</span><span>欧美精选</span><span>日韩分类</span><span>无码专区</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#featured">浏览精选条目</a>
+        <a class="btn btn-ghost" href="#categories">按分类找片</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 520 320" role="presentation">
+        <defs>
+          <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#e8627a" stop-opacity=".85"/>
+            <stop offset="1" stop-color="#f2b84b" stop-opacity=".35"/>
+          </linearGradient>
+          <linearGradient id="hg2" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f7b6c2" stop-opacity=".5"/>
+            <stop offset="1" stop-color="#b8334c" stop-opacity=".2"/>
+          </linearGradient>
+        </defs>
+        <rect x="10" y="12" width="500" height="296" rx="26" fill="url(#hg1)" opacity=".22"/>
+        <circle cx="420" cy="72" r="52" fill="url(#hg2)"/>
+        <circle cx="120" cy="240" r="36" fill="#f2b84b" opacity=".28"/>
+        <rect x="52" y="68" width="170" height="108" rx="12" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.35)"/>
+        <rect x="70" y="88" width="96" height="8" rx="4" fill="rgba(255,255,255,.55)"/>
+        <rect x="70" y="106" width="134" height="6" rx="3" fill="rgba(255,255,255,.3)"/>
+        <rect x="70" y="120" width="120" height="6" rx="3" fill="rgba(255,255,255,.3)"/>
+        <rect x="70" y="140" width="58" height="18" rx="9" fill="#e8627a"/>
+        <rect x="276" y="118" width="188" height="118" rx="14" fill="rgba(30,18,22,.55)" stroke="rgba(255,255,255,.28)"/>
+        <path d="M330 164l38 22-38 22z" fill="#f2b84b"/>
+        <rect x="298" y="206" width="140" height="5" rx="2.5" fill="rgba(255,255,255,.4)"/>
+        <rect x="298" y="218" width="96" height="5" rx="2.5" fill="rgba(255,255,255,.25)"/>
+        <circle cx="96" cy="268" r="12" fill="#e8627a"/>
+        <circle cx="128" cy="268" r="12" fill="#f2b84b"/>
+        <circle cx="160" cy="268" r="12" fill="#f7b6c2"/>
+        <rect x="300" y="54" width="110" height="30" rx="15" fill="rgba(255,255,255,.14)" stroke="rgba(255,255,255,.4)"/>
+        <text x="355" y="74" text-anchor="middle" fill="#ffe9ee" font-size="12" font-family="sans-serif">每日更新</text>
+      </svg>
+      <span class="float-tag ft1">剧情向 · 夜班便利店</span>
+      <span class="float-tag ft2">素人投稿 47 条 / 11-07</span>
+      <span class="float-tag ft3">本周热榜 · 情侣自拍</span>
+    </div>
+  </div>
+</section>
+
+<div class="layout">
+  <!-- 左频道索引 -->
+  <aside class="left-rail" aria-label="频道索引">
+    <div class="channel-card">
+      <h2>频道索引</h2>
+      <ul class="channel-list">
+        <li><a href="#featured" class="active">精选推荐 <span class="count">12</span></a></li>
+        <li><a href="#latest">最新更新 <span class="count">10</span></a></li>
+        <li><a href="#categories">分类入口 <span class="count">8</span></a></li>
+        <li><a href="#deep">深度解析 <span class="count">1</span></a></li>
+        <li><a href="#guide">体验指南 <span class="count">6</span></a></li>
+        <li><a href="#faq">常见问题 <span class="count">6</span></a></li>
+        <li><a href="#comments">观众评论 <span class="count">16</span></a></li>
+        <li><a href="#news">相关资讯 <span class="count">6</span></a></li>
+        <li><a href="#rank">热门榜单 <span class="count">10</span></a></li>
+        <li><a href="#contribute">投稿互动 <span class="count">4</span></a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- 中主内容 -->
+  <main class="main-col">
+    <!-- 1 领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-head">
+        <h2>领域概览：从类型标签到观看决策</h2>
+        <span class="sub">覆盖剧情、素人、情侣、欧美、日韩等方向</span>
+      </div>
+      <div class="overview-box">
+        <p><strong>成人激情视频</strong>这个内容领域，目前常见的方向大致能分成几类：一是剧情向，有固定场景和人物关系，比如便利店、办公室、合租屋这类设定；二是素人投稿，拍摄者自己上传，画质和收音参差，但真实感是卖点；三是情侣自拍，双人互动为主，节奏偏慢；四是欧美与日韩分类，欧美偏直接、日韩偏氛围与制服元素；五是动漫与 3D 渲染，属于另一条视觉线。</p>
+        <p>当前值得关注的条目集中在两个方向。剧情向里，《夜班便利店》系列在 11 月 7 日更新到第 3 集，每集 18—22 分钟，靠夜班场景和台词推进，观众评论多提到“便利店灯光和收银台细节做得像”。素人投稿区在 11 月 7 日新增 47 条，其中 tagged「合租」「健身教练」的条目播放量靠前，但画质从 480p 到 1080p 都有，需要按清晰度筛。欧美区本周上架《Midnight Drive》加长版，片长从 24 分钟补到 41 分钟，补的是车内对话段落。</p>
+        <p>判断一个条目值不值得点开，可以先看三样：时长、清晰度标注、是否有分段预览。时长低于 6 分钟的多为片段剪辑，故事线不完整；清晰度只标 480p 的素人投稿，暗光场景容易糊；有分段预览的条目，基本能看出运镜和场景是否对味。分类和标签只是入口，具体还得落到条目本身。</p>
+      </div>
+    </section>
+
+    <!-- 2 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-head">
+        <h2>精选条目：本周值得点开的 8 部</h2>
+        <span class="sub">按类型、时长与观众反馈筛选</span>
+        <a class="more" href="#rank">看完整榜单 →</a>
+      </div>
+      <div class="card-grid" id="featuredGrid">
+        <article class="v-card" data-search="夜班便利店 剧情 便利店 夜班 素人">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/yeban-store1/400/300" width="400" height="300" loading="lazy" alt="《夜班便利店》第3集便利店收银台夜景剧照">
+            <span class="badge">剧情向</span><span class="score">8.7</span>
+          </div>
+          <div class="body">
+            <h3><a href="#featured">夜班便利店 第3集</a></h3>
+            <p class="desc">夜班店员与常客的对话推进，收银台和货架灯光的细节被观众反复提及。第3集加入仓库盘点段落，时长 21 分钟。</p>
+            <div class="meta"><span class="tag">便利店</span><span class="tag">夜班</span><span class="tag">剧情</span></div>
+            <div class="heats">热度 2.4 万 · 11-07 更新</div>
+          </div>
+        </article>
+        <article class="v-card" data-search="合租 素人 投稿 客厅 1080p">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/hezu-loft2/400/300" width="400" height="300" loading="lazy" alt="素人投稿《合租第一晚》客厅场景截图">
+            <span class="badge">素人投稿</span><span class="score">8.2</span>
+          </div>
+          <div class="body">
+            <h3><a href="#featured">合租第一晚</a></h3>
+            <p class="desc">1080p 手持拍摄，客厅到卧室的镜头没有剪辑断层，收音一般但环境音保留完整。11 月 6 日上传，评论区在讨论运镜。</p>
+            <div class="meta"><span class="tag">合租</span><span class="tag">手持</span><span class="tag">素人</span></div>
+            <div class="heats">热度 1.9 万 · 11-06 上传</div>
+          </div>
+        </article>
+        <article class="v-card" data-search="情侣 自拍 浴室 双人 慢节奏">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/couple-bath3/400/300" width="400" height="300" loading="lazy" alt="情侣自拍《浴室镜前》双人互动画面">
+            <span class="badge">情侣自拍</span><span class="score">8.4</span>
+          </div>
+          <div class="body">
+            <h3><a href="#featured">浴室镜前</a></h3>
+            <p class="desc">双人固定机位，28 分钟长镜头，没有分镜切换。节奏偏慢，适合喜欢看自然互动的观众，画质 720p。</p>
+            <div class="meta"><span class="tag">情侣</span><span class="tag">长镜头</span><span class="tag">浴室</span></div>
+            <div class="heats">热度 1.7 万 · 11-05 更新</div>
+          </div>
+        </article>
+        <article class="v-card" data-search="Midnight Drive 欧美 加长版 车内">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/midnight-drive4/400/300" width="400" height="300" loading="lazy" alt="欧美条目《Midnight Drive》加长版车内夜景">
+            <span class="badge">欧美精选</span><span class="score">8.0</span>
+          </div>
+          <div class="body">
+            <h3><a href="#featured">Midnight Drive 加长版</a></h3>
+            <p class="desc">补回 17 分钟车内对话段落，片长 41 分钟。夜景车拍光源有限，暗部细节依赖屏幕亮度，建议开高亮看。</p>
+            <div class="meta"><span class="tag">欧美</span><span class="tag">车内</span><span class="tag">加长版</span></div>
+            <div class="heats">热度 1.5 万 · 11-04 上架</div>
+          </div>
+        </article>
+        <article class="v-card" data-search="健身教练 素人 健身房 竖屏">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/coach-gym5/400/300" width="400" height="300" loading="lazy" alt="素人投稿《健身教练的私教课》健身房场景">
+            <span class="badge">素人投稿</span><span class="score">7.9</span>
+          </div>
+          <div class="body">
+            <h3><a href="#featured">健身教练的私教课</a></h3>
+            <p class="desc">竖屏拍摄，健身房器械区取景，14 分钟。画质 720p，哑铃区和镜子反射是观众讨论最多的画面。</p>
+            <div class="meta"><span class="tag">健身</span><span class="tag">竖屏</span><span class="tag">私教</span></div>
+            <div class="heats">热度 1.3 万 · 11-06 上传</div>
+          </div>
+        </article>
+        <article class="v-card" data-search="制服 日韩 电车 氛围 1080p">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/jk-train6/400/300" width="400" height="300" loading="lazy" alt="日韩分类《末班电车》制服与车厢场景">
+            <span class="badge">日韩分类</span><span class="score">8.3</span>
+          </div>
+          <div class="body">
+            <h3><a href="#featured">末班电车</a></h3>
+            <p class="desc">车厢固定场景，制服元素，26 分钟。灯光偏冷，和常见的暖调室内片不同，评论里有人提到“像真的坐了一站”。</p>
+            <div class="meta"><span class="tag">制服</span><span class="tag">电车</span><span class="tag">日韩</span></div>
+            <div class="heats">热度 1.6 万 · 11-03 更新</div>
+          </div>
+        </article>
+        <article class="v-card" data-search="办公室 剧情 加班 会议室">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/office-ot7/400/300" width="400" height="300" loading="lazy" alt="剧情向《加班到十点》办公室会议室场景">
+            <span class="badge">剧情向</span><span class="score">7.8</span>
+          </div>
+          <div class="body">
+            <h3><a href="#featured">加班到十点</a></h3>
+            <p class="desc">会议室和工位两个场景，19 分钟。台词密度较高，前 4 分钟是铺垫，适合愿意看完整剧情的观众。</p>
+            <div class="meta"><span class="tag">办公室</span><span class="tag">加班</span><span class="tag">剧情</span></div>
+            <div class="heats">热度 1.1 万 · 11-02 更新</div>
+          </div>
+        </article>
+        <article class="v-card" data-search="3D 渲染 动漫 幻想 无码">
+          <div class="thumb">
+            <img src="https://picsum.photos/seed/anim-render8/400/300" width="400" height="300" loading="lazy" alt="3D渲染条目《霓虹房间》霓虹灯光场景">
+            <span class="badge">3D 渲染</span><span class="score">8.1</span>
+          </div>
+          <div class="body">
+            <h3><a href="#featured">霓虹房间</a></h3>
+            <p class="desc">全 3D 渲染，霓虹灯光和镜面反射是主要视觉点，24 分钟。没有真人出演，适合偏好动漫画风的观众。</p>
+            <div class="meta"><span class="tag">3D</span><span class="tag">渲染</span><span class="tag">动漫</span></div>
+            <div class="heats">热度 1.2 万 · 11-01 更新</div>
+          </div>
+        </article>
+      </div>
+      <div class="no-result" id="searchNoResult">没有找到匹配的条目，换个关键词试试，比如“便利店”“合租”“制服”。</div>
+    </section>
+
+    <!-- 3 最新更新 -->
+    <section class="section" id="latest">
+      <div class="section-head">
+        <h2>更新动态：11 月 1 日至 11 月 8 日</h2>
+        <span class="sub">按上架时间排列</span>
+      </div>
+      <ul class="update-list">
+        <li><span class="u-time">11-08 09:20</span><a class="u-title" href="#featured">夜班便利店 第3集</a><span class="u-note">新增仓库盘点段落，时长 21 分钟，1080p。</span></li>
+        <li><span class="u-time">11-08 08:05</span><a class="u-title" href="#categories">素人投稿区 47 条新稿</a><span class="u-note">标签集中在「合租」「健身」「通勤」，最高 1080p，最低 480p。</span></li>
+        <li><span class="u-time">11-07 22:40</span><a class="u-title" href="#featured">合租第一晚</a><span class="u-note">上传者补充了 2 分钟片尾花絮，评论区置顶了拍摄说明。</span></li>
+        <li><span class="u-time">11-07 18:15</span><a class="u-title" href="#featured">浴室镜前</a><span class="u-note">720p 版本替换了之前的 480p 源，长镜头没有剪辑变化。</span></li>
+        <li><span class="u-time">11-06 21:30</span><a class="u-title" href="#featured">健身教练的私教课</a><span class="u-note">竖屏条目上线，14 分钟，器械区取景，收音有轻微回声。</span></li>
+        <li><span class="u-time">11-06 14:10</span><a class="u-title" href="#news">《末班电车》导演剪辑版预告</a><span class="u-note">比正片多 6 分钟，主要是站台空镜，预计 11 月中旬上架。</span></li>
+        <li><span class="u-time">11-05 20:00</span><a class="u-title" href="#featured">Midnight Drive 加长版</a><span class="u-note">片长从 24 分钟补到 41 分钟，补的是车内对话段落。</span></li>
+        <li><span class="u-time">11-04 11:45</span><a class="u-title" href="#rank">本周热榜第 1 名易主</a><span class="u-note">《夜班便利店》第3集以 2.4 万热度超过《末班电车》。</span></li>
+        <li><span class="u-time">11-03 16:20</span><a class="u-title" href="#featured">末班电车</a><span class="u-note">1080p 源上线，制服与车厢场景未改动，时长 26 分钟。</span></li>
+        <li><span class="u-time">11-02 10:00</span><a class="u-title" href="#featured">加班到十点</a><span class="u-note">会议室场景条目，19 分钟，台词密度较高，前 4 分钟铺垫。</span></li>
+      </ul>
+    </section>
+
+    <!-- 4 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-head">
+        <h2>按类型找片：8 个常用分类</h2>
+        <span class="sub">点击进入对应栏目</span>
+      </div>
+      <div class="cat-grid">
+        <a class="cat-item" href="#featured"><span class="c-name">剧情向</span><span class="c-count">便利店 / 办公室 / 合租屋 · 214 条</span></a>
+        <a class="cat-item" href="#featured"><span class="c-name">素人投稿</span><span class="c-count">手持实拍 / 生活场景 · 386 条</span></a>
+        <a class="cat-item" href="#featured"><span class="c-name">情侣自拍</span><span class="c-count">双人互动 / 长镜头 · 152 条</span></a>
+        <a class="cat-item" href="#featured"><span class="c-name">欧美精选</span><span class="c-count">加长版 / 车内 / 夜景 · 97 条</span></a>
+        <a class="cat-item" href="#featured"><span class="c-name">日韩分类</span><span class="c-count">制服 / 电车 / 冷调光 · 133 条</span></a>
+        <a class="cat-item" href="#featured"><span class="c-name">动漫 3D</span><span class="c-count">渲染 / 霓虹 / 幻想 · 68 条</span></a>
+        <a class="cat-item" href="#featured"><span class="c-name">无码专区</span><span class="c-count">按清晰度与时长筛 · 241 条</span></a>
+        <a class="cat-item" href="#featured"><span class="c-name">短片速看</span><span class="c-count">6 分钟以内片段 · 175 条</span></a>
+      </div>
+    </section>
+
+    <!-- 5 深度解析 -->
+    <section class="section" id="deep">
+      <div class="section-head">
+        <h2>深度解析：剧情向和素人投稿差在哪</h2>
+        <span class="sub">从制作方式到观看体验的对照</span>
+      </div>
+      <article class="article-body">
+        <p>剧情向和素人投稿经常被放进同一个“分类”里看，但两者的制作逻辑几乎是反的。剧情向靠场景、台词和剪辑把观众留在故事里；素人投稿靠真实感和临场感，制作粗糙反而是卖点的一部分。分不清这两条线，很容易用看剧情片的期待去点素人条目，然后觉得“画质太差”。</p>
+        <h3>制作方式：搭景与手持的差别</h3>
+        <p>《夜班便利店》第3集能看出明显的搭景痕迹：收银台高度、货架商品排列、监控视角的机位都经过设计，第3集仓库盘点段落里，货架标签是手写的，和前面几集的字体一致。这类条目的成本主要在场景和拍摄时间，一个 21 分钟的成片，实际拍摄可能跨两个晚上。</p>
+        <p>素人投稿《合租第一晚》则是手持单机位，从客厅走到卧室，中间没有剪辑点。11 月 6 日上传的版本里，能听到冰箱压缩机的低频声，这种声音在搭景拍摄里通常会被收掉。手持的好处是镜头会跟着人走，观众视角更接近“站在旁边看”；坏处是暗光下噪点明显，1080p 的标注不代表每个画面都清晰。</p>
+        <div class="note">可核对的一条判断：同是 1080p，《夜班便利店》第3集在暗部（仓库角落）基本无噪点，《合租第一晚》在卧室关灯段有明显噪点。差别来自布光和感光度设置，不是分辨率标注。</div>
+        <h3>节奏：台词密度与时间占比</h3>
+        <p>剧情向的节奏靠台词密度撑。《加班到十点》前 4 分钟全是铺垫，会议室对话占了将近一半时长；《夜班便利店》第3集里，收银台对话和仓库段落的时间比大约是 3:2。观众如果跳过铺垫直接拖到后面，故事逻辑会断。</p>
+        <p>素人投稿的节奏更接近生活时间。14 分钟的《健身教练的私教课》里，热身和器械调整占了前 3 分钟，没有台词推进，只有环境音。这种时间占比在剧情向里很少见，因为制作方会剪掉“没有事件发生”的段落。</p>
+        <h3>清晰度标注与实际观感</h3>
+        <p>平台上的清晰度标注按分辨率给，480p、720p、1080p 三档。实际观感还和光源有关：欧美条目《Midnight Drive》加长版标的是 1080p，但车内夜景光源只有仪表盘和路灯，暗部细节依赖屏幕亮度，开高亮才能看清后排。日韩条目《末班电车》标 1080p，车厢冷白光均匀，暗部反而更干净。</p>
+        <p>素人投稿的 720p 条目里，《浴室镜前》11 月 7 日换了 720p 源，镜面反光处的噪点比之前的 480p 源少，但浴室顶灯的频闪仍然可见。判断这类条目，看上传者有没有在说明里写光源类型，比看分辨率标注更直接。</p>
+        <h3>观众评论里出现的分歧</h3>
+        <p>《夜班便利店》第3集评论区里，有人说“仓库段落太长，收银台才是重点”，也有人觉得盘点那段的对白更自然。分歧点其实在“剧情向该不该给场景留时间”。《合租第一晚》的评论分歧在收音：一部分观众认为环境音真实，另一部分觉得冰箱声干扰。两条评论线没有交集，因为两类条目的评价标准本来就不同。</p>
+        <p>用同一把尺子量两类内容，结论容易偏。剧情向看台词和场景完成度，素人投稿看临场感和细节保留，清晰度只是入场门槛。</p>
+      </article>
+    </section>
+
+    <!-- 6 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-head">
+        <h2>体验指南：从类型到条目的取舍顺序</h2>
+        <span class="sub">先把范围缩小，再决定点开哪一部</span>
+      </div>
+      <ol class="steps">
+        <li><strong>先定时长区间。</strong>6 分钟以内的多为片段剪辑，故事线不完整，适合已经知道想看什么画面的人；14—22 分钟是剧情向和素人投稿的常见长度；40 分钟以上的加长版，先确认补的是对话还是场景。</li>
+        <li><strong>看清晰度与光源。</strong>480p 的素人投稿在暗光场景容易糊，720p 是多数条目的底线。欧美夜景条目即使标 1080p，也要看暗部有没有可辨细节。</li>
+        <li><strong>读上传说明。</strong>素人投稿的说明里如果写了拍摄设备、光源类型、是否剪辑，判断成本会低很多。没写说明的条目，先看评论区有没有人提到画质或收音。</li>
+        <li><strong>比较同类型的两部。</strong>比如《夜班便利店》第3集和《加班到十点》，同是剧情向，前者场景切换更频繁，后者台词更密。按自己对“场景”和“对话”的偏好选。</li>
+        <li><strong>看分段预览再决定。</strong>有分段预览的条目，能提前看到运镜和场景。没有预览的，从评论区找具体描述，比看封面可靠。</li>
+        <li><strong>留意更新节奏。</strong>系列条目按集更新，单集之间有空档；素人投稿的上传时间不固定。追系列的话，先确认下一集的上架时间有没有公布。</li>
+      </ol>
+    </section>
+
+    <!-- 7 FAQ -->
+    <section class="section" id="faq">
+      <div class="section-head">
+        <h2>常见问题</h2>
+        <span class="sub">围绕类型、清晰度和判断标准</span>
+      </div>
+      <div class="faq-list">
+        <details class="faq">
+          <summary>剧情向和素人投稿，哪个更值得先看？</summary>
+          <div class="ans">看你想花多少时间。剧情向单集 18—22 分钟，有台词和场景推进，适合坐下来看完；素人投稿 10—15 分钟居多，手持镜头和现场收音，适合碎片时间点开。两部都看的话，先看剧情向，再拿素人投稿换口味，顺序反过来容易觉得剧情向“太设计”。</div>
+        </details>
+        <details class="faq">
+          <summary>标了 1080p 的条目为什么还是看不清暗部？</summary>
+          <div class="ans">分辨率不等于动态范围。《Midnight Drive》加长版标 1080p，车内夜景只有仪表盘和路灯做光源，暗部细节本来就少；《末班电车》标 1080p，车厢冷白光均匀，暗部就干净。判断暗部表现，看条目截图里有没有大面积死黑，比看标注直接。</div>
+        </details>
+        <details class="faq">
+          <summary>系列条目从第几集开始看？</summary>
+          <div class="ans">《夜班便利店》第1集交代了店员和常客的关系，第2集开始进入固定场景，第3集加了仓库段落。从第1集开始看，后面两集的对话才接得上。跳着看的话，第3集单独看也能成立，但会漏掉常客反复出现的梗。</div>
+        </details>
+        <details class="faq">
+          <summary>素人投稿的画质参差，有没有筛选办法？</summary>
+          <div class="ans">先按 720p 及以上筛，再在上传说明里找有没有写光源和设备。11 月 7 日新增的 47 条里，写了光源类型的只有 11 条，这 11 条的评论区提到“糊”的比例明显低。没有说明的条目，看预览图里人脸边缘有没有明显噪点。</div>
+        </details>
+        <details class="faq">
+          <summary>加长版多出来的部分通常是哪些内容？</summary>
+          <div class="ans">《Midnight Drive》加长版多出的 17 分钟是车内对话，补的是人物关系；《末班电车》导演剪辑版多出的 6 分钟是站台空镜，属于氛围段落。加长版不一定多出“重点画面”，先看说明里补的是什么，再决定要不要花 40 分钟。</div>
+        </details>
+        <details class="faq">
+          <summary>同一条目有多个清晰度版本，怎么选？</summary>
+          <div class="ans">《浴室镜前》有 480p 和 720p 两版，720p 在镜面反光处的噪点更少，但浴室顶灯的频闪在 720p 下更明显。对频闪敏感的话，480p 反而看得舒服。清晰度更高的版本不一定观感更好，得看拍摄环境的光源类型。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-head">
+        <h2>观众评论</h2>
+        <span class="sub">来自条目页面与投稿区的留言</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment"><div class="c-user">阿灯</div><p class="c-text">《夜班便利店》第3集仓库那段，货架标签手写的，和前面几集字体一样，细节没崩。就是盘点对白有点长。</p><span class="c-target">→ 夜班便利店 第3集</span></div>
+        <div class="comment"><div class="c-user">小满</div><p class="c-text">合租第一晚的冰箱声我倒觉得加分，像真的在别人家客厅坐着。画质一般，但能看下去。</p><span class="c-target">→ 合租第一晚</span></div>
+        <div class="comment"><div class="c-user">Nemo_77</div><p class="c-text">Midnight Drive 加长版补的对话比正片好看，正片太赶了，41 分钟这版才把人物关系讲清楚。</p><span class="c-target">→ Midnight Drive 加长版</span></div>
+        <div class="comment"><div class="c-user">一只橘子</div><p class="c-text">浴室镜前换 720p 之后镜面噪点少了，但顶灯频闪更明显，看久了眼睛累。480p 反而稳。</p><span class="c-target">→ 浴室镜前</span></div>
+        <div class="comment"><div class="c-user">大雷</div><p class="c-text">末班电车灯光真不错，冷白车厢有那味。制服元素没什么新意，但氛围撑住了。</p><span class="c-target">→ 末班电车</span></div>
+        <div class="comment"><div class="c-user">momo</div><p class="c-text">健身教练那个竖屏，器械区取景挺有意思，就是收音有回声，像在空房间里拍的。</p><span class="c-target">→ 健身教练的私教课</span></div>
+        <div class="comment"><div class="c-user">老猫不睡</div><p class="c-text">加班到十点前四分钟铺垫太长了，我拖到会议室才开始看，剧情居然也接得上。</p><span class="c-target">→ 加班到十点</span></div>
+        <div class="comment"><div class="c-user">汽水</div><p class="c-text">霓虹房间的镜面反射做得可以，3D 渲染里算细的。就是人物动作有点僵。</p><span class="c-target">→ 霓虹房间</span></div>
+        <div class="comment"><div class="c-user">K先生</div><p class="c-text">素人投稿区现在一天几十条，找起来费劲。能不能按光源类型筛？</p><span class="c-target">→ 素人投稿区</span></div>
+        <div class="comment"><div class="c-user">林小满</div><p class="c-text">夜班便利店第2集常客那个梗，第3集又出现了，追系列才看得到。</p><span class="c-target">→ 夜班便利店</span></div>
+        <div class="comment"><div class="c-user">江边散步</div><p class="c-text">欧美区加长版越来越多，补对话是好事，但有些补的是空镜，40 分钟看下来有点亏。</p><span class="c-target">→ 欧美精选</span></div>
+        <div class="comment"><div class="c-user">Tina</div><p class="c-text">末班电车导演剪辑版预告出来了，多 6 分钟站台空镜，我可能就为这几分钟点开。</p><span class="c-target">→ 末班电车导演剪辑版</span></div>
+        <div class="comment"><div class="c-user">半糖</div><p class="c-text">合租第一晚片尾花絮比正片自然，上传者说没剪辑，我信了。</p><span class="c-target">→ 合租第一晚</span></div>
+        <div class="comment"><div class="c-user">老王头</div><p class="c-text">清晰度标注该改了，标 1080p 的暗光场景还不如 720p 的亮景清楚。</p><span class="c-target">→ 清晰度标注</span></div>
+        <div class="comment"><div class="c-user">柚子茶</div><p class="c-text">霓虹房间适合投屏看，手机上看镜面反光全糊在一起了。</p><span class="c-target">→ 霓虹房间</span></div>
+        <div class="comment"><div class="c-user">阿灰</div><p class="c-text">最近素人区的通勤标签条目挺多，地铁站取景，收音全被报站声盖住，有点可惜。</p><span class="c-target">→ 素人投稿区</span></div>
+      </div>
+    </section>
+
+    <!-- 9 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-head">
+        <h2>相关资讯</h2>
+        <span class="sub">条目上架、版本与榜单变化</span>
+      </div>
+      <div class="news-list">
+        <article class="news-item">
+          <h3><a href="#news">《末班电车》导演剪辑版定档 11 月 15 日</a></h3>
+          <time datetime="2026-11-06">2026-11-06</time>
+          <p>比正片多 6 分钟，主要为站台空镜和车厢远景，发行方在预告里标注了「非新增剧情」，正片用户无需重复购买。</p>
+        </article>
+        <article class="news-item">
+          <h3><a href="#news">素人投稿区单日新增 47 条，创 10 月以来新高</a></h3>
+          <time datetime="2026-11-07">2026-11-07</time>
+          <p>标签集中在「合租」「健身」「通勤」三类，其中 1080p 条目占 18 条，480p 条目 9 条，审核通过率约 64%。</p>
+        </article>
+        <article class="news-item">
+          <h3><a href="#news">本周热榜第 1 名易主：《夜班便利店》第3集登顶</a></h3>
+          <time datetime="2026-11-04">2026-11-04</time>
+          <p>以 2.4 万热度超过《末班电车》，评论数 380 条，其中提到「仓库段落」的占 112 条。</p>
+        </article>
+        <article class="news-item">
+          <h3><a href="#news">《Midnight Drive》加长版上线，片长补至 41 分钟</a></h3>
+          <time datetime="2026-11-05">2026-11-05</time>
+          <p>补入 17 分钟车内对话，发行方称后续不再追加版本，当前版本为最终剪辑。</p>
+        </article>
+        <article class="news-item">
+          <h3><a href="#news">《浴室镜前》替换 720p 源，480p 版本同步下架</a></h3>
+          <time datetime="2026-11-07">2026-11-07</time>
+          <p>上传者说明中补充了顶灯频闪提示，评论区已有 26 条提到频闪问题，部分用户要求保留 480p 源。</p>
+        </article>
+        <article class="news-item">
+          <h3><a href="#news">3D 渲染条目《霓虹房间》更新第 2 版</a></h3>
+          <time datetime="2026-11-01">2026-11-01</time>
+          <p>调整了镜面反射参数和人物动作帧数，片长从 22 分钟增加到 24 分钟，新增 2 分钟霓虹灯特写。</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 10 相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-head">
+        <h2>相关推荐：具体方向与条目</h2>
+        <span class="sub">按类型和场景延伸</span>
+      </div>
+      <div class="tag-cloud">
+        <a href="#featured">便利店夜班题材</a>
+        <a href="#featured">合租屋手持实拍</a>
+        <a href="#featured">情侣长镜头</a>
+        <a href="#featured">车内夜景加长版</a>
+        <a href="#featured">制服电车场景</a>
+        <a href="#featured">办公室台词向</a>
+        <a href="#featured">3D 霓虹渲染</a>
+        <a href="#featured">健身房竖屏投稿</a>
+      </div>
+    </section>
+
+    <!-- 11 补充：热门榜单 -->
+    <section class="section" id="rank">
+      <div class="section-head">
+        <h2>热门榜单：11 月 1 日—11 月 8 日</h2>
+        <span class="sub">按热度与评论数综合</span>
+      </div>
+      <ol class="rank-list">
+        <li><span class="rk">1</span><a class="r-name" href="#featured">夜班便利店 第3集</a><span class="r-stat">热度 2.4 万 · 评论 380</span></li>
+        <li><span class="rk">2</span><a class="r-name" href="#featured">合租第一晚</a><span class="r-stat">热度 1.9 万 · 评论 264</span></li>
+        <li><span class="rk">3</span><a class="r-name" href="#featured">浴室镜前</a><span class="r-stat">热度 1.7 万 · 评论 198</span></li>
+        <li><span class="rk">4</span><a class="r-name" href="#featured">末班电车</a><span class="r-stat">热度 1.6 万 · 评论 212</span></li>
+        <li><span class="rk">5</span><a class="r-name" href="#featured">Midnight Drive 加长版</a><span class="r-stat">热度 1.5 万 · 评论 176</span></li>
+        <li><span class="rk">6</span><a class="r-name" href="#featured">健身教练的私教课</a><span class="r-stat">热度 1.3 万 · 评论 143</span></li>
+        <li><span class="rk">7</span><a class="r-name" href="#featured">霓虹房间</a><span class="r-stat">热度 1.2 万 · 评论 121</span></li>
+        <li><span class="rk">8</span><a class="r-name" href="#featured">加班到十点</a><span class="r-stat">热度 1.1 万 · 评论 108</span></li>
+        <li><span class="rk">9</span><a class="r-name" href="#featured">末班电车 导演剪辑预告</a><span class="r-stat">热度 0.9 万 · 评论 87</span></li>
+        <li><span class="rk">10</span><a class="r-name" href="#featured">素人投稿 通勤合集</a><span class="r-stat">热度 0.8 万 · 评论 66</span></li>
+      </ol>
+    </section>
+
+    <!-- 投稿互动 -->
+    <section class="section" id="contribute">
+      <div class="contribute">
+        <div>
+          <h2>投稿与交流</h2>
+          <p>素人投稿区接受原创拍摄条目，要求写清光源和拍摄设备；交流区可以聊类型偏好和条目对比，不贴外部链接。</p>
+        </div>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contribute">上传条目</a>
+          <a class="btn btn-ghost" href="#comments">进交流区</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="right-rail">
+    <div class="aside-card">
+      <h3>本周编辑关注</h3>
+      <ul class="mini-list">
+        <li><span class="dot"></span><a href="#featured">夜班便利店 第3集：仓库段落时长争议</a></li>
+        <li><span class="dot"></span><a href="#featured">合租第一晚：冰箱声是加分还是干扰</a></li>
+        <li><span class="dot"></span><a href="#featured">Midnight Drive：加长版补对话补得值不值</a></li>
+        <li><span class="dot"></span><a href="#featured">浴室镜前：720p 频闪问题</a></li>
+      </ul>
+    </div>
+    <div class="aside-card">
+      <h3>更新节奏</h3>
+      <ul class="mini-list">
+        <li><span class="dot"></span>剧情向系列：每周 2—3 集</li>
+        <li><span class="dot"></span>素人投稿：每日审核，通过即上架</li>
+        <li><span class="dot"></span>欧美加长版：每月 1—2 部</li>
+        <li><span class="dot"></span>日韩分类：每周五集中更新</li>
+      </ul>
+    </div>
+    <div class="aside-card">
+      <h3>类型速查</h3>
+      <div class="tag-cloud">
+        <a href="#categories">剧情向</a>
+        <a href="#categories">素人</a>
+        <a href="#categories">情侣</a>
+        <a href="#categories">欧美</a>
+        <a href="#categories">日韩</a>
+        <a href="#categories">3D</a>
+      </div>
+    </div>
+  </aside>
+</div>
+
+<!-- 页尾 -->
+<footer class="site-foot">
+  <div class="foot-inner">
+    <div>
+      <div class="foot-brand">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#e8627a"/>
+          <path d="M20 18h24v6H26v8h16v6H26v8h18v6H20z" fill="#1a1115"/>
+          <circle cx="48" cy="16" r="5" fill="#f2b84b"/>
+        </svg>
+        成人激情视频网站
+      </div>
+      <p class="foot-desc">收录 2026 年 10 月至 11 月间的剧情向、素人投稿、情侣自拍、欧美与日韩分类条目，含单集、加长版、导演剪辑版与 3D 渲染内容，按周更新条目与榜单。</p>
+    </div>
+    <div class="foot-col">
+      <h4>内容分类</h4>
+      <ul>
+        <li><a href="#featured">剧情向</a></li>
+        <li><a href="#featured">素人投稿</a></li>
+        <li><a href="#featured">情侣自拍</a></li>
+        <li><a href="#featured">欧美精选</a></li>
+        <li><a href="#featured">日韩分类</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>栏目入口</h4>
+      <ul>
+        <li><a href="#deep">深度解析</a></li>
+        <li><a href="#guide">体验指南</a></li>
+        <li><a href="#faq">常见问题</a></li>
+        <li><a href="#rank">热门榜单</a></li>
+        <li><a href="#contribute">投稿互动</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>本站为内容聚合示例页面，条目名称、热度与评论均为示例数据。</span>
+    <span>页面更新时间：2026-11-08，对应条目《夜班便利店》第3集与素人投稿区 47 条更新。</span>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="回到顶部">↑</button>
+
+<script>
+(function(){
+  // 移动端菜单
+  var ham = document.getElementById('hamburger');
+  var nav = document.getElementById('mainNav');
+  if(ham && nav){
+    ham.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      ham.setAttribute('aria-expanded', open ? 'true' : 'false');
+      ham.textContent = open ? '✕' : '☰';
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('open');
+        ham.setAttribute('aria-expanded','false');
+        ham.textContent = '☰';
+      }
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && nav.classList.contains('open')){
+        nav.classList.remove('open');
+        ham.setAttribute('aria-expanded','false');
+        ham.textContent = '☰';
+      }
+    });
+  }
+
+  // 搜索筛选
+  var input = document.getElementById('searchInput');
+  var btn = document.getElementById('searchBtn');
+  var noResult = document.getElementById('searchNoResult');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('#featuredGrid .v-card'));
+  function doSearch(){
+    var q = (input.value || '').trim().toLowerCase();
+    if(!q){
+      cards.forEach(function(c){ c.style.display = ''; });
+      noResult.style.display = 'none';
+      return;
+    }
+    var visible = 0;
+    cards.forEach(function(c){
+      var hay = (c.getAttribute('data-search') || '') + ' ' + c.textContent.toLowerCase();
+      var hit = hay.indexOf(q) !== -1;
+      c.style.display = hit ? '' : 'none';
+      if(hit) visible++;
+    });
+    noResult.style.display = visible ? 'none' : 'block';
+  }
+  if(btn && input){
+    btn.addEventListener('click', doSearch);
+    input.addEventListener('input', doSearch);
+    input.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); doSearch(); }
+    });
+  }
+
+  // 回顶
+  var toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', function(){
+    if(window.scrollY > window.innerHeight){
+      toTop.classList.add('show');
+    } else {
+      toTop.classList.remove('show');
+    }
+  }, {passive:true});
+  toTop.addEventListener('click', function(){
+    window.scrollTo({top:0, behavior:'smooth'});
+  });
+
+  // 频道高亮
+  var channelLinks = Array.prototype.slice.call(document.querySelectorAll('.channel-list a'));
+  var sections = channelLinks.map(function(a){
+    var id = a.getAttribute('href').replace('#','');
+    return document.getElementById(id);
+  }).filter(Boolean);
+  if('IntersectionObserver' in window && sections.length){
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var id = entry.target.id;
+          channelLinks.forEach(function(a){
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, {rootMargin:'-120px 0px -55% 0px', threshold:0});
+    sections.forEach(function(s){ observer.observe(s); });
+  }
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"成人激情视频网站",
+  "description":"聚合剧情向、素人投稿、情侣自拍、欧美与日韩等分类视频条目，提供精选推荐、更新动态、深度解析与观众评论。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {
+      "@type":"Question",
+      "name":"剧情向和素人投稿，哪个更值得先看？",
+      "acceptedAnswer":{"@type":"Answer","text":"看你想花多少时间。剧情向单集 18—22 分钟，有台词和场景推进，适合坐下来看完；素人投稿 10—15 分钟居多，手持镜头和现场收音，适合碎片时间点开。"}
+    },
+    {
+      "@type":"Question",
+      "name":"标了 1080p 的条目为什么还是看不清暗部？",
+      "acceptedAnswer":{"@type":"Answer","text":"分辨率不等于动态范围。《Midnight Drive》加长版标 1080p，车内夜景只有仪表盘和路灯做光源，暗部细节本来就少；《末班电车》标 1080p，车厢冷白光均匀，暗部就干净。"}
+    },
+    {
+      "@type":"Question",
+      "name":"系列条目从第几集开始看？",
+      "acceptedAnswer":{"@type":"Answer","text":"《夜班便利店》第1集交代了店员和常客的关系，第2集开始进入固定场景，第3集加了仓库段落。从第1集开始看，后面两集的对话才接得上。"}
+    },
+    {
+      "@type":"Question",
+      "name":"素人投稿的画质参差，有没有筛选办法？",
+      "acceptedAnswer":{"@type":"Answer","text":"先按 720p 及以上筛，再在上传说明里找有没有写光源和设备。11 月 7 日新增的 47 条里，写了光源类型的只有 11 条，这 11 条的评论区提到“糊”的比例明显低。"}
+    },
+    {
+      "@type":"Question",
+      "name":"加长版多出来的部分通常是哪些内容？",
+      "acceptedAnswer":{"@type":"Answer","text":"《Midnight Drive》加长版多出的 17 分钟是车内对话，补的是人物关系；《末班电车》导演剪辑版多出的 6 分钟是站台空镜，属于氛围段落。"}
+    },
+    {
+      "@type":"Question",
+      "name":"同一条目有多个清晰度版本，怎么选？",
+      "acceptedAnswer":{"@type":"Answer","text":"《浴室镜前》有 480p 和 720p 两版，720p 在镜面反光处的噪点更少，但浴室顶灯的频闪在 720p 下更明显。对频闪敏感的话，480p 反而看得舒服。"}
+    }
+  ]
+}
+</script>
+</body>
+              </html>
