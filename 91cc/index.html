@@ -1,0 +1,2064 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>91c.cc - 影视聚合与影迷社区</title>
+<meta name="description" content="91c.cc 汇集最新电影、剧集、纪录片与动漫资源，提供热播榜单、深度解析、真实影评与更新动态。适合喜欢追剧、找片、看影评的影迷浏览。">
+<meta name="keywords" content="91c.cc">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f172a'/%3E%3Cpath d='M10 8h6a5 5 0 0 1 0 10h-6V8zm0 12h4v6h-4v-6z' fill='%23e2b13c'/%3E%3Ccircle cx='22' cy='10' r='3' fill='%23e2b13c'/%3E%3C/svg%3E">
+<style>
+:root {
+  --primary: #0f172a;
+  --primary-light: #1e293b;
+  --accent: #e2b13c;
+  --accent-dark: #b8860b;
+  --bg: #f8f7f4;
+  --panel: #ffffff;
+  --text: #1a1a1a;
+  --text-secondary: #4a5568;
+  --text-muted: #8892a0;
+  --border: #e2e0db;
+  --radius-card: 12px;
+  --radius-btn: 8px;
+  --radius-tag: 4px;
+  --radius-banner: 16px;
+  --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-hover: 0 8px 24px rgba(0,0,0,0.10);
+  --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --sticky-h: 88px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--sticky-h); }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; height: auto; }
+button { font-family: inherit; cursor: pointer; }
+
+/* ===== 吸顶公告条 + 页头 ===== */
+.sticky-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.announcement-bar {
+  background: var(--primary);
+  color: #e2e8f0;
+  font-size: 0.8rem;
+  padding: 0.45rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.announcement-bar .brand-mark {
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+.announcement-bar .ann-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-shrink: 0;
+}
+.announcement-bar .ann-date {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+.announcement-bar .ann-sep {
+  color: #475569;
+  margin: 0 0.25rem;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.5rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  gap: 1rem;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.brand svg { width: 34px; height: 34px; }
+.brand-text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+.brand-text .brand-dot { color: var(--accent); }
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+.main-nav a {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  border-radius: var(--radius-btn);
+  transition: background 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.main-nav a:hover, .main-nav a.active {
+  background: var(--primary);
+  color: #fff;
+}
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.3rem 0.8rem;
+  gap: 0.4rem;
+}
+.search-box input {
+  border: none;
+  background: transparent;
+  font-size: 0.85rem;
+  width: 140px;
+  outline: none;
+  color: var(--text);
+}
+.search-box input::placeholder { color: var(--text-muted); }
+.search-box button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0;
+  display: flex;
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-btn);
+  padding: 0.35rem 0.55rem;
+  font-size: 1.2rem;
+  color: var(--primary);
+  line-height: 1;
+}
+
+/* ===== 首屏 ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+  color: #f1f5f9;
+  padding: 3rem 1.5rem 3.5rem;
+}
+.hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 2.5rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+.hero h1 .h1-accent { color: var(--accent); }
+.hero-desc {
+  font-size: 1rem;
+  color: #cbd5e1;
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+.hero-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  background: var(--accent);
+  color: var(--primary);
+  font-weight: 700;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-btn);
+  border: none;
+  font-size: 0.9rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary:hover { background: #f0c75e; transform: translateY(-2px); }
+.btn-ghost {
+  background: transparent;
+  color: #e2e8f0;
+  border: 1px solid #475569;
+  padding: 0.65rem 1.5rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.9rem;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.btn-ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
+}
+.hero-stats strong {
+  display: block;
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.2;
+}
+.hero-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-banner);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(15,23,42,0.7) 0%, transparent 50%);
+}
+.hero-visual .visual-caption {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 2;
+  font-size: 0.8rem;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.hero-visual .visual-caption .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.hero-bg-shape {
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(226,177,60,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ===== 主布局：三栏 ===== */
+.main-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+  display: grid;
+  grid-template-columns: 170px 1fr 250px;
+  gap: 2rem;
+  align-items: start;
+}
+/* 左频道索引 */
+.channel-sidebar {
+  position: sticky;
+  top: calc(var(--sticky-h) + 1rem);
+  align-self: start;
+}
+.channel-sidebar h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+.channel-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.channel-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: var(--radius-btn);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: background 0.15s, color 0.15s;
+}
+.channel-list a:hover, .channel-list a.active {
+  background: var(--primary);
+  color: #fff;
+}
+.channel-list a .ch-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+.channel-list a.active .ch-icon { opacity: 1; }
+
+/* 中主内容 */
+.main-content {
+  min-width: 0;
+}
+/* 右辅助栏 */
+.aux-sidebar {
+  position: sticky;
+  top: calc(var(--sticky-h) + 1rem);
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.aux-card {
+  background: var(--panel);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+}
+.aux-card h4 {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.aux-card h4 .badge {
+  background: var(--accent);
+  color: var(--primary);
+  font-size: 0.65rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-tag);
+  font-weight: 700;
+}
+.rank-list {
+  list-style: none;
+  counter-reset: rank;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.rank-list li {
+  counter-increment: rank;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+.rank-list li::before {
+  content: counter(rank);
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  min-width: 18px;
+  text-align: center;
+  padding-top: 1px;
+}
+.rank-list li:nth-child(1)::before { color: #e2b13c; }
+.rank-list li:nth-child(2)::before { color: #94a3b8; }
+.rank-list li:nth-child(3)::before { color: #b8860b; }
+.rank-list li a { color: var(--text-secondary); }
+.rank-list li a:hover { color: var(--primary); }
+.rank-meta { font-size: 0.7rem; color: var(--text-muted); }
+
+/* ===== 板块通用 ===== */
+.section {
+  margin-bottom: 2.5rem;
+}
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.section-header h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+}
+.section-header h2 .h2-accent {
+  color: var(--accent-dark);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+.section-header .section-more {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+.section-header .section-more:hover { color: var(--primary); }
+
+/* 领域概览 */
+.overview-text {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 1.75rem;
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+  box-shadow: var(--shadow);
+}
+.overview-text p + p { margin-top: 0.75rem; }
+.overview-text strong { color: var(--text); }
+
+/* 精选卡片网格 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.content-card {
+  background: var(--panel);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+.content-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
+}
+.card-thumb {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  background: var(--primary-light);
+}
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.content-card:hover .card-thumb img { transform: scale(1.04); }
+.card-body {
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+.card-type {
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.12rem 0.45rem;
+  border-radius: var(--radius-tag);
+  background: #fef3c7;
+  color: #92400e;
+  align-self: flex-start;
+}
+.card-type.type-drama { background: #dbeafe; color: #1e40af; }
+.card-type.type-film { background: #fce7f3; color: #9d174d; }
+.card-type.type-doc { background: #d1fae5; color: #065f46; }
+.card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+}
+.card-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: auto;
+  padding-top: 0.3rem;
+}
+.card-tags span {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  padding: 0.08rem 0.4rem;
+  border-radius: var(--radius-tag);
+  border: 1px solid var(--border);
+}
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--border);
+  margin-top: 0.3rem;
+}
+.card-meta .hot { color: var(--accent-dark); font-weight: 600; }
+
+/* 最新更新列表 */
+.update-list {
+  background: var(--panel);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.update-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.8rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+  font-size: 0.85rem;
+}
+.update-item:last-child { border-bottom: none; }
+.update-item:hover { background: #faf9f6; }
+.update-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  flex-shrink: 0;
+  width: 48px;
+  padding-top: 2px;
+}
+.update-content { flex: 1; min-width: 0; }
+.update-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.update-content .update-note {
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+}
+.update-badge {
+  font-size: 0.65rem;
+  background: #fee2e2;
+  color: #b91c1c;
+  padding: 0.1rem 0.4rem;
+  border-radius: var(--radius-tag);
+  font-weight: 700;
+  flex-shrink: 0;
+  align-self: center;
+}
+
+/* 分类入口 */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+.category-item {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1rem 0.85rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+.category-item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+.category-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+.category-item:nth-child(2) .category-icon { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
+.category-item:nth-child(3) .category-icon { background: linear-gradient(135deg, #fce7f3, #fbcfe8); }
+.category-item:nth-child(4) .category-icon { background: linear-gradient(135deg, #d1fae5, #a7f3d0); }
+.category-item:nth-child(5) .category-icon { background: linear-gradient(135deg, #ede9fe, #ddd6fe); }
+.category-item:nth-child(6) .category-icon { background: linear-gradient(135deg, #ffedd5, #fed7aa); }
+.category-item:nth-child(7) .category-icon { background: linear-gradient(135deg, #fee2e2, #fecaca); }
+.category-item:nth-child(8) .category-icon { background: linear-gradient(135deg, #e0f2fe, #bae6fd); }
+.category-item .cat-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.category-item .cat-count {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+/* 深度解析 */
+.article-body {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow);
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.85;
+}
+.article-body h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 1.5rem 0 0.6rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+.article-body h3:first-child { margin-top: 0; }
+.article-body p { margin-bottom: 0.75rem; }
+.article-body strong { color: var(--text); }
+.article-body ul, .article-body ol {
+  margin: 0.5rem 0 0.75rem 1.25rem;
+}
+.article-body li { margin-bottom: 0.35rem; }
+.article-body .compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  margin: 0.75rem 0;
+}
+.article-body .compare-table th, .article-body .compare-table td {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.65rem;
+  text-align: left;
+}
+.article-body .compare-table th {
+  background: var(--bg);
+  font-weight: 700;
+  color: var(--text);
+}
+.article-body .insight-box {
+  background: #fffbeb;
+  border-left: 3px solid var(--accent);
+  padding: 0.75rem 1rem;
+  border-radius: 0 var(--radius-btn) var(--radius-btn) 0;
+  margin: 0.75rem 0;
+  font-size: 0.85rem;
+}
+
+/* 体验指南 */
+.guide-steps {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.guide-step {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.1rem 1.25rem;
+  box-shadow: var(--shadow);
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+.step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.step-body h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+.step-body p {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* FAQ */
+.faq-list {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.faq-list details {
+  border-bottom: 1px solid var(--border);
+}
+.faq-list details:last-child { border-bottom: none; }
+.faq-list summary {
+  padding: 0.9rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.15s;
+}
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::before {
+  content: '+';
+  font-weight: 700;
+  color: var(--accent-dark);
+  font-size: 1rem;
+  width: 18px;
+  flex-shrink: 0;
+}
+.faq-list details[open] summary::before { content: '−'; }
+.faq-list summary:hover { background: #faf9f6; }
+.faq-answer {
+  padding: 0 1.25rem 1rem 2.75rem;
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* 评论 */
+.comment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+.comment-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 0.85rem 1rem;
+  box-shadow: var(--shadow);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.comment-head {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+.comment-avatar {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.comment-name {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.8rem;
+}
+.comment-time {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+.comment-text { color: var(--text-secondary); }
+
+/* 相关资讯 */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.news-item {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 0.85rem 1.1rem;
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.2s;
+}
+.news-item:hover { box-shadow: var(--shadow-hover); }
+.news-head {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 0.2rem;
+  flex-wrap: wrap;
+}
+.news-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.news-date {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
+}
+.news-summary {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* 相关推荐标签 */
+.tag-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tag-index a {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  box-shadow: var(--shadow);
+}
+.tag-index a:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* 热门榜单补充 */
+.timeline {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-card);
+  padding: 1.25rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+.timeline-item {
+  display: flex;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--border);
+  font-size: 0.83rem;
+}
+.timeline-item:last-child { border-bottom: none; }
+.timeline-date {
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  width: 70px;
+  font-variant-numeric: tabular-nums;
+}
+.timeline-body { color: var(--text-secondary); }
+.timeline-body strong { color: var(--text); }
+
+/* 投稿互动 */
+.submit-panel {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  border-radius: var(--radius-banner);
+  padding: 1.75rem 2rem;
+  color: #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.submit-panel h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+.submit-panel p {
+  font-size: 0.82rem;
+  color: #94a3b8;
+  max-width: 500px;
+}
+.submit-panel .btn-primary { flex-shrink: 0; }
+
+/* ===== 页脚 ===== */
+.site-footer {
+  background: var(--primary);
+  color: #94a3b8;
+  padding: 2.5rem 1.5rem 1.5rem;
+  margin-top: 2rem;
+}
+.footer-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #334155;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.footer-brand svg { width: 28px; height: 28px; }
+.footer-brand .brand-text {
+  color: #fff;
+  font-size: 1.1rem;
+}
+.footer-desc {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: #94a3b8;
+  max-width: 300px;
+}
+.footer-col h4 {
+  color: #e2e8f0;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}
+.footer-col a {
+  display: block;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  padding: 0.2rem 0;
+  transition: color 0.15s;
+}
+.footer-col a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: 1280px;
+  margin: 1rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.72rem;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* 回到顶部 */
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--accent);
+  border: 1px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s, visibility 0.25s, transform 0.25s;
+  z-index: 90;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover { transform: translateY(-3px); }
+
+/* 搜索无结果 */
+.no-results {
+  display: none;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  background: var(--panel);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-card);
+}
+
+/* 遮罩 */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 95;
+}
+.overlay.show { display: block; }
+
+/* ===== 响应式 ===== */
+@media (max-width: 1100px) {
+  .main-container {
+    grid-template-columns: 150px 1fr 220px;
+    gap: 1.25rem;
+  }
+  .hero-inner { grid-template-columns: 1fr 300px; }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .category-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 1024px) {
+  .main-container {
+    grid-template-columns: 1fr 240px;
+  }
+  .channel-sidebar {
+    display: none;
+  }
+  .hero h1 { font-size: 2.2rem; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { max-width: 480px; }
+  .guide-steps { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 740px) {
+  :root { --sticky-h: 80px; }
+  .main-container {
+    grid-template-columns: 1fr;
+    padding: 1.25rem 1rem 2rem;
+  }
+  .aux-sidebar {
+    position: static;
+    order: 99;
+  }
+  .main-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    padding: 0.75rem 1rem;
+    gap: 0.25rem;
+    box-shadow: var(--shadow-hover);
+  }
+  .main-nav.open { display: flex; }
+  .main-nav a { width: 100%; padding: 0.6rem 0.75rem; }
+  .hamburger { display: flex; }
+  .search-box input { width: 100px; }
+  .hero { padding: 2rem 1rem 2.5rem; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero-stats { gap: 1.25rem; }
+  .hero-stats strong { font-size: 1.2rem; }
+  .card-grid { grid-template-columns: 1fr 1fr; }
+  .category-grid { grid-template-columns: repeat(2, 1fr); }
+  .comment-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 1.25rem; }
+  .article-body { padding: 1.25rem 1rem; }
+  .update-item { flex-wrap: wrap; }
+  .update-date { width: auto; }
+}
+@media (max-width: 480px) {
+  .card-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 1.55rem; }
+  .search-box { display: none; }
+}
+
+/* 焦点可见 */
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* 减少动效 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "91c.cc",
+  "url": "https://91c.cc/",
+  "description": "91c.cc 汇集最新电影、剧集、纪录片与动漫资源，提供热播榜单、深度解析、真实影评与更新动态。",
+  "inLanguage": "zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "流媒体平台的“杜比视界”和普通 HDR10 画质差距大吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "差距主要在动态元数据。杜比视界逐帧调整亮度映射，暗部细节保留更好；HDR10 是静态元数据，整片一个亮度基准。2026 年主流剧集如《边境迷雾》已同时提供两种规格，设备支持的话优先选杜比视界。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "为什么有些剧集标注“更新至第 8 集”却迟迟不更第 9 集？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "常见原因是后期特效周期拉长。以《暗河》第二季为例，第 9 集涉及 312 个 CG 镜头，制作方在 10 月 28 日公告中确认需要额外三周渲染。平台排播表通常会标注“待定”，但部分聚合页不显示这个状态。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "豆瓣评分 7.2 的片子值得花两小时看吗？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "要看评分分布。7.2 分如果集中在三星（50% 以上），说明“能看但不惊艳”；如果四星占比超过 45%，则属于特定人群的高口碑片。2026 年 10 月上映的《雾中列车》就是后者，四星率 48%，适合喜欢慢节奏文艺悬疑的观众。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "纪录片和剧情片在信息可信度上怎么区分？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "纪录片看制作方署名和资料来源。BBC 自然历史部出品的《深海边界》标注了 17 个科研机构合作，可信度高；而部分网络纪录片只挂“某某工作室”，没有顾问名单，参考价值就打折扣。剧情片则看是否标注“改编自真实事件”及原事件出处。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "同一部电影在不同平台画质为什么不一样？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "码率差异。以《长夜将尽》为例，A 平台 1080p 码率 5.2 Mbps，B 平台同分辨率只有 3.8 Mbps，暗场景噪点更明显。2026 年 10 月有用户用同一片段做对比截图，差距在夜戏部分最直观。选平台时先查码率参数。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "“完结”和“全 24 集”标注有什么区别？",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "“完结”指剧集已播完，但不一定包含全部集数上线（可能还有番外未释出）；“全 24 集”是明确的总集数。2026 年 10 月《刑侦笔记》标注“完结”时实际只上线 22 集，第 23、24 集在一周后才补全。"
+      }
+    }
+  ]
+}
+</script>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶公告条 + 页头 -->
+<div class="sticky-wrapper">
+  <div class="announcement-bar">
+    <span class="brand-mark">91c.cc</span>
+    <span class="ann-item"><span class="ann-date">11月8日</span> <span class="ann-sep">·</span> 《暗河》第二季第 9 集上线</span>
+    <span class="ann-item"><span class="ann-date">11月7日</span> <span class="ann-sep">·</span> 新增纪录片《深海边界》全 6 集</span>
+    <span class="ann-item"><span class="ann-date">11月6日</span> <span class="ann-sep">·</span> 本周热榜更新 47 部作品</span>
+  </div>
+  <header class="site-header">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <rect width="32" height="32" rx="8" fill="#0f172a"/>
+        <path d="M10 8h6a5 5 0 0 1 0 10h-6V8zm0 12h4v6h-4v-6z" fill="#e2b13c"/>
+        <circle cx="22" cy="10" r="3" fill="#e2b13c"/>
+      </svg>
+      <span class="brand-text">91c<span class="brand-dot">.</span>cc</span>
+    </div>
+    <nav class="main-nav" id="mainNav" aria-label="主题导航">
+      <a href="/#overview" class="active">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">更新动态</a>
+      <a href="/#categories">分类</a>
+      <a href="/#deepdive">深度解析</a>
+      <a href="/#guide">观看指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">影迷评论</a>
+      <a href="/#news">相关资讯</a>
+      <a href="/#submit">投稿互动</a>
+    </nav>
+    <div class="header-actions">
+      <div class="search-box">
+        <input type="search" id="searchInput" placeholder="搜索片名 / 类型" aria-label="站内搜索">
+        <button type="button" id="searchBtn" aria-label="搜索">⌕</button>
+      </div>
+      <button class="hamburger" id="hamburgerBtn" aria-label="打开菜单" aria-expanded="false">☰</button>
+    </div>
+  </header>
+</div>
+
+<!-- 首屏 -->
+<section class="hero" id="top">
+  <div class="hero-bg-shape" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div>
+      <h1>91c<span class="h1-accent">.</span>cc</h1>
+      <p class="hero-desc">从院线新片到小众纪录片，从热播剧集到独立动画。这里聚合 2026 年秋季值得看的影视条目，附上真实评分、播放码率对比和影迷一手反馈，帮你省掉翻三个平台还找不到片的时间。</p>
+      <div class="hero-actions">
+        <a href="/#featured" class="btn-primary">浏览精选条目</a>
+        <a href="/#updates" class="btn-ghost">查看今日更新</a>
+      </div>
+      <div class="hero-stats">
+        <div><strong>1,247</strong>收录作品</div>
+        <div><strong>86</strong>本周新更</div>
+        <div><strong>11月8日</strong>数据同步</div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img src="https://picsum.photos/seed/filmhero2026/600/450" alt="影视放映厅暗调场景，银幕上投射出光影" width="600" height="450" loading="eager">
+      <div class="visual-caption"><span class="dot"></span>今日焦点 · 《暗河》第二季第 9 集 20:00 上线</div>
+    </div>
+  </div>
+</section>
+
+<!-- 主内容区：三栏门户 -->
+<div class="main-container">
+
+  <!-- 左频道索引 -->
+  <aside class="channel-sidebar" aria-label="频道索引">
+    <h3>频道</h3>
+    <ul class="channel-list">
+      <li><a href="/#overview" class="active"><span class="ch-icon">◈</span>领域概览</a></li>
+      <li><a href="/#featured"><span class="ch-icon">◆</span>精选推荐</a></li>
+      <li><a href="/#updates"><span class="ch-icon">◷</span>更新动态</a></li>
+      <li><a href="/#categories"><span class="ch-icon">▤</span>分类入口</a></li>
+      <li><a href="/#deepdive"><span class="ch-icon">✦</span>深度解析</a></li>
+      <li><a href="/#guide"><span class="ch-icon">▸</span>观看指南</a></li>
+      <li><a href="/#faq"><span class="ch-icon">?</span>常见问题</a></li>
+      <li><a href="/#comments"><span class="ch-icon">❝</span>影迷评论</a></li>
+      <li><a href="/#news"><span class="ch-icon">◈</span>相关资讯</a></li>
+      <li><a href="/#timeline"><span class="ch-icon">◷</span>条目时间线</a></li>
+      <li><a href="/#submit"><span class="ch-icon">✎</span>投稿互动</a></li>
+    </ul>
+  </aside>
+
+  <!-- 中主内容 -->
+  <main class="main-content">
+
+    <!-- 1. 领域概览 -->
+    <section class="section" id="overview">
+      <div class="section-header">
+        <h2>影视内容生态<span class="h2-accent">2026 秋季观察</span></h2>
+      </div>
+      <div class="overview-text">
+        <p>2026 年秋季的影视内容供给进入一个密集期。国产剧方面，悬疑类型继续领跑——爱奇艺的《暗河》第二季在 10 月 12 日开播后，前八集豆瓣评分稳定在 8.1，弹幕讨论集中在第 6 集的审讯室长镜头；腾讯视频的《刑侦笔记》以单元剧形式推进，全 24 集在 10 月 30 日完结，但第 23、24 集到 11 月 2 日才补全。优酷的《边境迷雾》走的是边境缉毒线，10 月 25 日上线首周站内热度破 9800。</p>
+        <p>电影端，院线片《长夜将尽》在 10 月 17 日公映后，流媒体窗口期缩短到 23 天，11 月 6 日上线某平台。同一天，《雾中列车》以文艺悬疑姿态登陆艺术院线联盟，首周末排片仅 4.7%，但上座率 38% 居同档期第一。纪录片领域，BBC 自然历史部出品的《深海边界》在 11 月 7 日一次性释出全 6 集，片尾标注了 17 个科研机构合作名单，水下摄影部分使用了 8K 60 帧规格。</p>
+        <p>动画与番剧方面，B 站 10 月新番《星轨列车》更新至第 5 集，单集弹幕量突破 12 万；Netflix 的《赛博厨房》第二季在 10 月 20 日上线，烂番茄新鲜度 91%。值得留意的是，多部作品开始同时提供杜比视界和 HDR10 双规格，画质选择本身成了消费决策的一部分——码率差异直接影响暗部细节，具体对比数据在深度解析部分展开。</p>
+      </div>
+    </section>
+
+    <!-- 2. 精选内容推荐 -->
+    <section class="section" id="featured">
+      <div class="section-header">
+        <h2>本周精选条目</h2>
+        <a href="/#categories" class="section-more">全部分类 →</a>
+      </div>
+      <div class="card-grid" id="featuredGrid">
+        <article class="content-card" data-title="暗河 第二季">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/anhe2s2026/400/300" alt="《暗河》第二季雨夜巷道剧照" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-type type-drama">悬疑剧</span>
+            <h3 class="card-title">暗河 第二季</h3>
+            <p class="card-desc">第 9 集今晚 20:00 上线。前八集围绕一桩 13 年前的沉船案展开，第 6 集审讯室 12 分钟长镜头被剧迷逐帧拆解，导演在映后采访中确认用了三台机位同步拍摄。</p>
+            <div class="card-tags"><span>刑侦</span><span>暗黑系</span><span>双线叙事</span></div>
+            <div class="card-meta"><span class="hot">豆瓣 8.1</span><span>更新至第 8 集</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-title="深海边界">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/shenhaibj2026/400/300" alt="《深海边界》水下拍摄的发光水母群" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-type type-doc">纪录片</span>
+            <h3 class="card-title">深海边界</h3>
+            <p class="card-desc">BBC 自然历史部 11 月 7 日释出全 6 集。第 3 集在马里亚纳海沟 8200 米处拍到狮子鱼群，片尾列出 17 个科研机构合作名单，水下摄影为 8K 60 帧规格。</p>
+            <div class="card-tags"><span>自然</span><span>8K 摄影</span><span>科研合作</span></div>
+            <div class="card-meta"><span class="hot">IMDb 9.2</span><span>全 6 集已上线</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-title="长夜将尽">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/changyejj2026/400/300" alt="《长夜将尽》城市夜景中的追逐镜头" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-type type-film">电影</span>
+            <h3 class="card-title">长夜将尽</h3>
+            <p class="card-desc">院线公映 23 天后于 11 月 6 日上线流媒体。A 平台 1080p 码率 5.2 Mbps，B 平台同分辨率 3.8 Mbps，夜戏暗部噪点差距明显，有用户做了同片段对比截图。</p>
+            <div class="card-tags"><span>犯罪</span><span>午夜场</span><span>码率对比</span></div>
+            <div class="card-meta"><span class="hot">豆瓣 7.6</span><span>院线转网播</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-title="雾中列车">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/wuzhonglc2026/400/300" alt="《雾中列车》浓雾中的绿皮火车车厢" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-type type-film">电影</span>
+            <h3 class="card-title">雾中列车</h3>
+            <p class="card-desc">10 月 17 日艺术院线联盟首映，首周末排片 4.7% 但上座率 38% 居同档期第一。豆瓣四星率 48%，适合慢节奏文艺悬疑受众，片长 142 分钟。</p>
+            <div class="card-tags"><span>文艺悬疑</span><span>艺术院线</span><span>长镜头</span></div>
+            <div class="card-meta"><span class="hot">豆瓣 7.2</span><span>热映中</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-title="刑侦笔记">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/xingzhenbj2026/400/300" alt="《刑侦笔记》案件档案与证据板特写" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-type type-drama">悬疑剧</span>
+            <h3 class="card-title">刑侦笔记</h3>
+            <p class="card-desc">全 24 集单元剧，10 月 30 日标注完结时实际只上线 22 集，第 23、24 集 11 月 2 日补全。第 18 集“旧钟表案”被剧迷评为本季最佳单集。</p>
+            <div class="card-tags"><span>单元剧</span><span>本格推理</span><span>完结补全</span></div>
+            <div class="card-meta"><span class="hot">豆瓣 7.9</span><span>全 24 集</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-title="星轨列车">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/xingguilc2026/400/300" alt="《星轨列车》宇宙列车穿行星环的动画场景" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-type">动画</span>
+            <h3 class="card-title">星轨列车</h3>
+            <p class="card-desc">B 站 10 月新番，更新至第 5 集，单集弹幕量突破 12 万。第 4 集“环带停靠站”的分镜在动画论坛被逐格讨论，制作组在 10 月 30 日直播中展示了原画手稿。</p>
+            <div class="card-tags"><span>科幻</span><span>新番</span><span>弹幕热</span></div>
+            <div class="card-meta"><span class="hot">B 站 9.4</span><span>更新至第 5 集</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-title="赛博厨房 第二季">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/saibochufang2026/400/300" alt="《赛博厨房》霓虹灯下的未来感餐厅后厨" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-type">动画</span>
+            <h3 class="card-title">赛博厨房 第二季</h3>
+            <p class="card-desc">Netflix 10 月 20 日上线，烂番茄新鲜度 91%。第二季把美食竞技搬到近未来外卖平台，第 3 集的“算法推荐菜”单元引发科技媒体讨论。</p>
+            <div class="card-tags"><span>美食</span><span>赛博朋克</span><span>竞技</span></div>
+            <div class="card-meta"><span class="hot">烂番茄 91%</span><span>全 10 集</span></div>
+          </div>
+        </article>
+        <article class="content-card" data-title="边境迷雾">
+          <div class="card-thumb"><img src="https://picsum.photos/seed/bianjingmw2026/400/300" alt="《边境迷雾》边境口岸的雨雾场景" width="400" height="300" loading="lazy"></div>
+          <div class="card-body">
+            <span class="card-type type-drama">悬疑剧</span>
+            <h3 class="card-title">边境迷雾</h3>
+            <p class="card-desc">优酷 10 月 25 日上线，首周站内热度破 9800。边境缉毒线叙事，第 2 集口岸追查戏用了 6 分钟手持跟拍，导演在 11 月 1 日的见面会上回应了晃动争议。</p>
+            <div class="card-tags"><span>缉毒</span><span>边境</span><span>手持摄影</span></div>
+            <div class="card-meta"><span class="hot">站内热度 9800+</span><span>更新至第 12 集</span></div>
+          </div>
+        </article>
+      </div>
+      <div class="no-results" id="searchNoResult">没有找到匹配的条目，换个片名或类型试试。</div>
+    </section>
+
+    <!-- 3. 最新更新 -->
+    <section class="section" id="updates">
+      <div class="section-header">
+        <h2>今日更新与排播变动</h2>
+        <span class="section-more">11 月 8 日 09:00 刷新</span>
+      </div>
+      <div class="update-list">
+        <div class="update-item">
+          <span class="update-date">11/08</span>
+          <div class="update-content"><strong>《暗河》第二季 第 9 集</strong> <span class="update-note">20:00 上线，片长 52 分钟，较前八集平均多 6 分钟</span></div>
+          <span class="update-badge">今晚</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11/07</span>
+          <div class="update-content"><strong>《深海边界》全 6 集</strong> <span class="update-note">一次性释出，第 3 集含 8200 米深潜实拍</span></div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11/06</span>
+          <div class="update-content"><strong>《长夜将尽》流媒体上线</strong> <span class="update-note">A 平台首发，提供杜比视界与 HDR10 双规格</span></div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11/05</span>
+          <div class="update-content"><strong>《星轨列车》第 5 集</strong> <span class="update-note">B 站更新，单集弹幕量 12.3 万</span></div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11/03</span>
+          <div class="update-content"><strong>《边境迷雾》第 11—12 集</strong> <span class="update-note">优酷会员抢先看，非会员 11/10 解锁</span></div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">11/02</span>
+          <div class="update-content"><strong>《刑侦笔记》第 23—24 集</strong> <span class="update-note">补全完结集，距标注“完结”已过 3 天</span></div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10/30</span>
+          <div class="update-content"><strong>《赛博厨房》第二季 第 7—10 集</strong> <span class="update-note">Netflix 后半季上线，第 8 集片尾有彩蛋</span></div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10/28</span>
+          <div class="update-content"><strong>《暗河》第二季 第 9 集延期公告</strong> <span class="update-note">制作方称 312 个 CG 镜头需额外三周渲染</span></div>
+          <span class="update-badge">延期</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10/25</span>
+          <div class="update-content"><strong>《边境迷雾》首播</strong> <span class="update-note">优酷上线 6 集，首周站内热度破 9800</span></div>
+        </div>
+        <div class="update-item">
+          <span class="update-date">10/20</span>
+          <div class="update-content"><strong>《赛博厨房》第二季 第 1—6 集</strong> <span class="update-note">Netflix 全球上线，烂番茄新鲜度 91%</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. 分类入口 -->
+    <section class="section" id="categories">
+      <div class="section-header">
+        <h2>按类型找片</h2>
+      </div>
+      <div class="category-grid">
+        <a href="/#featured" class="category-item" data-cat="悬疑剧">
+          <div class="category-icon">🔍</div>
+          <span class="cat-name">悬疑剧</span>
+          <span class="cat-count">214 部</span>
+        </a>
+        <a href="/#featured" class="category-item" data-cat="犯罪电影">
+          <div class="category-icon">🎬</div>
+          <span class="cat-name">犯罪电影</span>
+          <span class="cat-count">186 部</span>
+        </a>
+        <a href="/#featured" class="category-item" data-cat="自然纪录片">
+          <div class="category-icon">🌊</div>
+          <span class="cat-name">自然纪录片</span>
+          <span class="cat-count">97 部</span>
+        </a>
+        <a href="/#featured" class="category-item" data-cat="科幻动画">
+          <div class="category-icon">🚀</div>
+          <span class="cat-name">科幻动画</span>
+          <span class="cat-count">143 部</span>
+        </a>
+        <a href="/#featured" class="category-item" data-cat="文艺片">
+          <div class="category-icon">🎭</div>
+          <span class="cat-name">文艺片</span>
+          <span class="cat-count">168 部</span>
+        </a>
+        <a href="/#featured" class="category-item" data-cat="美食竞技">
+          <div class="category-icon">🍳</div>
+          <span class="cat-name">美食竞技</span>
+          <span class="cat-count">62 部</span>
+        </a>
+        <a href="/#featured" class="category-item" data-cat="缉毒刑侦">
+          <div class="category-icon">🕵️</div>
+          <span class="cat-name">缉毒刑侦</span>
+          <span class="cat-count">89 部</span>
+        </a>
+        <a href="/#featured" class="category-item" data-cat="单元剧">
+          <div class="category-icon">📺</div>
+          <span class="cat-name">单元剧</span>
+          <span class="cat-count">121 部</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. 深度解析 -->
+    <section class="section" id="deepdive">
+      <div class="section-header">
+        <h2>秋季剧集的三处结构性变化</h2>
+      </div>
+      <div class="article-body">
+        <h3>悬疑剧的“长镜头竞赛”与真实拍摄成本</h3>
+        <p>《暗河》第二季第 6 集那段 12 分钟审讯室长镜头，从 10 月 18 日播出当晚开始被逐帧拆解。导演在 10 月 22 日的映后采访中给了准确数字：三台机位同步拍摄，连续拍了 9 条，第 7 条被采用。剧组为此提前排了 6 天走位，演员台词密度是常规场景的 2.4 倍。</p>
+        <p>这组数据能对照出另一件事。《边境迷雾》第 2 集的口岸追查戏用了 6 分钟手持跟拍，11 月 1 日见面会上导演回应晃动争议时提到，现场只有两台机位，且受口岸实景限制无法重复拍摄。两条长镜头的制作条件差了一倍，观感差异也落在稳定性和信息密度上。观众在弹幕里把前者叫“炫技”，把后者叫“硬扛”，用词不同，指向的其实是同一件事：长镜头的可信度取决于拍摄冗余，而不是时长本身。</p>
+        <div class="insight-box">
+          <strong>可核对项：</strong>《暗河》9 条素材取 1，拍摄冗余 8:1；《边境迷雾》实景单条通过，冗余接近 1:1。前者稳定，后者有不可复现的现场感。
+        </div>
+
+        <h3>流媒体码率分层如何影响观影选择</h3>
+        <p>《长夜将尽》11 月 6 日上线后，有用户在影视论坛贴了同片段对比截图。A 平台 1080p 码率 5.2 Mbps，B 平台同分辨率 3.8 Mbps，差距在夜戏部分最直观——A 平台能看到远处楼顶的轮廓线，B 平台糊成一片。这不是个例。2026 年 10 月有第三方做了 12 部热门影片的码率抽样，1080p 档位从 3.2 Mbps 到 6.1 Mbps 不等，最高与最低差了近一倍。</p>
+        <p>选平台时先查码率参数，比看“高清”“超清”的标签管用。另一个变量是动态元数据：杜比视界逐帧调整亮度映射，HDR10 整片一个基准。设备支持的话，《长夜将尽》在两个平台的杜比视界版本差距会缩小，但 HDR10 版本的差距依旧。</p>
+
+        <h3>“完结”标注与实际上线集数的错位</h3>
+        <p>《刑侦笔记》10 月 30 日标注“完结”时，平台上实际只有 22 集。第 23、24 集到 11 月 2 日才补全，中间隔了 3 天。这 3 天里，剧迷在讨论区的追问集中在“第 23 集什么时候上”，而不是剧情本身。</p>
+        <p>对比 2026 年 9 月的《旧城故事》，标注“完结”当天 24 集全部可看，没有出现等待期。两件事放在一起看，平台侧的“完结”是一个排播状态标签，不一定等于集数完整。判断方法很简单：看总集数是否写明，再看最后一集的更新时间是否与完结标注同一天。目前主流平台里，只有部分会在完结标注旁加一句“全 X 集已上线”，其余的得自己数。</p>
+      </div>
+    </section>
+
+    <!-- 6. 体验指南 -->
+    <section class="section" id="guide">
+      <div class="section-header">
+        <h2>从找片到开播的判断路径</h2>
+      </div>
+      <div class="guide-steps">
+        <div class="guide-step">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>先定类型，再看评分分布</h4>
+            <p>悬疑剧先看四星率，超过 45% 说明核心受众认可；犯罪电影看三星以下占比，超过 35% 要谨慎。《雾中列车》四星率 48%，属于前者；《长夜将尽》三星以下 31%，在临界线上。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>查码率和规格，别只看“高清”标签</h4>
+            <p>同一部片在不同平台 1080p 码率可能差 1.4 Mbps。开播前在设置里确认是杜比视界还是 HDR10，夜戏多的片子尤其要查。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>纪录片看制作方署名和顾问名单</h4>
+            <p>《深海边界》片尾列出 17 个科研机构，可信度高。只挂“某某工作室”且无顾问名单的，参考价值打折扣。剧情片看是否标注“改编自真实事件”及原事件出处。</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>追更剧先确认集数状态</h4>
+            <p>“完结”不等于集数完整。看总集数是否写明，再看最后一集更新时间是否与完结标注同日。《刑侦笔记》的 3 天等待期就是例子。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section" id="faq">
+      <div class="section-header">
+        <h2>常见问题</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>流媒体平台的“杜比视界”和普通 HDR10 画质差距大吗？</summary>
+          <div class="faq-answer">差距主要在动态元数据。杜比视界逐帧调整亮度映射，暗部细节保留更好；HDR10 是静态元数据，整片一个亮度基准。2026 年主流剧集如《边境迷雾》已同时提供两种规格，设备支持的话优先选杜比视界。</div>
+        </details>
+        <details>
+          <summary>为什么有些剧集标注“更新至第 8 集”却迟迟不更第 9 集？</summary>
+          <div class="faq-answer">常见原因是后期特效周期拉长。以《暗河》第二季为例，第 9 集涉及 312 个 CG 镜头，制作方在 10 月 28 日公告中确认需要额外三周渲染。平台排播表通常会标注“待定”，但部分聚合页不显示这个状态。</div>
+        </details>
+        <details>
+          <summary>豆瓣评分 7.2 的片子值得花两小时看吗？</summary>
+          <div class="faq-answer">要看评分分布。7.2 分如果集中在三星（50% 以上），说明“能看但不惊艳”；如果四星占比超过 45%，则属于特定人群的高口碑片。2026 年 10 月上映的《雾中列车》就是后者，四星率 48%，适合喜欢慢节奏文艺悬疑的观众。</div>
+        </details>
+        <details>
+          <summary>纪录片和剧情片在信息可信度上怎么区分？</summary>
+          <div class="faq-answer">纪录片看制作方署名和资料来源。BBC 自然历史部出品的《深海边界》标注了 17 个科研机构合作，可信度高；而部分网络纪录片只挂“某某工作室”，没有顾问名单，参考价值就打折扣。剧情片则看是否标注“改编自真实事件”及原事件出处。</div>
+        </details>
+        <details>
+          <summary>同一部电影在不同平台画质为什么不一样？</summary>
+          <div class="faq-answer">码率差异。以《长夜将尽》为例，A 平台 1080p 码率 5.2 Mbps，B 平台同分辨率只有 3.8 Mbps，暗场景噪点更明显。2026 年 10 月有用户用同一片段做对比截图，差距在夜戏部分最直观。选平台时先查码率参数。</div>
+        </details>
+        <details>
+          <summary>“完结”和“全 24 集”标注有什么区别？</summary>
+          <div class="faq-answer">“完结”指剧集已播完，但不一定包含全部集数上线（可能还有番外未释出）；“全 24 集”是明确的总集数。2026 年 10 月《刑侦笔记》标注“完结”时实际只上线 22 集，第 23、24 集在一周后才补全。</div>
+        </details>
+      </div>
+    </section>
+
+    <!-- 8. 用户评论 -->
+    <section class="section" id="comments">
+      <div class="section-header">
+        <h2>影迷怎么说</h2>
+        <span class="section-more">近 30 天 342 条讨论</span>
+      </div>
+      <div class="comment-grid">
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">深</div>
+            <span class="comment-name">深海放映员</span>
+            <span class="comment-time">11/08 09:14</span>
+          </div>
+          <p class="comment-text">《深海边界》第 3 集那个 8200 米的镜头，狮子鱼游过去的时候我鸡皮疙瘩起来了。8K 规格不是噱头，是真的能看到水中的悬浮颗粒。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">暗</div>
+            <span class="comment-name">暗河追更人</span>
+            <span class="comment-time">11/08 08:52</span>
+          </div>
+          <p class="comment-text">第 9 集延期三周我认了，312 个 CG 镜头的说法至少在公告里给了数字。但平台排播表一直写“待定”就有点烦，能不能直接标个预计日期。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">雾</div>
+            <span class="comment-name">雾中看列车</span>
+            <span class="comment-time">11/07 22:31</span>
+          </div>
+          <p class="comment-text">《雾中列车》142 分钟我中途看了三次手机。不是说不好，就是节奏慢到我需要缓冲。四星率 48% 我信，但我应该是那 52% 里的。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">码</div>
+            <span class="comment-name">码率警察</span>
+            <span class="comment-time">11/07 20:08</span>
+          </div>
+          <p class="comment-text">《长夜将尽》两个平台我都开了会员对比，夜戏差距肉眼可见。5.2 和 3.8 的码率差，在 65 寸电视上就是一眼睛的事。建议先查参数再决定开哪家。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">星</div>
+            <span class="comment-name">星轨弹幕员</span>
+            <span class="comment-time">11/06 19:45</span>
+          </div>
+          <p class="comment-text">《星轨列车》第 4 集的分镜真的细，环带停靠站的透视画了三层。原画手稿直播我也看了，制作组是真的在抠细节。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">刑</div>
+            <span class="comment-name">刑侦笔记读者</span>
+            <span class="comment-time">11/06 14:20</span>
+          </div>
+          <p class="comment-text">第 23、24 集补全后我把“旧钟表案”又看了一遍。第 18 集确实是本季最佳，但补全的两集收尾有点仓促，感觉剪辑赶工了。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">赛</div>
+            <span class="comment-name">赛博厨房常客</span>
+            <span class="comment-time">11/05 23:17</span>
+          </div>
+          <p class="comment-text">第二季第 3 集“算法推荐菜”那单元，把外卖平台的推荐逻辑吐槽得挺准。我一边看一边打开外卖 App，然后关掉了。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">边</div>
+            <span class="comment-name">边境迷路的</span>
+            <span class="comment-time">11/05 18:33</span>
+          </div>
+          <p class="comment-text">《边境迷雾》第 2 集手持跟拍晃得我有点晕。导演说受实景限制，这个解释能接受，但看的时候还是要坐稳。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">长</div>
+            <span class="comment-name">长夜不睡</span>
+            <span class="comment-time">11/04 21:50</span>
+          </div>
+          <p class="comment-text">《长夜将尽》院线我没赶上，等流媒体上线才看的。犯罪片里算工整，7.6 分合理，但结尾十分钟有点泄气。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">一</div>
+            <span class="comment-name">一集弃剧选手</span>
+            <span class="comment-time">11/04 16:12</span>
+          </div>
+          <p class="comment-text">现在剧集介绍里“暗黑系”“双线叙事”这种标签太多了，看得麻木。能不能多写点具体的，比如第几集有什么案子。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">杜</div>
+            <span class="comment-name">杜比视界用户</span>
+            <span class="comment-time">11/03 20:05</span>
+          </div>
+          <p class="comment-text">设备支持杜比视界的话确实能拉开差距。我拿《边境迷雾》试了，同一场夜戏杜比版能看清帐篷外的雨丝，HDR10 版就糊一些。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">路</div>
+            <span class="comment-name">路过看看</span>
+            <span class="comment-time">11/03 11:40</span>
+          </div>
+          <p class="comment-text">最近悬疑剧扎堆，有点看不过来。先挑评分分布好的看，剩下的等口碑稳定再说。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">档</div>
+            <span class="comment-name">档期观察</span>
+            <span class="comment-time">11/02 22:18</span>
+          </div>
+          <p class="comment-text">《长夜将尽》院线到流媒体只隔 23 天，这个窗口期越来越短了。对观众是好事，对影院就不好说。</p>
+        </div>
+        <div class="comment-card">
+          <div class="comment-head">
+            <div class="comment-avatar">动</div>
+            <span class="comment-name">动画原画迷</span>
+            <span class="comment-time">11/02 15:06</span>
+          </div>
+          <p class="comment-text">《赛博厨房》第二季的美术比第一季更细，霓虹灯管上的反光都画出来了。美食竞技加赛博朋克这个组合，目前没有平替。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. 相关资讯 -->
+    <section class="section" id="news">
+      <div class="section-header">
+        <h2>近期影视动态</h2>
+      </div>
+      <div class="news-list">
+        <div class="news-item">
+          <div class="news-head">
+            <span class="news-title">《暗河》第二季第 9 集定档 11 月 8 日 20:00</span>
+            <span class="news-date">11/08</span>
+          </div>
+          <p class="news-summary">制作方在 11 月 6 日的更新说明中确认，第 9 集片长 52 分钟，较前八集平均多 6 分钟，CG 渲染已于 11 月 4 日全部完成。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-head">
+            <span class="news-title">《深海边界》11 月 7 日一次性上线全 6 集</span>
+            <span class="news-date">11/07</span>
+          </div>
+          <p class="news-summary">第 3 集在马里亚纳海沟 8200 米处拍摄狮子鱼群，片尾列出 17 个科研机构合作名单，水下摄影使用 8K 60 帧规格。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-head">
+            <span class="news-title">《长夜将尽》流媒体上线首日码率参数公开</span>
+            <span class="news-date">11/06</span>
+          </div>
+          <p class="news-summary">A 平台 1080p 码率 5.2 Mbps，B 平台同分辨率 3.8 Mbps。有用户当天在影视论坛发布同片段对比截图，夜戏暗部差异明显。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-head">
+            <span class="news-title">《刑侦笔记》第 23—24 集 11 月 2 日补全</span>
+            <span class="news-date">11/02</span>
+          </div>
+          <p class="news-summary">距 10 月 30 日标注“完结”已过 3 天。平台在补全当日的站内通知中加了“全 24 集已上线”字样，此前未标注。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-head">
+            <span class="news-title">《雾中列车》艺术院线联盟排片上座率 38%</span>
+            <span class="news-date">10/30</span>
+          </div>
+          <p class="news-summary">10 月 30 日单日数据，排片占比 4.7%，上座率 38% 居同档期第一。片方宣布 11 月 6 日起增加 12 个城市的点映场次。</p>
+        </div>
+        <div class="news-item">
+          <div class="news-head">
+            <span class="news-title">《赛博厨房》第二季后半季 10 月 30 日上线</span>
+            <span class="news-date">10/30</span>
+          </div>
+          <p class="news-summary">Netflix 释出第 7—10 集，第 8 集片尾有第二季制作特辑彩蛋。烂番茄新鲜度维持 91%，观众爆米花指数 87%。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. 相关推荐 -->
+    <section class="section" id="related">
+      <div class="section-header">
+        <h2>按方向找片</h2>
+      </div>
+      <div class="tag-index">
+        <a href="/#featured">暗黑系刑侦剧</a>
+        <a href="/#featured">8K 自然纪录片</a>
+        <a href="/#featured">艺术院线悬疑</a>
+        <a href="/#featured">美食赛博朋克动画</a>
+        <a href="/#featured">边境缉毒题材</a>
+        <a href="/#featured">单元剧推理</a>
+        <a href="/#featured">长镜头拍摄花絮</a>
+        <a href="/#featured">杜比视界片单</a>
+      </div>
+    </section>
+
+    <!-- 11. 补充板块：条目时间线 -->
+    <section class="section" id="timeline">
+      <div class="section-header">
+        <h2>秋季档关键节点</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="timeline-date">10/12</span>
+          <div class="timeline-body"><strong>《暗河》第二季开播</strong>，前八集豆瓣评分稳定在 8.1</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">10/17</span>
+          <div class="timeline-body"><strong>《雾中列车》首映</strong>，艺术院线联盟排片 4.7%，上座率 38%</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">10/20</span>
+          <div class="timeline-body"><strong>《赛博厨房》第二季上线</strong>，前六集烂番茄新鲜度 91%</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">10/25</span>
+          <div class="timeline-body"><strong>《边境迷雾》首播</strong>，首周站内热度破 9800</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">10/28</span>
+          <div class="timeline-body"><strong>《暗河》第 9 集延期公告</strong>，312 个 CG 镜头需额外三周渲染</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">11/02</span>
+          <div class="timeline-body"><strong>《刑侦笔记》补全第 23—24 集</strong>，距标注完结已过 3 天</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">11/07</span>
+          <div class="timeline-body"><strong>《深海边界》全 6 集释出</strong>，8200 米深潜实拍</div>
+        </div>
+        <div class="timeline-item">
+          <span class="timeline-date">11/08</span>
+          <div class="timeline-body"><strong>《暗河》第 9 集 20:00 上线</strong>，片长 52 分钟</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. 投稿互动 -->
+    <section class="section" id="submit">
+      <div class="submit-panel">
+        <div>
+          <h3>看过一部片，想写点什么</h3>
+          <p>可以是一句短评、一篇长文，或者一份你自己做的码率对比。投稿通过后会在影迷评论和精选条目里露出，署名由你决定。</p>
+        </div>
+        <a href="/#comments" class="btn-primary">提交影评或对比</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 右辅助栏 -->
+  <aside class="aux-sidebar" aria-label="辅助信息">
+    <div class="aux-card">
+      <h4>本周热榜 <span class="badge">TOP 8</span></h4>
+      <ol class="rank-list">
+        <li><a href="/#featured">暗河 第二季</a><span class="rank-meta">豆瓣 8.1</span></li>
+        <li><a href="/#featured">深海边界</a><span class="rank-meta">IMDb 9.2</span></li>
+        <li><a href="/#featured">星轨列车</a><span class="rank-meta">B 站 9.4</span></li>
+        <li><a href="/#featured">刑侦笔记</a><span class="rank-meta">豆瓣 7.9</span></li>
+        <li><a href="/#featured">赛博厨房 第二季</a><span class="rank-meta">烂番茄 91%</span></li>
+        <li><a href="/#featured">边境迷雾</a><span class="rank-meta">站内热度 9800+</span></li>
+        <li><a href="/#featured">长夜将尽</a><span class="rank-meta">豆瓣 7.6</span></li>
+        <li><a href="/#featured">雾中列车</a><span class="rank-meta">豆瓣 7.2</span></li>
+      </ol>
+    </div>
+    <div class="aux-card">
+      <h4>今日可看 <span class="badge">新更</span></h4>
+      <ul class="rank-list" style="counter-reset: none;">
+        <li style="counter-increment: none;"><a href="/#updates">《暗河》S2 第 9 集</a><span class="rank-meta">20:00</span></li>
+        <li style="counter-increment: none;"><a href="/#updates">《深海边界》全 6 集</a><span class="rank-meta">已上线</span></li>
+        <li style="counter-increment: none;"><a href="/#updates">《星轨列车》第 5 集</a><span class="rank-meta">已上线</span></li>
+        <li style="counter-increment: none;"><a href="/#updates">《边境迷雾》第 12 集</a><span class="rank-meta">会员</span></li>
+      </ul>
+    </div>
+    <div class="aux-card">
+      <h4>画质速查</h4>
+      <div style="font-size:0.78rem;color:var(--text-secondary);line-height:1.7;">
+        <p style="margin-bottom:0.4rem;"><strong style="color:var(--text);">《长夜将尽》</strong><br>A 平台 5.2 Mbps<br>B 平台 3.8 Mbps</p>
+        <p><strong style="color:var(--text);">《边境迷雾》</strong><br>杜比视界 / HDR10 双规格</p>
+      </div>
+    </div>
+  </aside>
+
+</div>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#1e293b"/>
+          <path d="M10 8h6a5 5 0 0 1 0 10h-6V8zm0 12h4v6h-4v-6z" fill="#e2b13c"/>
+          <circle cx="22" cy="10" r="3" fill="#e2b13c"/>
+        </svg>
+        <span class="brand-text">91c<span class="brand-dot">.</span>cc</span>
+      </div>
+      <p class="footer-desc">覆盖 2026 年 9 月至 11 月的院线片、流媒体剧集、自然纪录片与番剧动画。条目以更新动态、码率参数和影迷评论交叉标注，每周一、周四两次集中刷新排播信息。</p>
+    </div>
+    <div class="footer-col">
+      <h4>栏目</h4>
+      <a href="/#overview">领域概览</a>
+      <a href="/#featured">精选推荐</a>
+      <a href="/#updates">更新动态</a>
+      <a href="/#categories">分类入口</a>
+      <a href="/#deepdive">深度解析</a>
+    </div>
+    <div class="footer-col">
+      <h4>互动</h4>
+      <a href="/#guide">观看指南</a>
+      <a href="/#faq">常见问题</a>
+      <a href="/#comments">影迷评论</a>
+      <a href="/#submit">投稿互动</a>
+    </div>
+    <div class="footer-col">
+      <h4>资讯</h4>
+      <a href="/#news">近期动态</a>
+      <a href="/#timeline">条目时间线</a>
+      <a href="/#related">按方向找片</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>91c.cc · 影视聚合与影迷社区 · 示例数据更新于 2026-11-08</span>
+    <span>页面内容为示例条目，不构成观看建议</span>
+  </div>
+</footer>
+
+<!-- 回到顶部 -->
+<button class="back-to-top" id="backToTop" aria-label="回到顶部">↑</button>
+
+<!-- 遮罩 -->
+<div class="overlay" id="overlay"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // 汉堡菜单
+  var hamburger = document.getElementById('hamburgerBtn');
+  var nav = document.getElementById('mainNav');
+  var overlay = document.getElementById('overlay');
+
+  function closeNav() {
+    nav.classList.remove('open');
+    overlay.classList.remove('show');
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', '打开菜单');
+  }
+
+  function openNav() {
+    nav.classList.add('open');
+    overlay.classList.add('show');
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.setAttribute('aria-label', '关闭菜单');
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener('click', function() {
+      if (nav.classList.contains('open')) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+  }
+
+  if (overlay) {
+    overlay.addEventListener('click', closeNav);
+  }
+
+  // 点击导航后收起（移动端）
+  nav.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      if (window.innerWidth <= 740) {
+        closeNav();
+      }
+    });
+  });
+
+  // Esc 关闭
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && nav.classList.contains('open')) {
+      closeNav();
+      hamburger.focus();
+    }
+  });
+
+  // 回到顶部
+  var backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > window.innerHeight) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  }, { passive: true });
+
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // 搜索筛选
+  var searchInput = document.getElementById('searchInput');
+  var searchBtn = document.getElementById('searchBtn');
+  var featuredGrid = document.getElementById('featuredGrid');
+  var noResult = document.getElementById('searchNoResult');
+  var cards = featuredGrid ? Array.prototype.slice.call(featuredGrid.querySelectorAll('.content-card')) : [];
+
+  function doSearch() {
+    var q = (searchInput.value || '').trim().toLowerCase();
+    if (!q) {
+      cards.forEach(function(c) { c.style.display = ''; });
+      noResult.style.display = 'none';
+      return;
+    }
+    var found = 0;
+    cards.forEach(function(card) {
+      var text = (card.textContent || '').toLowerCase();
+      var title = (card.getAttribute('data-title') || '').toLowerCase();
+      if (text.indexOf(q) !== -1 || title.indexOf(q) !== -1) {
+        card.style.display = '';
+        found++;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    noResult.style.display = found === 0 ? 'block' : 'none';
+  }
+
+  if (searchInput && searchBtn) {
+    searchBtn.addEventListener('click', doSearch);
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        doSearch();
+      }
+    });
+    searchInput.addEventListener('input', function() {
+      if (!searchInput.value.trim()) {
+        doSearch();
+      }
+    });
+  }
+
+  // 频道导航滚动高亮
+  var sections = document.querySelectorAll('main .section[id]');
+  var channelLinks = document.querySelectorAll('.channel-list a');
+  var navLinks = document.querySelectorAll('.main-nav a');
+
+  function markActive() {
+    var scrollPos = window.scrollY + 140;
+    var currentId = '';
+    sections.forEach(function(sec) {
+      if (sec.offsetTop <= scrollPos) {
+        currentId = sec.id;
+      }
+    });
+    channelLinks.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '/#' + currentId);
+    });
+    navLinks.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '/#' + currentId);
+    });
+  }
+
+  window.addEventListener('scroll', markActive, { passive: true });
+  markActive();
+})();
+</script>
+</body>
+          </html>
